@@ -26,5 +26,20 @@ namespace Matchin_Game
         {
             this.InitializeComponent();
         }
+
+        private void Easy_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Medium_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Hard_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
