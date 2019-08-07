@@ -7,15 +7,15 @@
   IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="586ef634-7517-41fa-ad97-8ec1119c6203"
-    Publisher="CN=Ernesto"
+    Name="8ea5ee77-9e3f-4be3-822c-31bf91663010"
+    Publisher="CN=Mariela Cisneros"
     Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="586ef634-7517-41fa-ad97-8ec1119c6203" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="8ea5ee77-9e3f-4be3-822c-31bf91663010" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
-    <DisplayName>Matching and Concentration</DisplayName>
-    <PublisherDisplayName>Ernesto</PublisherDisplayName>
+    <DisplayName>Matchin_Game</DisplayName>
+    <PublisherDisplayName>Mariela Cisneros</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 
@@ -30,12 +30,12 @@
   <Applications>
     <Application Id="App"
       Executable="$targetnametoken$.exe"
-      EntryPoint="Matching_and_Concentration.App">
+      EntryPoint="Matchin_Game.App">
       <uap:VisualElements
-        DisplayName="Matching and Concentration"
+        DisplayName="Matchin_Game"
         Square150x150Logo="Assets\Square150x150Logo.png"
         Square44x44Logo="Assets\Square44x44Logo.png"
-        Description="Matching and Concentration"
+        Description="Matchin_Game"
         BackgroundColor="transparent">
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"/>
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
