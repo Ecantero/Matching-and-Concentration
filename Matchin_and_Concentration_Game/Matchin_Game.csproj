@@ -119,8 +119,11 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MainPage.xaml.cs">
-      <DependentUpon>MainPage.xaml</DependentUpon>
+    <Compile Include="Consentration_Game.xaml.cs">
+      <DependentUpon>Consentration_Game.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Matching_Game.xaml.cs">
+      <DependentUpon>Matching_Game.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -130,6 +133,59 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Pictures\10C.png" />
+    <Content Include="Pictures\10D.png" />
+    <Content Include="Pictures\10H.png" />
+    <Content Include="Pictures\10S.png" />
+    <Content Include="Pictures\2C.png" />
+    <Content Include="Pictures\2D.png" />
+    <Content Include="Pictures\2H.png" />
+    <Content Include="Pictures\2S.png" />
+    <Content Include="Pictures\3C.png" />
+    <Content Include="Pictures\3D.png" />
+    <Content Include="Pictures\3H.png" />
+    <Content Include="Pictures\3S.png" />
+    <Content Include="Pictures\4C.png" />
+    <Content Include="Pictures\4D.png" />
+    <Content Include="Pictures\4H.png" />
+    <Content Include="Pictures\4S.png" />
+    <Content Include="Pictures\5C.png" />
+    <Content Include="Pictures\5D.png" />
+    <Content Include="Pictures\5H.png" />
+    <Content Include="Pictures\5S.png" />
+    <Content Include="Pictures\6C.png" />
+    <Content Include="Pictures\6D.png" />
+    <Content Include="Pictures\6H.png" />
+    <Content Include="Pictures\6S.png" />
+    <Content Include="Pictures\7C.png" />
+    <Content Include="Pictures\7D.png" />
+    <Content Include="Pictures\7H.png" />
+    <Content Include="Pictures\7S.png" />
+    <Content Include="Pictures\8C.png" />
+    <Content Include="Pictures\8D.png" />
+    <Content Include="Pictures\8H.png" />
+    <Content Include="Pictures\8S.png" />
+    <Content Include="Pictures\9C.png" />
+    <Content Include="Pictures\9D.png" />
+    <Content Include="Pictures\9H.png" />
+    <Content Include="Pictures\9S.png" />
+    <Content Include="Pictures\AC.png" />
+    <Content Include="Pictures\AD.png" />
+    <Content Include="Pictures\AH.png" />
+    <Content Include="Pictures\AS.png" />
+    <Content Include="Pictures\gray_back.png" />
+    <Content Include="Pictures\JC.png" />
+    <Content Include="Pictures\JD.png" />
+    <Content Include="Pictures\JH.png" />
+    <Content Include="Pictures\JS.png" />
+    <Content Include="Pictures\KC.png" />
+    <Content Include="Pictures\KD.png" />
+    <Content Include="Pictures\KH.png" />
+    <Content Include="Pictures\KS.png" />
+    <Content Include="Pictures\QC.png" />
+    <Content Include="Pictures\QD.png" />
+    <Content Include="Pictures\QH.png" />
+    <Content Include="Pictures\QS.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -144,7 +200,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="MainPage.xaml">
+    <Page Include="Consentration_Game.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Matching_Game.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -154,9 +214,7 @@
       <Version>6.2.8</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Pictures\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

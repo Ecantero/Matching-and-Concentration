@@ -33,7 +33,7 @@
                 Width="220"
                 Height="100"
                 FontSize="50" 
-                Margin="1108,460,0,0" 
+                Margin="1009,460,0,0" 
                 VerticalAlignment="Top"/>
     </Grid>
 </Page>
