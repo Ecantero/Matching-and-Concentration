@@ -13,10 +13,23 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <VariableSizedWrapGrid Grid.Column="0"
-                               MaximumRowsOrColumns="5">
-            
-        </VariableSizedWrapGrid>
+        <Grid x:Name="ConcentrationGrid" 
+              Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+        </Grid>
         <StackPanel Grid.Column="1"></StackPanel>
 
     </Grid>
