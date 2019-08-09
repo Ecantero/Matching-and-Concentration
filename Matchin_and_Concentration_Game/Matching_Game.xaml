@@ -16,8 +16,8 @@
                 Width="220"
                 Height="100"
                 FontSize="50" 
-                Margin="182,460,0,0" 
-                VerticalAlignment="Top"/>
+                Margin="0,161,0,0" 
+                VerticalAlignment="Top" HorizontalAlignment="Center"/>
         <Button x:Name="Medium"
                 Click="Medium_Click"
                 Content="Medium"
@@ -33,7 +33,12 @@
                 Width="220"
                 Height="100"
                 FontSize="50" 
-                Margin="1009,460,0,0" 
-                VerticalAlignment="Top"/>
+                Margin="0,681,0,0" 
+                VerticalAlignment="Top" HorizontalAlignment="Center"/>
+        <Image HorizontalAlignment="Left" 
+               Height="393" Margin="50,34,0,0" 
+               VerticalAlignment="Top" 
+               Width="380" 
+               Source="/Pictures/10C.png"/>
     </Grid>
 </Page>
