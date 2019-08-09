@@ -26,5 +26,51 @@ namespace Matchin_Game
         {
             this.InitializeComponent();
         }
+
+        public void TimerControl(object sender, RoutedEventArgs e)
+        {
+            DispatcherTimer timer = new DispatcherTimer();
+            timer.Interval = new TimeSpan(0, 0, 0, 1);
+            timer.Tick += new EventHandler(Timer_Tick);
+            timer.Start();
+        }
+
+        public int time = 60;
+        public void Timer_Tick(object sender, RoutedEventArgs e)
+        {
+            //Use correct TextBlock name when TextBlock is fully implemented
+            Countdown.Text = $"{time} seconds"
+
+            if (time > 0)
+            {
+                time--;
+            }
+            else
+            {
+                CountDown.Text = "Out of Time";
+            }
+        }
+
+        public void ShuffleShapes()
+        {
+
+        }
+
+        public void ShapeMovement()
+        {
+
+        }
+
+        public void ValidateShape()
+        {
+
+        }
+
+        public void GameOver()
+        {
+
+        }
+
+
     }
 }
