@@ -55,6 +55,7 @@ namespace Matchin_Game
                 };
             }
         }
+
         private void Easy_Click(object sender, RoutedEventArgs e)
         {
 
@@ -73,6 +74,8 @@ namespace Matchin_Game
         private void Easy_Game()
         {
             //Time_Easy();
+            DispatcherTimer timer = new DispatcherTimer();
+
         }
 
         private void Medium_Game()
@@ -85,55 +88,55 @@ namespace Matchin_Game
             //Time_Hard();
         }
 
-        //private static void Time_Easy()
-        //{
-        //    timer.Start();
-        //    timer.Tick += delegate
-        //    {
-        //        time--;
-        //        if(time < 0)
-        //        {
-        //            timer.Stop();
-        //            MessageBox.Show("Out of time");
-        //        }
+    //    private static void time_easy()
+    //    {
+    //        timer.start();
+    //        timer.tick += delegate
+    //        {
+    //            time--;
+    //            if (time < 0)
+    //            {
+    //                timer.stop();
+    //                messagebox.show("out of time");
+    //            }
 
-        //        var ssTime = TimeSpan.FromSeconds(time);
-        //        lblTime.Text = "00: " + time.ToString();
-        //    };   
-        //}
+    //            var sstime = timespan.fromseconds(time);
+    //            lbltime.text = "00: " + time.tostring();
+    //        };
+    //    }
 
-        //private static void Time_Medum()
-        //{
-        //    timer.Start();
-        //    timer.Tick += delegate
-        //    {
-        //        time2--;
-        //        if (time2 < 0)
-        //        {
-        //            timer.Stop();
-        //            MessageBox.Show("Out of time");
-        //        }
+    //    private static void time_medum()
+    //    {
+    //        timer.start();
+    //        timer.tick += delegate
+    //        {
+    //            time2--;
+    //            if (time2 < 0)
+    //            {
+    //                timer.stop();
+    //                messagebox.show("out of time");
+    //            }
 
-        //        var ssTime = TimeSpan.FromSeconds(time2);
-        //        lblTime.Text = "00: " + time2.ToString();
-        //    };
-        //}
+    //            var sstime = timespan.fromseconds(time2);
+    //            lbltime.text = "00: " + time2.tostring();
+    //        };
+    //    }
 
-        //private static void Time_Hard()
-        //{
-        //    timer.Start();
-        //    timer.Tick += delegate
-        //    {
-        //        time3--;
-        //        if (time3 < 0)
-        //        {
-        //            timer.Stop();
-        //            MessageBox.Show("Out of time");
-        //        }
+    //    private static void time_hard()
+    //    {
+    //        timer.start();
+    //        timer.tick += delegate
+    //        {
+    //            time3--;
+    //            if (time3 < 0)
+    //            {
+    //                timer.stop();
+    //                messagebox.show("out of time");
+    //            }
 
-        //        var ssTime = TimeSpan.FromSeconds(time3);
-        //        lblTime.Text = "00: " + time3.ToString();
-        //    };
-        //}
-    }
+    //            var sstime = timespan.fromseconds(time3);
+    //            lbltime.text = "00: " + time3.tostring();
+    //        };
+    //    }
+    //}
 }
