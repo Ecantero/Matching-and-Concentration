@@ -9,6 +9,15 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <VariableSizedWrapGrid Grid.Column="0"
+                               MaximumRowsOrColumns="5">
+            
+        </VariableSizedWrapGrid>
+        <StackPanel Grid.Column="1"></StackPanel>
 
     </Grid>
 </Page>
