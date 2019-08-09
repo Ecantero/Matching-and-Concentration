@@ -27,14 +27,14 @@ namespace Matchin_Game
             this.InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void HyperlinkButton_Click(object sender, RoutedEventArgs e)
         {
-            
+            this.Frame.Navigate(typeof(MainPage));
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void HyperlinkButton_Click_1(object sender, RoutedEventArgs e)
         {
-
+            this.Frame.Navigate(typeof(BlankPage1));
         }
     }
 }

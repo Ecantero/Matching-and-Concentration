@@ -14,19 +14,20 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Button Grid.Column="0"
-                MinWidth="200" 
-                MinHeight="200" 
-                Margin="250, 150, 0, 0" 
-                FontSize="50"
-                Content="Matching"
-                Click="Button_Click"/>
-        <Button Grid.Column="1"
-                MinWidth="200" 
-                MinHeight="200" 
-                Margin="250, 150, 0, 0" 
-                FontSize="50"
-                Content="Concentration"
-                Click="Button_Click_1"/>
+        <TextBlock></TextBlock>
+            <HyperlinkButton Grid.Column="0"
+                         MinWidth="200"
+                         MinHeight="200"
+                         Margin="250, 150, 0, 0" 
+                         FontSize="50"
+                         Content="Matching"
+                         Click="HyperlinkButton_Click"/>
+        <HyperlinkButton Grid.Column="1"
+                         MinWidth="200" 
+                         MinHeight="200" 
+                         Margin="250, 150, 0, 0" 
+                         FontSize="50"
+                         Content="Concentration"
+                         Click="HyperlinkButton_Click_1"/>
     </Grid>
 </Page>
