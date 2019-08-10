@@ -13,8 +13,10 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Grid x:Name="ConcentrationGrid" 
-              Grid.Column="0">
+        <Grid x:Name="ConcentrationGrid"
+              Grid.Column="0"
+              BorderThickness="10"
+              BorderBrush="Aqua">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
@@ -28,9 +30,14 @@
                 <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
+                <RowDefinition/>
             </Grid.RowDefinitions>
+            <TextBlock x:Name="Countdown" Grid.Row="0" Grid.ColumnSpan="5"></TextBlock>
         </Grid>
-        <StackPanel Grid.Column="1"></StackPanel>
+        <StackPanel Grid.Column="1">
+            <Image Source="Concentration\shapeAsset 1.png"
+                   CanDrag="False"></Image>
+        </StackPanel>
 
     </Grid>
 </Page>
