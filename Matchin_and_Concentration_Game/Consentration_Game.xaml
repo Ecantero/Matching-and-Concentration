@@ -28,7 +28,10 @@
                 <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
+                <RowDefinition/>
             </Grid.RowDefinitions>
+            <TextBlock x:Name="Countdown" Grid.Row="0" Grid.ColumnSpan="5"/>
+            <TextBlock x:Name="Gameover" Grid.Row="0" Grid.ColumnSpan="5" Visibility="Collapsed"/>
         </Grid>
         <StackPanel Grid.Column="1"></StackPanel>
 
