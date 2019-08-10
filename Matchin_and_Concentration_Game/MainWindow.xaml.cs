@@ -39,6 +39,7 @@ namespace m
         private void Hard_Click(object sender, RoutedEventArgs e)
         {
             Hard_Class.Run();
+            
         }
     }
 }
