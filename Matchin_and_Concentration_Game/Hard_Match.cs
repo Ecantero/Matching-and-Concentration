@@ -31,19 +31,19 @@ namespace WindowsFormsApp1
             {
                 return new Image[]
                  {
-                    Properties.Resources.AH, Properties.Resources.AS,
-                    Properties.Resources.JC, Properties.Resources.JS,
-                    Properties.Resources.KC, Properties.Resources.KD,
-                    Properties.Resources.QD, Properties.Resources.QS,
-                    Properties.Resources._2C, Properties.Resources._2H, 
-                    Properties.Resources._3D, Properties.Resources._3H,
-                    Properties.Resources._4C, Properties.Resources._4H,
-                    Properties.Resources._5C, Properties.Resources._5D, 
-                    Properties.Resources._6H, Properties.Resources._6S,
-                    Properties.Resources._7D, Properties.Resources._7H, 
-                    Properties.Resources._8C, Properties.Resources._8H,
-                    Properties.Resources._9D, Properties.Resources._9S,
-                    Properties.Resources._10D, Properties.Resources._10H
+                    MatchingGame.Properties.Resources.AH, MatchingGame.Properties.Resources.AS,
+                    MatchingGame.Properties.Resources.JC, MatchingGame.Properties.Resources.JS,
+                    MatchingGame.Properties.Resources.KC, MatchingGame.Properties.Resources.KD,
+                    MatchingGame.Properties.Resources.QD, MatchingGame.Properties.Resources.QS,
+                    MatchingGame.Properties.Resources._2C, MatchingGame.Properties.Resources._2H,
+                    MatchingGame.Properties.Resources._3D, MatchingGame.Properties.Resources._3H,
+                    MatchingGame.Properties.Resources._4C, MatchingGame.Properties.Resources._4H,
+                    MatchingGame.Properties.Resources._5C, MatchingGame.Properties.Resources._5D,
+                    MatchingGame.Properties.Resources._6H, MatchingGame.Properties.Resources._6S,
+                    MatchingGame.Properties.Resources._7D, MatchingGame.Properties.Resources._7H,
+                    MatchingGame.Properties.Resources._8C, MatchingGame.Properties.Resources._8H,
+                    MatchingGame.Properties.Resources._9D, MatchingGame.Properties.Resources._9S,
+                    MatchingGame.Properties.Resources._10D, MatchingGame.Properties.Resources._10H
                  };
             }
         }
@@ -89,7 +89,7 @@ namespace WindowsFormsApp1
         {
             foreach (var pic in pictureBox)
             {
-                pic.Image = Properties.Resources.gray_back;
+                pic.Image = MatchingGame.Properties.Resources.gray_back;
             }
         }
 

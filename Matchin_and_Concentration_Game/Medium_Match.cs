@@ -30,19 +30,19 @@ namespace WindowsFormsApp1
             {
                 return new Image[]
                  {
-                    Properties.Resources.AC,
-                    Properties.Resources.JD,
-                    Properties.Resources.KH,
-                    Properties.Resources.QS,
-                    Properties.Resources._2C,
-                    Properties.Resources._3D,
-                    Properties.Resources._4H,
-                    Properties.Resources._5S,
-                    Properties.Resources._6C,
-                    Properties.Resources._7D,
-                    Properties.Resources._8H,
-                    Properties.Resources._9S,
-                    Properties.Resources._10C, Properties.Resources._10S
+                    MatchingGame.Properties.Resources.AC,
+                    MatchingGame.Properties.Resources.JD,
+                    MatchingGame.Properties.Resources.KH,
+                    MatchingGame.Properties.Resources.QS,
+                    MatchingGame.Properties.Resources._2C,
+                    MatchingGame.Properties.Resources._3D,
+                    MatchingGame.Properties.Resources._4H,
+                    MatchingGame.Properties.Resources._5S,
+                    MatchingGame.Properties.Resources._6C,
+                    MatchingGame.Properties.Resources._7D,
+                    MatchingGame.Properties.Resources._8H,
+                    MatchingGame.Properties.Resources._9S,
+                    MatchingGame.Properties.Resources._10C, MatchingGame.Properties.Resources._10S
                  };
             }
         }
@@ -88,7 +88,7 @@ namespace WindowsFormsApp1
         {
             foreach (var pic in pictureBox)
             {
-                pic.Image = Properties.Resources.gray_back;
+                pic.Image = MatchingGame.Properties.Resources.gray_back;
             }
         }
 
