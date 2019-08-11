@@ -1,5 +1,4 @@
-﻿using m.Difficulty;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,17 +27,17 @@ namespace m
 
         private void Easy_Click(object sender, RoutedEventArgs e)
         {
-            
+           
         }
 
         private void Medium_Click(object sender, RoutedEventArgs e)
         {
-            Medium_Class.Run();
+            
         }
 
         private void Hard_Click(object sender, RoutedEventArgs e)
         {
-            Hard_Class.Run();
+            
         }
     }
 }

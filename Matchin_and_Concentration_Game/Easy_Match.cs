@@ -59,7 +59,7 @@ namespace WindowsFormsApp1
                 }
 
                 var ssTime = TimeSpan.FromSeconds(time);
-                //lblTime.text = "00: " + time.toString();
+                //lbltime.text = "00: " + time.tostring();
             };
         }
 
