@@ -28,7 +28,7 @@ namespace m
 
         private void Easy_Click(object sender, RoutedEventArgs e)
         {
-            Easy_Class.Run();
+            
         }
 
         private void Medium_Click(object sender, RoutedEventArgs e)
@@ -39,7 +39,6 @@ namespace m
         private void Hard_Click(object sender, RoutedEventArgs e)
         {
             Hard_Class.Run();
-            
         }
     }
 }
