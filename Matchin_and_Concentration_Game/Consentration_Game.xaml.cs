@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
+using System.Numerics;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -33,6 +34,8 @@ namespace Matchin_Game
         public BlankPage1()
         {
             this.InitializeComponent();
+           
+            //RotateShape();
         }
 
         public void FillGrid()
@@ -64,7 +67,7 @@ namespace Matchin_Game
         public int time = 60;
         private void Timer_Tick(object sender, object e)
         {
-
+            
             Countdown.Text = $"Time:{time}";
 
             if (time > 0)
@@ -89,6 +92,33 @@ namespace Matchin_Game
 
         }
 
+        public RotateTransform rotation = new RotateTransform();
+        public void RotateShape(object sender, RightTappedRoutedEventArgs e)
+        {
+            Image rotateImage = sender as Image;
+            
+            rotateImage.RenderTransform = rotation;
+
+            rotation.CenterX = TestRotateShape.Width / 2;
+            rotation.CenterY = TestRotateShape.Height / 2;
+            if (rotation.Angle == 0)
+            {
+                rotation.Angle = 90;
+            }
+            else if (rotation.Angle == 90)
+            {
+                rotation.Angle = 180;
+            }
+            else if (rotation.Angle == 180)
+            {
+                rotation.Angle = 270;
+            }
+            else if (rotation.Angle == 270)
+            {
+                rotation.Angle = 0;
+            }
+        }
+
         public void ValidateShape()
         {
 
@@ -104,6 +134,10 @@ namespace Matchin_Game
 
         }
 
+        private void TimerStart_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+
+        }
 
     }
 }
