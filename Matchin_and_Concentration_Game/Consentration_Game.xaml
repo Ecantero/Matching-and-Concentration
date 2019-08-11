@@ -16,7 +16,8 @@
         <Grid x:Name="ConcentrationGrid"
               Grid.Column="0"
               BorderThickness="10"
-              BorderBrush="Aqua">
+              BorderBrush="Aqua"
+              AllowDrop="True">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
@@ -36,10 +37,82 @@
             <TextBlock x:Name="Countdown" Grid.Row="0" Grid.ColumnSpan="5" Text="Time: "/>
             <TextBlock x:Name="Gameover" Grid.Row="0" Grid.ColumnSpan="5" Visibility="Collapsed"/>
 
+            <TextBlock x:Name="Countdown" Grid.Row="0" Grid.ColumnSpan="5"></TextBlock>
+            <Image Source="Concentration\shapeAsset 1.png"
+                   Grid.Row="1"/>
+            <Image Source="Concentration\shapeAsset 2.png"
+                   Grid.Row="1"
+                   Grid.Column="1"/>
+            <Image Source="Concentration\shapeAsset 3.png"
+                   Grid.Row="1"
+                   Grid.Column="2"/>
+            <Image Source="Concentration\shapeAsset 4.png"
+                   Grid.Row="1"
+                   Grid.Column="3"/>
+            <Image Source="Concentration\shapeAsset 5.png"
+                   Grid.Row="1"
+                   Grid.Column="4"/>
+            <Image Source="Concentration\shapeAsset 6.png"
+                   Grid.Row="2"
+                   Grid.Column="1"/>
+            <Image Source="Concentration\shapeAsset 7.png"
+                   Grid.Row="2"/>
+            <Image Source="Concentration\shapeAsset 8.png"
+                   Grid.Row="2"
+                   Grid.Column="2"/>
+            <Image Source="Concentration\shapeAsset 9.png"
+                   Grid.Row="2"
+                   Grid.Column="3"/>
+            <Image Source="Concentration\shapeAsset 10.png"
+                   Grid.Row="2"
+                   Grid.Column="4"/>
+            <Image Source="Concentration\shapeAsset 11.png"
+                   Grid.Row="3"/>
+            <Image Source="Concentration\shapeAsset 12.png"
+                   Grid.Row="3"
+                   Grid.Column="1"/>
+            <Image Source="Concentration\shapeAsset 13.png"
+                   Grid.Row="3"
+                   Grid.Column="2"/>
+            <Image Source="Concentration\shapeAsset 14.png"
+                   Grid.Row="3"
+                   Grid.Column="3"/>
+            <Image Source="Concentration\shapeAsset 15.png"
+                   Grid.Row="3"
+                   Grid.Column="4"/>
+            <Image Source="Concentration\shapeAsset 16.png"
+                   Grid.Row="4"/>
+            <Image Source="Concentration\shapeAsset 17.png"
+                   Grid.Row="4"
+                   Grid.Column="1"/>
+            <Image Source="Concentration\shapeAsset 18.png"
+                   Grid.Row="4"
+                   Grid.Column="2"/>
+            <Image Source="Concentration\shapeAsset 19.png"
+                   Grid.Row="4"
+                   Grid.Column="3"/>
+            <Image Source="Concentration\shapeAsset 20.png"
+                   Grid.Row="4"
+                   Grid.Column="4"/>
+            <Image Source="Concentration\shapeAsset 21.png"
+                   Grid.Row="5"/>
+            <Image Source="Concentration\shapeAsset 22.png"
+                   Grid.Row="5"
+                   Grid.Column="1"/>
+            <Image Source="Concentration\shapeAsset 23.png"
+                   Grid.Row="5"
+                   Grid.Column="2"/>
+            <Image Source="Concentration\shapeAsset 24.png"
+                   Grid.Row="5"
+                   Grid.Column="3"/>
+            <Image Source="Concentration\shapeAsset 25.png"
+                   Grid.Row="5"
+                   Grid.Column="5"/>
         </Grid>
         <StackPanel Grid.Column="1">
             <Image Source="Concentration\shapeAsset 1.png"
-                   CanDrag="False"></Image>
+                   Width="140"
+                   CanDrag="True"/>
         </StackPanel>
 
     </Grid>
