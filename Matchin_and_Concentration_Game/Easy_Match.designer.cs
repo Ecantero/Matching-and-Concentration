@@ -43,7 +43,7 @@
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lbl = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox23)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).BeginInit();
@@ -225,21 +225,21 @@
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Click += new System.EventHandler(this.Click_Imagen);
             // 
-            // label1
+            // lbl
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(945, 128);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 17);
-            this.label1.TabIndex = 85;
-            this.label1.Text = "00:60";
+            this.lbl.AutoSize = true;
+            this.lbl.Location = new System.Drawing.Point(945, 128);
+            this.lbl.Name = "lbl";
+            this.lbl.Size = new System.Drawing.Size(36, 17);
+            this.lbl.TabIndex = 85;
+            this.lbl.Text = "1:30";
             // 
             // Easy_Match
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 554);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lbl);
             this.Controls.Add(this.pictureBox23);
             this.Controls.Add(this.pictureBox21);
             this.Controls.Add(this.pictureBox19);
@@ -255,7 +255,7 @@
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.button1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Easy_Match";
             this.Text = "Easy_Match";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox23)).EndInit();
@@ -294,6 +294,6 @@
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbl;
     }
 }

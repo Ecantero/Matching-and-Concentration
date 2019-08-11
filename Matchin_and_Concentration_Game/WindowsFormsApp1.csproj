@@ -52,11 +52,11 @@
     <Compile Include="Easy_Match.Designer.cs">
       <DependentUpon>Easy_Match.cs</DependentUpon>
     </Compile>
-    <Compile Include="Matching_Game.cs">
+    <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Matching_Game.Designer.cs">
-      <DependentUpon>Matching_Game.cs</DependentUpon>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Medium_Match.cs">
       <SubType>Form</SubType>
@@ -75,8 +75,8 @@
     <EmbeddedResource Include="Easy_Match.resx">
       <DependentUpon>Easy_Match.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Matching_Game.resx">
-      <DependentUpon>Matching_Game.cs</DependentUpon>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Medium_Match.resx">
       <DependentUpon>Medium_Match.cs</DependentUpon>

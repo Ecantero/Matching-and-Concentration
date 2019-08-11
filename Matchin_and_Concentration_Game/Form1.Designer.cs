@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp1
 {
-    partial class Matching_Game
+    partial class Form1
     {
         /// <summary>
         /// Required designer variable.

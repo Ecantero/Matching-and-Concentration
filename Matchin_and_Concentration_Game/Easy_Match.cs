@@ -15,7 +15,7 @@ namespace WindowsFormsApp1
         
         Random rng = new Random();
         Timer clickTimer = new Timer();
-        int time = 60;
+        int time = 130;
         Timer timer = new Timer { Interval = 1000 };
         bool allowClick = false;
         PictureBox firtGuess;
@@ -60,7 +60,7 @@ namespace WindowsFormsApp1
                 }
 
                 var ssTime = TimeSpan.FromSeconds(time);
-                //lblTime.text = "00: " + time.toString();
+                lbl.Text = " " + time.ToString();
             };
         }
 
@@ -75,7 +75,7 @@ namespace WindowsFormsApp1
 
             HideImages();
             setRandomImages();
-            time = 60;
+            time = 130;
             timer.Start();
         }
 
