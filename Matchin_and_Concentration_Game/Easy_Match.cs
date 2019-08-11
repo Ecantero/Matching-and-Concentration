@@ -12,12 +12,13 @@ namespace WindowsFormsApp1
 {
     public partial class Easy_Match : Form
     {
-        bool allowClick = false;
-        PictureBox firtGuess;
+        
         Random rng = new Random();
         Timer clickTimer = new Timer();
         int time = 60;
         Timer timer = new Timer { Interval = 1000 };
+        bool allowClick = false;
+        PictureBox firtGuess;
 
         private PictureBox[] pictureBox
         {
@@ -30,13 +31,13 @@ namespace WindowsFormsApp1
             {
                 return new Image[]
                  {
-                    Matching_Game.Properties.Resources.AD,
-                    Matching_Game.Properties.Resources.KH,
-                    Matching_Game.Properties.Resources._3S,
-                    Matching_Game.Properties.Resources._5C,
-                    Matching_Game.Properties.Resources._6D,
-                    Matching_Game.Properties.Resources._7H,
-                    Matching_Game.Properties.Resources._9S
+                    Properties.Resources.AD, 
+                    Properties.Resources.KH,
+                    Properties.Resources._3S,
+                    Properties.Resources._5C,
+                    Properties.Resources._6D,
+                    Properties.Resources._7H, 
+                    Properties.Resources._9S
                  };
             }
         }
@@ -59,7 +60,7 @@ namespace WindowsFormsApp1
                 }
 
                 var ssTime = TimeSpan.FromSeconds(time);
-                //lbltime.text = "00: " + time.tostring();
+                //lblTime.text = "00: " + time.toString();
             };
         }
 
@@ -82,7 +83,7 @@ namespace WindowsFormsApp1
         {
             foreach (var pic in pictureBox)
             {
-                pic.Image = Matching_Game.Properties.Resources.gray_back;
+                pic.Image = Properties.Resources.gray_back;
             }
         }
 
@@ -117,7 +118,36 @@ namespace WindowsFormsApp1
 
         private void Click_Imagen(object sender, EventArgs e)
         {
+            if (!allowClick) return;
 
+            var pic = (PictureBox)sender;
+            if (firtGuess == null)
+            {
+                firtGuess = pic;
+                pic.Image = (Image)pic.Tag;
+                return;
+            }
+            pic.Image = (Image)pic.Tag;
+
+            if (pic.Image == firtGuess.Image && pic != firtGuess)
+            {
+                pic.Visible = firtGuess.Visible = false;
+                {
+                    firtGuess = pic;
+                }
+
+                HideImages();
+            }
+            else
+            {
+                allowClick = false;
+                clickTimer.Start();
+            }
+
+            firtGuess = null;
+            if (pictureBox.Any(i => i.Visible)) return;
+            MessageBox.Show("You win now try again");
+            RestImages();
         }
 
 
