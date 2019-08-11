@@ -99,8 +99,8 @@ namespace Matchin_Game
             
             rotateImage.RenderTransform = rotation;
 
-            rotation.CenterX = TestRotateShape.Width / 2;
-            rotation.CenterY = TestRotateShape.Height / 2;
+            rotation.CenterX = rotateImage.Width / 2;
+            rotation.CenterY = rotateImage.Height / 2;
             if (rotation.Angle == 0)
             {
                 rotation.Angle = 90;
