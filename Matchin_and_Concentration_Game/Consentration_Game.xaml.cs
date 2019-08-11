@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
-using System.Timers;
+using System.Threading;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -12,6 +12,7 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
@@ -23,35 +24,48 @@ namespace Matchin_Game
     /// </summary>
     public sealed partial class BlankPage1 : Page
     {
-        public int time = 60;
+        public DispatcherTimer timer = new DispatcherTimer();
+
+
+
+        private List<Image> images = new List<Image>();
 
         public BlankPage1()
         {
             this.InitializeComponent();
         }
 
-        public void TimerControl(object sender, RoutedEventArgs e)
+        public void FillGrid()
         {
-            Timer timer = new Timer(1000);
-            timer.Elapsed += Timer_Tick;
-            timer.Start();
+            int j = 1;
+            for (int i = 0; i < 25; i++)
+            {
+                Image myImage = new Image();
+                BitmapImage bi = new BitmapImage();
+                myImage.Width = bi.DecodePixelWidth = 20;
+                bi.UriSource = new Uri(myImage.BaseUri, ("Concentration/ShapeAsset " + j + ".png"));
+                myImage.Source = bi;
+                images.Add(myImage);
+                j++;
+            }
 
-            //Timer timer = new Timer() { Interval = 500, Enabled = true };
-
-            //timer.Tick += new EventHandler(Timer_Tick);
-            //timer.Start();
-
-            //DispatcherTimer timer = new DispatcherTimer();
-            //timer.Interval = new TimeSpan(0, 0, 0, 1);
-            //timer.Tick += Timer_Tick;
-            //timer.Start();
         }
 
-        
-        private void Timer_Tick(object sender, EventArgs e)
+        public void TimerControl(object sender, TappedRoutedEventArgs e)
         {
-            //Use correct TextBlock name when TextBlock is fully implemented
-            Countdown.Text = $"{time} seconds";
+
+            timer.Interval = new TimeSpan(0, 0, 0, 1);
+            timer.Tick += Timer_Tick;
+            timer.Start();
+
+        }
+
+
+        public int time = 60;
+        private void Timer_Tick(object sender, object e)
+        {
+
+            Countdown.Text = $"Time:{time}";
 
             if (time > 0)
             {
@@ -60,6 +74,8 @@ namespace Matchin_Game
             else
             {
                 Countdown.Text = "Out of Time";
+                GameOver();
+                timer.Stop();
             }
         }
 
@@ -78,14 +94,13 @@ namespace Matchin_Game
 
         }
 
-        public void GameOver(int time)
+        public void GameOver()
         {
-            if (time == 0)
-            {
-                ConcentrationGrid.Children.Clear();
-                Gameover.Visibility = Visibility.Visible;
-                Gameover.Text = "Game over, You did not complete the board with in the time limit";
-            }
+            ConcentrationGrid.Children.Clear();
+            TextBlock gameOver = new TextBlock();
+            ConcentrationGrid.Children.Add(gameOver);
+            gameOver.Text = "Game over";
+
 
         }
 
