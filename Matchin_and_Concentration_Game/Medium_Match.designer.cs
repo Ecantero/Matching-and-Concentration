@@ -20,10 +20,7 @@
             base.Dispose(disposing);
         }
 
-<<<<<<< HEAD
 
-=======
->>>>>>> parent of ec2736e... Game
         #region Windows Form Designer generated code
 
         /// <summary>
