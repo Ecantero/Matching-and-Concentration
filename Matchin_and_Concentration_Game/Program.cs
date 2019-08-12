@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MatchingGame;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,11 +17,8 @@ namespace WindowsFormsApp1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Easy_Match());
-            Application.Run(new Medium_Match());
-            Application.Run(new Hard_Match());
-
-
+            Application.Run(new Matching_Game());
+            
         }
     }
 }

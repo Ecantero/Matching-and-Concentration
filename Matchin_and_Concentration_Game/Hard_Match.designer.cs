@@ -712,12 +712,14 @@
             // 
             // button1
             // 
+            this.button1.AutoSize = true;
             this.button1.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(1386, 51);
+            this.button1.Location = new System.Drawing.Point(1386, 38);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(134, 50);
+            this.button1.Size = new System.Drawing.Size(134, 49);
             this.button1.TabIndex = 69;
             this.button1.Text = "Start";
             this.button1.UseVisualStyleBackColor = false;
@@ -727,7 +729,7 @@
             // 
             this.lbl.AutoSize = true;
             this.lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl.Location = new System.Drawing.Point(1427, 117);
+            this.lbl.Location = new System.Drawing.Point(1430, 105);
             this.lbl.Name = "lbl";
             this.lbl.Size = new System.Drawing.Size(54, 26);
             this.lbl.TabIndex = 70;

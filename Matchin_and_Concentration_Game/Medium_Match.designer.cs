@@ -1,4 +1,6 @@
-﻿namespace WindowsFormsApp1
+﻿using System;
+
+namespace MatchingGame
 {
     partial class Medium_Match
     {
@@ -18,6 +20,11 @@
                 components.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        internal void Show()
+        {
+            throw new NotImplementedException();
         }
 
         #region Windows Form Designer generated code
@@ -91,11 +98,11 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(922, 48);
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(903, 23);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(150, 61);
+            this.button1.Size = new System.Drawing.Size(158, 67);
             this.button1.TabIndex = 28;
             this.button1.Text = "Start";
             this.button1.UseVisualStyleBackColor = false;
@@ -104,10 +111,10 @@
             // lbl
             // 
             this.lbl.AutoSize = true;
-            this.lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl.Location = new System.Drawing.Point(975, 122);
+            this.lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl.Location = new System.Drawing.Point(963, 105);
             this.lbl.Name = "lbl";
-            this.lbl.Size = new System.Drawing.Size(51, 25);
+            this.lbl.Size = new System.Drawing.Size(54, 26);
             this.lbl.TabIndex = 29;
             this.lbl.Text = "5:00";
             // 
@@ -424,7 +431,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1141, 702);
+            this.ClientSize = new System.Drawing.Size(1099, 702);
             this.Controls.Add(this.pictureBox28);
             this.Controls.Add(this.pictureBox27);
             this.Controls.Add(this.pictureBox26);

@@ -12,13 +12,13 @@ namespace WindowsFormsApp1
 {
     public partial class Easy_Match : Form
     {
-
-        bool canClick = false;
-        PictureBox firtImagen;
+        
         Random rng = new Random();
-        Timer clickTime = new Timer();
+        Timer clickTimer = new Timer();
         int time = 130;
         Timer timer = new Timer { Interval = 1000 };
+        bool allowClick = false;
+        PictureBox firtGuess;
 
         private PictureBox[] pictureBox
         {
@@ -111,40 +111,40 @@ namespace WindowsFormsApp1
         {
             HideImages();
 
-            canClick = true;
+            allowClick = true;
 
-            clickTime.Stop();
+            clickTimer.Stop();
         }
 
         private void Click_Imagen(object sender, EventArgs e)
         {
-            if (!canClick) return;
+            if (!allowClick) return;
 
             var pic = (PictureBox)sender;
-            if (firtImagen == null)
+            if (firtGuess == null)
             {
-                firtImagen = pic;
+                firtGuess = pic;
                 pic.Image = (Image)pic.Tag;
                 return;
             }
             pic.Image = (Image)pic.Tag;
 
-            if (pic.Image == firtImagen.Image && pic != firtImagen)
+            if (pic.Image == firtGuess.Image && pic != firtGuess)
             {
-                pic.Visible = firtImagen.Visible = false;
+                pic.Visible = firtGuess.Visible = false;
                 {
-                    firtImagen = pic;
+                    firtGuess = pic;
                 }
 
                 HideImages();
             }
             else
             {
-                canClick = false;
-                clickTime.Start();
+                allowClick = false;
+                clickTimer.Start();
             }
 
-            firtImagen = null;
+            firtGuess = null;
             if (pictureBox.Any(i => i.Visible)) return;
             MessageBox.Show("You win now try again");
             RestImages();
@@ -153,12 +153,12 @@ namespace WindowsFormsApp1
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            canClick = true;
+            allowClick = true;
             setRandomImages();
             HideImages();
             Time();
-            clickTime.Interval = 1000;
-            clickTime.Tick += ClickTimer;
+            clickTimer.Interval = 1000;
+            clickTimer.Tick += ClickTimer;
             button1.Enabled = false;
         }
     }
