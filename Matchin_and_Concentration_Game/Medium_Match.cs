@@ -8,14 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MatchingGame
+namespace WindowsFormsApp1
 {
     public partial class Medium_Match : Form
     {
-        bool allowClick = false;
-        PictureBox firtGuess;
+
+        bool canClick = false;
+        PictureBox firtImagen;
         Random rng = new Random();
-        Timer clickTimer = new Timer();
+        Timer clickTime = new Timer();
         int time = 500;
         Timer timer = new Timer { Interval = 1000 };
 
@@ -116,40 +117,40 @@ namespace MatchingGame
         {
             HideImages();
 
-            allowClick = true;
+            canClick = true;
 
-            clickTimer.Stop();
+            clickTime.Stop();
         }
 
         private void Click_Imagen(object sender, EventArgs e)
         {
-            if (!allowClick) return;
+            if (!canClick) return;
 
             var pic = (PictureBox)sender;
-            if (firtGuess == null)
+            if (firtImagen == null)
             {
-                firtGuess = pic;
+                firtImagen = pic;
                 pic.Image = (Image)pic.Tag;
                 return;
             }
             pic.Image = (Image)pic.Tag;
 
-            if (pic.Image == firtGuess.Image && pic != firtGuess)
+            if (pic.Image == firtImagen.Image && pic != firtImagen)
             {
-                pic.Visible = firtGuess.Visible = false;
+                pic.Visible = firtImagen.Visible = false;
                 {
-                    firtGuess = pic;
+                    firtImagen = pic;
                 }
 
                 HideImages();
             }
             else
             {
-                allowClick = false;
-                clickTimer.Start();
+                canClick = false;
+                clickTime.Start();
             }
 
-            firtGuess = null;
+            firtImagen = null;
             if (pictureBox.Any(i => i.Visible)) return;
             MessageBox.Show("You win now try again");
             RestImages();
@@ -158,12 +159,12 @@ namespace MatchingGame
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            allowClick = true;
+            canClick = true;
             setRandomImages();
             HideImages();
             Time();
-            clickTimer.Interval = 1000;
-            clickTimer.Tick += ClickTimer;
+            clickTime.Interval = 1000;
+            clickTime.Tick += ClickTimer;
             button1.Enabled = false;
         }
 

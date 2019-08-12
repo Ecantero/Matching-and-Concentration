@@ -67,7 +67,7 @@
             this.button1.Location = new System.Drawing.Point(901, 57);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(154, 58);
+            this.button1.Size = new System.Drawing.Size(154, 52);
             this.button1.TabIndex = 70;
             this.button1.Text = "Start";
             this.button1.UseVisualStyleBackColor = false;
