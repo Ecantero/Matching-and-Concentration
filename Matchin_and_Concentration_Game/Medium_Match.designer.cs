@@ -22,10 +22,6 @@ namespace MatchingGame
             base.Dispose(disposing);
         }
 
-        internal void Show()
-        {
-            throw new NotImplementedException();
-        }
 
         #region Windows Form Designer generated code
 
