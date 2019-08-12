@@ -16,8 +16,11 @@ namespace WindowsFormsApp1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Matching_Game());
-            
+            Application.Run(new Easy_Match());
+            Application.Run(new Medium_Match());
+            Application.Run(new Hard_Match());
+
+
         }
     }
 }
