@@ -67,7 +67,7 @@
             this.button1.Location = new System.Drawing.Point(901, 57);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(154, 52);
+            this.button1.Size = new System.Drawing.Size(154, 58);
             this.button1.TabIndex = 70;
             this.button1.Text = "Start";
             this.button1.UseVisualStyleBackColor = false;
@@ -235,7 +235,7 @@
             this.lbl.Name = "lbl";
             this.lbl.Size = new System.Drawing.Size(54, 26);
             this.lbl.TabIndex = 85;
-            this.lbl.Text = "1:30";
+            this.lbl.Text = "2:00";
             // 
             // Easy_Match
             // 
@@ -262,6 +262,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Easy_Match";
             this.Text = "Easy_Match";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Easy_Match_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox23)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).EndInit();
