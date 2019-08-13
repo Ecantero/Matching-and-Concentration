@@ -130,7 +130,10 @@ namespace WindowsFormsApp1
 
         private void Click_Imagen(object sender, EventArgs e)
         {
-            if (!canClick) return;
+            if (!canClick)
+            {
+                return;
+            }
 
             var pic = (PictureBox)sender;
             if (firtImagen == null)
@@ -157,7 +160,10 @@ namespace WindowsFormsApp1
             }
 
             firtImagen = null;
-            if (pictureBox.Any(i => i.Visible)) return;
+            if (pictureBox.Any(i => i.Visible))
+            {
+                return;
+            }
             DialogResult newGame = MessageBox.Show("Do you want to play a new game?", "New Game", MessageBoxButtons.YesNo);
             if (newGame == DialogResult.Yes)
             {
