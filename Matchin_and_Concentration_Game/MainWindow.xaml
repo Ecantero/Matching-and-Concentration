@@ -18,18 +18,17 @@
         <Button x:Name="Medium"
               Click="Medium_Click"
               Content="Medium"
-              Width="270"
-              Height="84"
+              Height="79"
               FontSize="50"
               HorizontalAlignment="Center"
-              Margin="259,134,264.6,0"
-              VerticalAlignment="Top"/>
+              Margin="277,141,312.6,0"
+              VerticalAlignment="Top" Width="204"/>
         <Button x:Name="Hard"
               Click="Hard_Click"
               Content="Hard"
               Height="71"
               FontSize="50"
-              Margin="312,243,330.6,0"
+              Margin="291,279,351.6,0"
               VerticalAlignment="Top"/>
     </Grid>
 </Window>

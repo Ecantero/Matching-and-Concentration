@@ -59,7 +59,7 @@ namespace WindowsFormsApp1
                     RestImages();
                 }
 
-                var ssTime = TimeSpan.FromSeconds(time);
+                var ssTime = TimeSpan.FromMinutes(time);
                 lbl.Text = " " + time.ToString();
             };
         }
