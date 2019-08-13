@@ -5,31 +5,30 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MatchingGame"
         mc:Ignorable="d"
-        Title="Matching_Game" Height="450" Width="800">
-    
+        Title="Matching_Game" Height="400" Width="400">
+
     <Grid>
         <Rectangle Fill="Beige"/>
         <Button x:Name="Easy"
               Click="Easy_Click"
               Content="Easy"
-              Height="68"
+              Height="69"
               FontSize="50"
-              Margin="312,39,351.6,0"
-              VerticalAlignment="Top"/>
+              VerticalAlignment="Top" 
+              Margin="110,36,109.6,0"/>
         <Button x:Name="Medium"
               Click="Medium_Click"
               Content="Medium"
               Height="79"
               FontSize="50"
               HorizontalAlignment="Center"
-              Margin="277,141,312.6,0"
-              VerticalAlignment="Top" Width="204"/>
+              Margin="97,139,109.6,0"
+              VerticalAlignment="Top"/>
         <Button x:Name="Hard"
               Click="Hard_Click"
               Content="Hard"
-              Height="71"
+              Height="66"
               FontSize="50"
-              Margin="291,279,351.6,0"
-              VerticalAlignment="Top"/>
+              VerticalAlignment="Top" Margin="110,251,121.6,0"/>
     </Grid>
 </Window>

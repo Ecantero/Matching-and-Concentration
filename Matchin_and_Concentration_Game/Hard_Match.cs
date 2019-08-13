@@ -13,10 +13,10 @@ namespace WindowsFormsApp1
     public partial class Hard_Match : Form
     {
 
-        bool allowClick = false;
-        PictureBox firtGuess;
+        bool canClick = false;
+        PictureBox firtImagen;
         Random rng = new Random();
-        Timer clickTimer = new Timer();
+        Timer startTime = new Timer();
         int time = 9 * 60;
         Timer timer = new Timer { Interval = 1000 };
 
@@ -77,7 +77,6 @@ namespace WindowsFormsApp1
             };
         }
 
-
         private void RestImages()
         {
             foreach (var pic in pictureBox)
@@ -124,40 +123,40 @@ namespace WindowsFormsApp1
         {
             HideImages();
 
-            allowClick = true;
+            canClick = true;
 
-            clickTimer.Stop();
+            startTime.Stop();
         }
 
         private void Click_Imagen(object sender, EventArgs e)
         {
-            if (!allowClick) return;
+            if (!canClick) return;
 
             var pic = (PictureBox)sender;
-            if (firtGuess == null)
+            if (firtImagen == null)
             {
-                firtGuess = pic;
+                firtImagen = pic;
                 pic.Image = (Image)pic.Tag;
                 return;
             }
             pic.Image = (Image)pic.Tag;
 
-            if (pic.Image == firtGuess.Image && pic != firtGuess)
+            if (pic.Image == firtImagen.Image && pic != firtImagen)
             {
-                pic.Visible = firtGuess.Visible = false;
+                pic.Visible = firtImagen.Visible = false;
                 {
-                    firtGuess = pic;
+                    firtImagen = pic;
                 }
 
                 HideImages();
             }
             else
             {
-                allowClick = false;
-                clickTimer.Start();
+                canClick = false;
+                startTime.Start();
             }
 
-            firtGuess = null;
+            firtImagen = null;
             if (pictureBox.Any(i => i.Visible)) return;
             DialogResult newGame = MessageBox.Show("Do you want to play a new game?", "NewGame", MessageBoxButtons.YesNo);
             if (newGame == DialogResult.Yes)
@@ -170,15 +169,14 @@ namespace WindowsFormsApp1
             }
         }
 
-
         private void Button1_Click(object sender, EventArgs e)
         {
-            allowClick = true;
+            canClick = true;
             setRandomImages();
             HideImages();
             Time();
-            clickTimer.Interval = 1000;
-            clickTimer.Tick += ClickTimer;
+            startTime.Interval = 1000;
+            startTime.Tick += ClickTimer;
             button1.Enabled = false;
         }
 

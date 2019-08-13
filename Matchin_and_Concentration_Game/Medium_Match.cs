@@ -12,10 +12,10 @@ namespace MatchingGame
 {
     public partial class Medium_Match : Form
     {
-        bool allowClick = false;
-        PictureBox firtGuess;
+        bool canClick = false;
+        PictureBox firtImagen;
         Random rng = new Random();
-        Timer clickTimer = new Timer();
+        Timer startTime = new Timer();
         int time = 5 * 60;
         Timer timer = new Timer { Interval = 1000 };
 
@@ -30,19 +30,19 @@ namespace MatchingGame
             {
                 return new Image[]
                  {
-                    MatchingGame.Properties.Resources.AC,
-                    MatchingGame.Properties.Resources.JD,
-                    MatchingGame.Properties.Resources.KH,
-                    MatchingGame.Properties.Resources.QS,
-                    MatchingGame.Properties.Resources._2C,
-                    MatchingGame.Properties.Resources._3D,
-                    MatchingGame.Properties.Resources._4H,
-                    MatchingGame.Properties.Resources._5S,
-                    MatchingGame.Properties.Resources._6C,
-                    MatchingGame.Properties.Resources._7D,
-                    MatchingGame.Properties.Resources._8H,
-                    MatchingGame.Properties.Resources._9S,
-                    MatchingGame.Properties.Resources._10C, MatchingGame.Properties.Resources._10S
+                    Properties.Resources.AC,
+                    Properties.Resources.JD,
+                    Properties.Resources.KH,
+                    Properties.Resources.QS,
+                    Properties.Resources._2C,
+                    Properties.Resources._3D,
+                    Properties.Resources._4H,
+                    Properties.Resources._5S,
+                    Properties.Resources._6C,
+                    Properties.Resources._7D,
+                    Properties.Resources._8H,
+                    Properties.Resources._9S,
+                    Properties.Resources._10C, Properties.Resources._10S
                  };
             }
         }
@@ -95,7 +95,7 @@ namespace MatchingGame
         {
             foreach (var pic in pictureBox)
             {
-                pic.Image = MatchingGame.Properties.Resources.gray_back;
+                pic.Image = Properties.Resources.gray_back;
             }
         }
 
@@ -123,40 +123,40 @@ namespace MatchingGame
         {
             HideImages();
 
-            allowClick = true;
+            canClick = true;
 
-            clickTimer.Stop();
+            startTime.Stop();
         }
 
         private void Click_Imagen(object sender, EventArgs e)
         {
-            if (!allowClick) return;
+            if (!canClick) return;
 
             var pic = (PictureBox)sender;
-            if (firtGuess == null)
+            if (firtImagen == null)
             {
-                firtGuess = pic;
+                firtImagen = pic;
                 pic.Image = (Image)pic.Tag;
                 return;
             }
             pic.Image = (Image)pic.Tag;
 
-            if (pic.Image == firtGuess.Image && pic != firtGuess)
+            if (pic.Image == firtImagen.Image && pic != firtImagen)
             {
-                pic.Visible = firtGuess.Visible = false;
+                pic.Visible = firtImagen.Visible = false;
                 {
-                    firtGuess = pic;
+                    firtImagen = pic;
                 }
 
                 HideImages();
             }
             else
             {
-                allowClick = false;
-                clickTimer.Start();
+                canClick = false;
+                startTime.Start();
             }
 
-            firtGuess = null;
+            firtImagen = null;
             if (pictureBox.Any(i => i.Visible)) return;
             DialogResult newGame = MessageBox.Show("Do you want to play a new game?", "NewGame", MessageBoxButtons.YesNo);
             if(newGame == DialogResult.Yes)
@@ -169,15 +169,14 @@ namespace MatchingGame
             }
         }
 
-
         private void Button1_Click(object sender, EventArgs e)
         {
-            allowClick = true;
+            canClick = true;
             setRandomImages();
             HideImages();
             Time();
-            clickTimer.Interval = 1000;
-            clickTimer.Tick += ClickTimer;
+            startTime.Interval = 1000;
+            startTime.Tick += ClickTimer;
             button1.Enabled = false;
         }
 
@@ -192,8 +191,6 @@ namespace MatchingGame
             {
                 e.Cancel = true;
             }
-
-        }
+        }  
     }
-
 }
