@@ -66,12 +66,9 @@ namespace MatchingGame
                         timer.Stop();
                     }
                 }
-
                 lbl.Text = (time / 60).ToString("00") + ":" + (time % 60).ToString("00");
-
             };
         }
-
 
         private void RestImages()
         {
@@ -154,7 +151,7 @@ namespace MatchingGame
 
             firtImagen = null;
             if (pictureBox.Any(i => i.Visible)) return;
-            DialogResult newGame = MessageBox.Show("Do you want to play a new game?", "NewGame", MessageBoxButtons.YesNo);
+            DialogResult newGame = MessageBox.Show("Do you want to play a new game?", "New Game", MessageBoxButtons.YesNo);
             if (newGame == DialogResult.Yes)
             {
                 RestImages();
@@ -164,7 +161,6 @@ namespace MatchingGame
                 Application.Exit();
             }
         }
-
 
         private void Button1_Click(object sender, EventArgs e)
         {
