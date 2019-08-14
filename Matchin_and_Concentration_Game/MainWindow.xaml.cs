@@ -42,5 +42,11 @@ namespace MatchingGame
             Hard_Match hard_Match = new Hard_Match();
             hard_Match.Show();
         }
+
+        private void Extra_Click(object sender, RoutedEventArgs e)
+        {
+            Extra extra = new Extra();
+            extra.Show();
+        }
     }
 }
