@@ -8,17 +8,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsFormsApp1
+namespace MatchingGame
 {
     public partial class Hard_Match : Form
     {
-
-        bool canClick = false;
-        PictureBox firtImagen;
+       
         Random rng = new Random();
-        Timer startTime = new Timer();
+        Timer startTimer = new Timer();
         int time = 9 * 60;
         Timer timer = new Timer { Interval = 1000 };
+        private bool canClick = false;
+        private PictureBox firtmagen;
 
         private PictureBox[] pictureBox
         {
@@ -31,22 +31,23 @@ namespace WindowsFormsApp1
             {
                 return new Image[]
                  {
-                    MatchingGame.Properties.Resources.AH, MatchingGame.Properties.Resources.AS,
-                    MatchingGame.Properties.Resources.JC, MatchingGame.Properties.Resources.JS,
-                    MatchingGame.Properties.Resources.KC, MatchingGame.Properties.Resources.KD,
-                    MatchingGame.Properties.Resources.QD, MatchingGame.Properties.Resources.QS,
-                    MatchingGame.Properties.Resources._2C, MatchingGame.Properties.Resources._2H,
-                    MatchingGame.Properties.Resources._3D, MatchingGame.Properties.Resources._3H,
-                    MatchingGame.Properties.Resources._4C, MatchingGame.Properties.Resources._4H,
-                    MatchingGame.Properties.Resources._5C, MatchingGame.Properties.Resources._5D,
-                    MatchingGame.Properties.Resources._6H, MatchingGame.Properties.Resources._6S,
-                    MatchingGame.Properties.Resources._7D, MatchingGame.Properties.Resources._7H,
-                    MatchingGame.Properties.Resources._8C, MatchingGame.Properties.Resources._8H,
-                    MatchingGame.Properties.Resources._9D, MatchingGame.Properties.Resources._9S,
-                    MatchingGame.Properties.Resources._10D, MatchingGame.Properties.Resources._10H
+                    Properties.Resources.AH, Properties.Resources.AS,
+                    Properties.Resources.JC, Properties.Resources.JS,
+                    Properties.Resources.KC, Properties.Resources.KD,
+                    Properties.Resources.QD, Properties.Resources.QS,
+                    Properties.Resources._2C, Properties.Resources._2H,
+                    Properties.Resources._3D, Properties.Resources._3H,
+                    Properties.Resources._4C, Properties.Resources._4H,
+                    Properties.Resources._5C, Properties.Resources._5D,
+                    Properties.Resources._6H, Properties.Resources._6S,
+                    Properties.Resources._7D, Properties.Resources._7H,
+                    Properties.Resources._8C, Properties.Resources._8H,
+                    Properties.Resources._9D, Properties.Resources._9S,
+                    Properties.Resources._10D, Properties.Resources._10H
                  };
             }
         }
+
         public Hard_Match()
         {
             InitializeComponent();
@@ -77,6 +78,7 @@ namespace WindowsFormsApp1
             };
         }
 
+
         private void RestImages()
         {
             foreach (var pic in pictureBox)
@@ -95,7 +97,7 @@ namespace WindowsFormsApp1
         {
             foreach (var pic in pictureBox)
             {
-                pic.Image = MatchingGame.Properties.Resources.gray_back;
+                pic.Image = Properties.Resources.gray_back;
             }
         }
 
@@ -125,30 +127,27 @@ namespace WindowsFormsApp1
 
             canClick = true;
 
-            startTime.Stop();
+            startTimer.Stop();
         }
 
         private void Click_Imagen(object sender, EventArgs e)
         {
-            if (!canClick)
-            {
-                return;
-            }
+            if (!canClick) return;
 
             var pic = (PictureBox)sender;
-            if (firtImagen == null)
+            if (firtmagen == null)
             {
-                firtImagen = pic;
+                firtmagen = pic;
                 pic.Image = (Image)pic.Tag;
                 return;
             }
             pic.Image = (Image)pic.Tag;
 
-            if (pic.Image == firtImagen.Image && pic != firtImagen)
+            if (pic.Image == firtmagen.Image && pic != firtmagen)
             {
-                pic.Visible = firtImagen.Visible = false;
+                pic.Visible = firtmagen.Visible = false;
                 {
-                    firtImagen = pic;
+                    firtmagen = pic;
                 }
 
                 HideImages();
@@ -156,15 +155,12 @@ namespace WindowsFormsApp1
             else
             {
                 canClick = false;
-                startTime.Start();
+                startTimer.Start();
             }
 
-            firtImagen = null;
-            if (pictureBox.Any(i => i.Visible))
-            {
-                return;
-            }
-            DialogResult newGame = MessageBox.Show("Do you want to play a new game?", "New Game", MessageBoxButtons.YesNo);
+            firtmagen = null;
+            if (pictureBox.Any(i => i.Visible)) return;
+            DialogResult newGame = MessageBox.Show("Do you want to play a new game?", "NewGame", MessageBoxButtons.YesNo);
             if (newGame == DialogResult.Yes)
             {
                 RestImages();
@@ -172,8 +168,10 @@ namespace WindowsFormsApp1
             else if (newGame == DialogResult.No)
             {
                 Application.Exit();
+                timer.Stop();
             }
         }
+
 
         private void Button1_Click(object sender, EventArgs e)
         {
@@ -181,8 +179,8 @@ namespace WindowsFormsApp1
             setRandomImages();
             HideImages();
             Time();
-            startTime.Interval = 1000;
-            startTime.Tick += ClickTimer;
+            startTimer.Interval = 1000;
+            startTimer.Tick += ClickTimer;
             button1.Enabled = false;
         }
 

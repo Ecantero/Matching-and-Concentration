@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsFormsApp1
+namespace MatchingGame
 {
     public partial class Easy_Match : Form
     {
-        
+
         Random rng = new Random();
         Timer startTime = new Timer();
         int time = 2 * 60;
@@ -31,13 +31,13 @@ namespace WindowsFormsApp1
             {
                 return new Image[]
                  {
-                    MatchingGame.Properties.Resources.AD,
-                    MatchingGame.Properties.Resources.KH,
-                    MatchingGame.Properties.Resources._3S,
-                    MatchingGame.Properties.Resources._5C,
-                    MatchingGame.Properties.Resources._6D,
-                    MatchingGame.Properties.Resources._7H,
-                    MatchingGame.Properties.Resources._9S
+                    Properties.Resources.AD,
+                    Properties.Resources.KH,
+                    Properties.Resources._3S,
+                    Properties.Resources._5C,
+                    Properties.Resources._6D,
+                    Properties.Resources._7H,
+                    Properties.Resources._9S
                  };
             }
         }
@@ -63,6 +63,7 @@ namespace WindowsFormsApp1
                     else if (tm == DialogResult.No)
                     {
                         Application.Exit();
+                        timer.Stop();
                     }
                 }
 
@@ -70,6 +71,7 @@ namespace WindowsFormsApp1
 
             };
         }
+
 
         private void RestImages()
         {
@@ -89,7 +91,7 @@ namespace WindowsFormsApp1
         {
             foreach (var pic in pictureBox)
             {
-                pic.Image = MatchingGame.Properties.Resources.gray_back;
+                pic.Image = Properties.Resources.gray_back;
             }
         }
 
@@ -124,10 +126,7 @@ namespace WindowsFormsApp1
 
         private void Click_Imagen(object sender, EventArgs e)
         {
-            if (!canClick)
-            {
-                return;
-            }
+            if (!canClick) return;
 
             var pic = (PictureBox)sender;
             if (firtImagen == null)
@@ -154,11 +153,8 @@ namespace WindowsFormsApp1
             }
 
             firtImagen = null;
-            if (pictureBox.Any(i => i.Visible))
-            {
-                return;
-            }
-            DialogResult newGame = MessageBox.Show("Do you want to play a new game?", "New Game", MessageBoxButtons.YesNo);
+            if (pictureBox.Any(i => i.Visible)) return;
+            DialogResult newGame = MessageBox.Show("Do you want to play a new game?", "NewGame", MessageBoxButtons.YesNo);
             if (newGame == DialogResult.Yes)
             {
                 RestImages();
@@ -168,6 +164,7 @@ namespace WindowsFormsApp1
                 Application.Exit();
             }
         }
+
 
         private void Button1_Click(object sender, EventArgs e)
         {

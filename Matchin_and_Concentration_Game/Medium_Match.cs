@@ -12,6 +12,7 @@ namespace MatchingGame
 {
     public partial class Medium_Match : Form
     {
+
         bool canClick = false;
         PictureBox firtImagen;
         Random rng = new Random();
@@ -46,6 +47,7 @@ namespace MatchingGame
                  };
             }
         }
+
         public Medium_Match()
         {
             InitializeComponent();
@@ -68,6 +70,7 @@ namespace MatchingGame
                     else if(tm == DialogResult.No)
                     {
                         Application.Exit();
+                        timer.Stop();
                     }
                 }
 
@@ -130,10 +133,7 @@ namespace MatchingGame
 
         private void Click_Imagen(object sender, EventArgs e)
         {
-            if (!canClick)
-            {
-                return;
-            }
+            if (!canClick) return;
 
             var pic = (PictureBox)sender;
             if (firtImagen == null)
@@ -160,11 +160,8 @@ namespace MatchingGame
             }
 
             firtImagen = null;
-            if (pictureBox.Any(i => i.Visible))
-            {
-                return;
-            }
-            DialogResult newGame = MessageBox.Show("Do you want to play a new game?", "New Game", MessageBoxButtons.YesNo);
+            if (pictureBox.Any(i => i.Visible)) return;
+            DialogResult newGame = MessageBox.Show("Do you want to play a new game?", "NewGame", MessageBoxButtons.YesNo);
             if(newGame == DialogResult.Yes)
             {
                 RestImages();
@@ -174,6 +171,7 @@ namespace MatchingGame
                 Application.Exit();
             }
         }
+
 
         private void Button1_Click(object sender, EventArgs e)
         {
@@ -197,6 +195,7 @@ namespace MatchingGame
             {
                 e.Cancel = true;
             }
-        }  
+
+        }
     }
 }

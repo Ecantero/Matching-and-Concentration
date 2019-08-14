@@ -68,11 +68,15 @@
     <Compile Include="Easy_Match.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Easy_Match.Designer.cs" />
+    <Compile Include="Easy_Match.Designer.cs">
+      <DependentUpon>Easy_Match.cs</DependentUpon>
+    </Compile>
     <Compile Include="Hard_Match.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Hard_Match.Designer.cs" />
+    <Compile Include="Hard_Match.Designer.cs">
+      <DependentUpon>Hard_Match.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -82,7 +86,9 @@
     <Compile Include="Medium_Match.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Medium_Match.Designer.cs" />
+    <Compile Include="Medium_Match.Designer.cs">
+      <DependentUpon>Medium_Match.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -96,9 +102,15 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Easy_Match.resx" />
-    <EmbeddedResource Include="Hard_Match.resx" />
-    <EmbeddedResource Include="Medium_Match.resx" />
+    <EmbeddedResource Include="Easy_Match.resx">
+      <DependentUpon>Easy_Match.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Hard_Match.resx">
+      <DependentUpon>Hard_Match.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Medium_Match.resx">
+      <DependentUpon>Medium_Match.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
