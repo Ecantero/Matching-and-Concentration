@@ -119,7 +119,7 @@ namespace MatchingGame
             }
         }
 
-        private void ClickTimer(object sender, EventArgs e)
+        private void StartTime(object sender, EventArgs e)
         {
             HideImages();
 
@@ -130,7 +130,10 @@ namespace MatchingGame
 
         private void Click_Imagen(object sender, EventArgs e)
         {
-            if (!canClick) return;
+            if (!canClick)
+            {
+                return;
+            }
 
             var pic = (PictureBox)sender;
             if (firtmagen == null)
@@ -157,7 +160,10 @@ namespace MatchingGame
             }
 
             firtmagen = null;
-            if (pictureBox.Any(i => i.Visible)) return;
+            if (pictureBox.Any(i => i.Visible))
+            {
+                return;
+            }
             DialogResult newGame = MessageBox.Show("Do you want to play a new game?", "New Game", MessageBoxButtons.YesNo);
             if (newGame == DialogResult.Yes)
             {
@@ -178,7 +184,7 @@ namespace MatchingGame
             HideImages();
             Time();
             startTimer.Interval = 1000;
-            startTimer.Tick += ClickTimer;
+            startTimer.Tick += StartTime;
             button1.Enabled = false;
         }
 
