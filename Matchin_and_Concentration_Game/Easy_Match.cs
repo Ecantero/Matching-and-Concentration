@@ -185,6 +185,7 @@ namespace MatchingGame
             if (exit == DialogResult.Yes)
             {
                 Application.Exit();
+                timer.Stop();
             }
             else if (exit == DialogResult.No)
             {
