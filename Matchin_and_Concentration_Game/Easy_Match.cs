@@ -12,13 +12,12 @@ namespace MatchingGame
 {
     public partial class Easy_Match : Form
     {
-
         Random rng = new Random();
         Timer startTime = new Timer();
         int time = 2 * 60;
         Timer timer = new Timer { Interval = 1000 };
         bool canClick = false;
-        PictureBox firtImagen;
+        PictureBox firtmagen;
 
         private PictureBox[] pictureBox
         {
@@ -128,19 +127,19 @@ namespace MatchingGame
             }
 
             var pic = (PictureBox)sender;
-            if (firtImagen == null)
+            if (firtmagen == null)
             {
-                firtImagen = pic;
+                firtmagen = pic;
                 pic.Image = (Image)pic.Tag;
                 return;
             }
             pic.Image = (Image)pic.Tag;
 
-            if (pic.Image == firtImagen.Image && pic != firtImagen)
+            if (pic.Image == firtmagen.Image && pic != firtmagen)
             {
-                pic.Visible = firtImagen.Visible = false;
+                pic.Visible = firtmagen.Visible = false;
                 {
-                    firtImagen = pic;
+                    firtmagen = pic;
                 }
 
                 HideImages();
@@ -151,9 +150,11 @@ namespace MatchingGame
                 startTime.Start();
             }
 
-            firtImagen = null;
-            if (pictureBox.Any(i => i.Visible)) return;
-
+            firtmagen = null;
+            if (pictureBox.Any(i => i.Visible))
+            {
+                return;
+            }
             DialogResult newGame = MessageBox.Show("Do you want to play a new game?", "New Game", MessageBoxButtons.YesNo);
             if (newGame == DialogResult.Yes)
             {
@@ -162,6 +163,7 @@ namespace MatchingGame
             else if (newGame == DialogResult.No)
             {
                 Application.Exit();
+                timer.Stop();
             }
         }
 
@@ -193,11 +195,10 @@ namespace MatchingGame
         private void Button2_Click(object sender, EventArgs e)
         {
             DialogResult newGame = MessageBox.Show("Are you shore that you want leave this game and start another game?", "New Game", MessageBoxButtons.YesNo);
-            if(newGame == DialogResult.Yes)
+            if (newGame == DialogResult.Yes)
             {
                 RestImages();
             }
-
         }
     }
 }

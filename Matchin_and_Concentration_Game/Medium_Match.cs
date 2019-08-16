@@ -13,12 +13,12 @@ namespace MatchingGame
     public partial class Medium_Match : Form
     {
 
-        bool canClick = false;
-        PictureBox firtImagen;
         Random rng = new Random();
         Timer startTime = new Timer();
         int time = 5 * 60;
         Timer timer = new Timer { Interval = 1000 };
+        bool canClick = false;
+        PictureBox firtmagen;
 
         private PictureBox[] pictureBox
         {
@@ -135,19 +135,19 @@ namespace MatchingGame
             }
 
             var pic = (PictureBox)sender;
-            if (firtImagen == null)
+            if (firtmagen == null)
             {
-                firtImagen = pic;
+                firtmagen = pic;
                 pic.Image = (Image)pic.Tag;
                 return;
             }
             pic.Image = (Image)pic.Tag;
 
-            if (pic.Image == firtImagen.Image && pic != firtImagen)
+            if (pic.Image == firtmagen.Image && pic != firtmagen)
             {
-                pic.Visible = firtImagen.Visible = false;
+                pic.Visible = firtmagen.Visible = false;
                 {
-                    firtImagen = pic;
+                    firtmagen = pic;
                 }
 
                 HideImages();
@@ -158,7 +158,7 @@ namespace MatchingGame
                 startTime.Start();
             }
 
-            firtImagen = null;
+            firtmagen = null;
             if (pictureBox.Any(i => i.Visible))
             {
                 return;
@@ -171,6 +171,7 @@ namespace MatchingGame
             else if (newGame == DialogResult.No)
             {
                 Application.Exit();
+                timer.Stop();
             }
         }
 
@@ -206,7 +207,6 @@ namespace MatchingGame
             {
                 RestImages();
             }
-
         }
     }
 }
