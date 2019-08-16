@@ -62,8 +62,8 @@ namespace MatchingGame
                     }
                     else if (tm == DialogResult.No)
                     {
-                        Application.Exit();
                         timer.Stop();
+                        Application.Exit();
                     }
                 }
                 lbl.Text = (time / 60).ToString("00") + ":" + (time % 60).ToString("00");
@@ -157,15 +157,15 @@ namespace MatchingGame
             {
                 return;
             }
-            DialogResult newGame = MessageBox.Show("Do you want to play a new game?", "New Game", MessageBoxButtons.YesNo);
+            DialogResult newGame = MessageBox.Show("!Gongratulation you win!!! Do you want to play a new game?", "New Game", MessageBoxButtons.YesNo);
             if (newGame == DialogResult.Yes)
             {
                 RestImages();
             }
             else if (newGame == DialogResult.No)
             {
-                Application.Exit();
                 timer.Stop();
+                Application.Exit();
             }
         }
 
@@ -185,8 +185,8 @@ namespace MatchingGame
             DialogResult exit = MessageBox.Show("Are you sure that you want to live of the game?", "Exit", MessageBoxButtons.YesNo);
             if (exit == DialogResult.Yes)
             {
-                Application.Exit();
                 timer.Stop();
+                Application.Exit();
             }
             else if (exit == DialogResult.No)
             {
@@ -200,6 +200,10 @@ namespace MatchingGame
             if (newGame == DialogResult.Yes)
             {
                 RestImages();
+            }
+            else
+            {
+                timer.Stop();
             }
         }
     }

@@ -163,7 +163,7 @@ namespace MatchingGame
             {
                 return;
             }
-            DialogResult newGame = MessageBox.Show("Do you want to play a new game?", "New Game", MessageBoxButtons.YesNo);
+            DialogResult newGame = MessageBox.Show("!Gongratulation you win!!! Do you want to play a new game?", "New Game", MessageBoxButtons.YesNo);
             if (newGame == DialogResult.Yes)
             {
                 RestImages();
