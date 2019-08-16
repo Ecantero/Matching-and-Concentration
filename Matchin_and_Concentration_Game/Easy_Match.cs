@@ -62,6 +62,7 @@ namespace MatchingGame
                     else if (tm == DialogResult.No)
                     {
                         Application.Exit();
+                        timer.Stop();
                     }
                 }
                 lbl.Text = (time / 60).ToString("00") + ":" + (time % 60).ToString("00");

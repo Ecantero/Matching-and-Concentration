@@ -69,6 +69,7 @@ namespace MatchingGame
                     else if (tm == DialogResult.No)
                     {
                         Application.Exit();
+                        timer.Stop();
                     }
                 }
                 lbl.Text = (time / 60).ToString("00") + ":" + (time % 60).ToString("00");
@@ -201,7 +202,11 @@ namespace MatchingGame
 
         private void Button2_Click(object sender, EventArgs e)
         {
-
+            DialogResult newGame = MessageBox.Show("Are you shore that you want leave this game and start another game?", "New Game", MessageBoxButtons.YesNo);
+            if (newGame == DialogResult.Yes)
+            {
+                RestImages();
+            }
         }
     }
 }

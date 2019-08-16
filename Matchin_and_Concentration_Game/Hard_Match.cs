@@ -14,7 +14,7 @@ namespace MatchingGame
     {
        
         Random rng = new Random();
-        Timer startTimer = new Timer();
+        Timer startTime = new Timer();
         int time = 9 * 60;
         Timer timer = new Timer { Interval = 1000 };
         private bool canClick = false;
@@ -70,6 +70,7 @@ namespace MatchingGame
                     else if (tm == DialogResult.No)
                     {
                         Application.Exit();
+                        timer.Stop();
                     }
                 }
                 lbl.Text = (time / 60).ToString("00") + ":" + (time % 60).ToString("00");
@@ -124,7 +125,7 @@ namespace MatchingGame
 
             canClick = true;
 
-            startTimer.Stop();
+            startTime.Stop();
         }
 
         private void Click_Imagen(object sender, EventArgs e)
@@ -155,7 +156,7 @@ namespace MatchingGame
             else
             {
                 canClick = false;
-                startTimer.Start();
+                startTime.Start();
             }
 
             firtmagen = null;
@@ -182,8 +183,8 @@ namespace MatchingGame
             setRandomImages();
             HideImages();
             Time();
-            startTimer.Interval = 1000;
-            startTimer.Tick += StartTime;
+            startTime.Interval = 1000;
+            startTime.Tick += StartTime;
             button1.Enabled = false;
         }
 
