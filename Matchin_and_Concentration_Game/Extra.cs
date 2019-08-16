@@ -15,7 +15,7 @@ namespace MatchingGame
 
         Random rng = new Random();
         Timer startTimer = new Timer();
-        int time = 13 * 60;
+        int time = 20 * 60;
         Timer timer = new Timer { Interval = 1000 };
         private bool canClick = false;
         private PictureBox firtmagen;
@@ -69,7 +69,6 @@ namespace MatchingGame
                     else if (tm == DialogResult.No)
                     {
                         Application.Exit();
-                        timer.Stop();
                     }
                 }
                 lbl.Text = (time / 60).ToString("00") + ":" + (time % 60).ToString("00");
@@ -86,7 +85,7 @@ namespace MatchingGame
 
             HideImages();
             setRandomImages();
-            time = 13 * 60;
+            time = 20 * 60;
             timer.Start();
         }
 
@@ -198,6 +197,11 @@ namespace MatchingGame
             {
                 e.Cancel = true;
             }
+        }
+
+        private void Button2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
