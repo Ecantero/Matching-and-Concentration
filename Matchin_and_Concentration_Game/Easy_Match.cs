@@ -12,6 +12,7 @@ namespace MatchingGame
 {
     public partial class Easy_Match : Form
     {
+
         Random rng = new Random();
         Timer startTime = new Timer();
         int time = 2 * 60;
