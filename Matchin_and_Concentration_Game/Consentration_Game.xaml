@@ -13,6 +13,33 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
+        <TextBox x:Name="PlayerName" Visibility="Collapsed" />
+        <Grid x:Name="LeaderBoardGrid" Visibility="Collapsed" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="LeaderBoard" FontSize="40" Grid.Column="0"/>
+            <TextBlock x:Name="first" FontSize="20" Text="1: ---" Grid.Row="1" />
+            <TextBlock x:Name="second" FontSize="20" Text="2: ---" Grid.Row="2"/>
+            <TextBlock x:Name="third" FontSize="20" Text="3: ---" Grid.Row="3"/>
+            <TextBlock x:Name="fourth" FontSize="20" Text="4: ---" Grid.Row="4"/>
+            <TextBlock x:Name="fifth" FontSize="20" Text="5: ---" Grid.Row="5"/>
+            <TextBlock x:Name="sixth" FontSize="20" Text="6: ---" Grid.Row="6"/>
+            <TextBlock x:Name="seventh" FontSize="20" Text="7: ---" Grid.Row="7"/>
+            <TextBlock x:Name="eighth" FontSize="20" Text="8: ---" Grid.Row="8"/>
+            <TextBlock x:Name="nineth" FontSize="20" Text="9: ---" Grid.Row="9"/>
+            <TextBlock x:Name="tenth" FontSize="20" Text="10: ---" Grid.Row="10"/>
+        </Grid>
         <Grid x:Name="ConcentrationGrid"
               Grid.Column="0"
               BorderThickness="10"
@@ -36,6 +63,7 @@
 
             <TextBlock x:Name="Countdown" Grid.Row="0" Grid.ColumnSpan="5" Text="Time: "/>
             <TextBlock x:Name="Gameover" Grid.Row="0" Grid.ColumnSpan="5" Visibility="Collapsed"/>
+            <Button x:Name="TestButton" Tapped="TimerControl" Content="Test"/>
 
             <Image Source="Concentration\shapeAsset 1.png"
                    Grid.Row="1"/>
