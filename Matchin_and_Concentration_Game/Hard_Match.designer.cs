@@ -83,6 +83,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.button3 = new System.Windows.Forms.Button();
+            this.score = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox52)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox51)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox50)).BeginInit();
@@ -747,12 +748,23 @@
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.Button2_Click);
             // 
+            // score
+            // 
+            this.score.AutoSize = true;
+            this.score.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.score.Location = new System.Drawing.Point(1117, 217);
+            this.score.Name = "score";
+            this.score.Size = new System.Drawing.Size(193, 29);
+            this.score.TabIndex = 140;
+            this.score.Text = "score:                   ";
+            // 
             // Hard_Match
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1320, 705);
+            this.Controls.Add(this.score);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.lbl);
             this.Controls.Add(this.button1);
@@ -925,5 +937,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label score;
     }
 }

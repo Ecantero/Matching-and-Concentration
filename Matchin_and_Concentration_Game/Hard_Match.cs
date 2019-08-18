@@ -17,8 +17,9 @@ namespace MatchingGame
         Timer startTime = new Timer();
         int time = 9 * 60;
         Timer timer = new Timer { Interval = 1000 };
-        private bool canClick = false;
-        private PictureBox firtmagen;
+        bool canClick = false;
+        PictureBox firtmagen;
+        int scores = 0;
 
         private PictureBox[] pictureBox
         {
@@ -146,6 +147,9 @@ namespace MatchingGame
 
             if (pic.Image == firtmagen.Image && pic != firtmagen)
             {
+                scores++;
+                score.Text = scores.ToString();
+
                 pic.Visible = firtmagen.Visible = false;
                 {
                     firtmagen = pic;
