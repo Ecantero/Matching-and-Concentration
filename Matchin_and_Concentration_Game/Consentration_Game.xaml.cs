@@ -17,6 +17,8 @@ using Windows.UI.Xaml.Navigation;
 using System.Numerics;
 using Windows.ApplicationModel.DataTransfer;
 using Windows.Storage;
+using Windows.Storage;
+using System.Threading.Tasks;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -28,16 +30,18 @@ namespace Matchin_Game
     public sealed partial class BlankPage1 : Page
     {
         public DispatcherTimer timer = new DispatcherTimer();
-
-
-
+        public string fileContent;
+        public string[] leaderBoardMemebers = new string[10];
+        public string[] leaderBoardNames = new string[10];
+        public int[] LeaderBoardTimes = new Int32[10];
         private List<Image> images = new List<Image>();
 
         public BlankPage1()
         {
             this.InitializeComponent();
 
-            //RotateShape();
+            showLeaderBoard();
+            CreateFile();
         }
 
         public void FillGrid()
@@ -165,8 +169,45 @@ namespace Matchin_Game
             TextBlock gameOver = new TextBlock();
             ConcentrationGrid.Children.Add(gameOver);
             gameOver.Text = "Game over";
+            showLeaderBoard();
 
+        }
 
+        public void Victory()
+        {
+            PlayerName.Visibility = Visibility.Visible;
+            string playerName = PlayerName.Text;
+            int timeRemaining = time;
+            FillLeaderBoard();
+        }
+
+        public async void CreateFile()
+        {
+            StorageFolder saveFile = ApplicationData.Current.LocalFolder;
+            StorageFile createFile = await saveFile.CreateFileAsync("LeaderBoard.txt", CreationCollisionOption.ReplaceExisting);
+        }
+
+        public async void WriteFile(string saveText)
+        {
+            StorageFolder saveFile = ApplicationData.Current.LocalFolder;
+            StorageFile writeFile = await saveFile.GetFileAsync("LeaderBoard.txt");
+            await FileIO.WriteTextAsync(writeFile, saveText);
+        }
+
+        public async Task ReadFile()
+        {
+            StorageFolder saveFile = ApplicationData.Current.LocalFolder;
+            StorageFile readFile = await saveFile.GetFileAsync("LeaderBoard.txt");
+            fileContent = await FileIO.ReadTextAsync(readFile);
+           
+        }
+
+        public async Task<bool> CheckFileExists()
+        {
+            StorageFolder saveFile = ApplicationData.Current.LocalFolder;
+            var checkFile = await saveFile.TryGetItemAsync("LeaderBoard.txt");
+            bool fileExists = checkFile != null;
+            return fileExists;
         }
 
         private void TimerStart_Tapped(object sender, TappedRoutedEventArgs e)
@@ -189,10 +230,45 @@ namespace Matchin_Game
         {
             this.Frame.Navigate(typeof(MainMenu));
         }
+        public void showLeaderBoard()
+        {
+            ConcentrationGrid.Visibility = Visibility.Collapsed;
+            LeaderBoardGrid.Visibility = Visibility.Visible;
+        }
+
+        public async void SaveLeaderBoard()
+        {
+            bool fileExists = await CheckFileExists();
+
+            if (!fileExists)
+            {
+                CreateFile();
+                await ReadFile();
+            }
+            else
+            {
+                await ReadFile();
+            }
+
+            
 
         private void ConcentrationGrid_DragEnter(object sender, DragEventArgs e)
         {
             e.DragUIOverride.Clear();
+        }
+        //save file writen as -> name:time,
+        public async void FillLeaderBoard()
+        {
+            await ReadFile();
+            leaderBoardMemebers = fileContent.Split(",");
+            int memberTime;
+            foreach (string memeber in leaderBoardMemebers)
+            {
+                string[] memberData = memeber.Split(":");
+                Int32.TryParse(memberData[1], out memberTime);
+                leaderBoardNames.Append(memberData[0]);
+                LeaderBoardTimes.Append(memberTime);
+            }
         }
 
 
