@@ -15,6 +15,8 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 using System.Numerics;
+using Windows.ApplicationModel.DataTransfer;
+using Windows.Storage;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -34,24 +36,58 @@ namespace Matchin_Game
         public BlankPage1()
         {
             this.InitializeComponent();
-           
+
             //RotateShape();
         }
 
         public void FillGrid()
         {
-            int j = 1;
-            for (int i = 0; i < 25; i++)
-            {
-                Image myImage = new Image();
-                BitmapImage bi = new BitmapImage();
-                myImage.Width = bi.DecodePixelWidth = 20;
-                bi.UriSource = new Uri(myImage.BaseUri, ("Concentration/ShapeAsset " + j + ".png"));
-                myImage.Source = bi;
-                images.Add(myImage);
-                j++;
-            }
+            //int j = 1;
+            //for (int i = 0; i < 25; i++)
+            //{
+            //    Image myImage = new Image();
+            //    BitmapImage bi = new BitmapImage();
+            //    myImage.Width = bi.DecodePixelWidth = 20;
+            //    bi.UriSource = new Uri(myImage.BaseUri, ("Concentration/shapeAsset " + j + ".png"));
+            //    myImage.Source = bi;
+            //    images.Add(myImage);
+            //    j++;
+            //}
+            //BitmapImage bitmapImage = new BitmapImage();
+            // Call BaseUri on the root Page element and combine it with a relative path
+            // to consruct an absolute URI.
+            //bitmapImage.UriSource = new Uri(this.BaseUri, "Concentration/shapeAsset 12.png");
+            //shape1
+            //shape1.Source = new BitmapImage(new Uri(("Concentration/shapeAsset " + 23 + ".png")));
+            //shape2.Source = new BitmapImage(new Uri(("Concentration/shapeAsset " + 2 + ".png")));
+            //shape3.Source = new BitmapImage(new Uri(("Concentration/shapeAsset " + 3 + ".png")));
+        }
 
+        private void Easy_Click(object sender, RoutedEventArgs e)
+        {
+            Easy.Visibility = Visibility.Collapsed;
+            Medium.Visibility = Visibility.Collapsed;
+            Hard.Visibility = Visibility.Collapsed;
+            MainMenu.Visibility = Visibility.Collapsed;
+            ConcentrationGrid.Visibility = Visibility.Visible;
+        }
+
+        private void Medium_Click(object sender, RoutedEventArgs e)
+        {
+            Easy.Visibility = Visibility.Collapsed;
+            Medium.Visibility = Visibility.Collapsed;
+            Hard.Visibility = Visibility.Collapsed;
+            MainMenu.Visibility = Visibility.Collapsed;
+            ConcentrationGrid.Visibility = Visibility.Visible;
+        }
+
+        private void Hard_Click(object sender, RoutedEventArgs e)
+        {
+            Easy.Visibility = Visibility.Collapsed;
+            Medium.Visibility = Visibility.Collapsed;
+            Hard.Visibility = Visibility.Collapsed;
+            MainMenu.Visibility = Visibility.Collapsed;
+            ConcentrationGrid.Visibility = Visibility.Visible;
         }
 
         public void TimerControl(object sender, TappedRoutedEventArgs e)
@@ -63,11 +99,10 @@ namespace Matchin_Game
 
         }
 
-
         public int time = 60;
         private void Timer_Tick(object sender, object e)
         {
-            
+
             Countdown.Text = $"Time:{time}";
 
             if (time > 0)
@@ -96,7 +131,7 @@ namespace Matchin_Game
         public void RotateShape(object sender, RightTappedRoutedEventArgs e)
         {
             Image rotateImage = sender as Image;
-            
+
             rotateImage.RenderTransform = rotation;
 
             rotation.CenterX = rotateImage.Width / 2;
@@ -139,5 +174,32 @@ namespace Matchin_Game
 
         }
 
+        private void ConcentrationGrid_DragOver(object sender, DragEventArgs e)
+        {
+            e.AcceptedOperation = DataPackageOperation.Move;
+        }
+
+        private void ConcentrationGrid_Drop(object sender, DragEventArgs e)
+        {
+            Countdown.Text = "hello drop";
+
+        }
+
+        private void MainMenu_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(MainMenu));
+        }
+
+        private void ConcentrationGrid_DragEnter(object sender, DragEventArgs e)
+        {
+            e.DragUIOverride.Clear();
+        }
+
+
+        //private void ConcentrationGrid_DragStarting(UIElement sender, DragStartingEventArgs args)
+        //{
+
+        //}
     }
+
 }
