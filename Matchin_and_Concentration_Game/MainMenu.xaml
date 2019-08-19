@@ -1,0 +1,33 @@
+﻿<Page
+    x:Class="Matchin_Game.MainMenu"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Matchin_Game"
+    xmlns:navigation="using:Matchin_Game"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TextBlock></TextBlock>
+            <HyperlinkButton Grid.Column="0"
+                         MinWidth="200"
+                         MinHeight="200"
+                         Margin="250, 150, 0, 0" 
+                         FontSize="50"
+                         Content="Matching"
+                         Click="HyperlinkButton_Click"/>
+        <HyperlinkButton Grid.Column="1"
+                         MinWidth="200" 
+                         MinHeight="200" 
+                         Margin="250, 150, 0, 0" 
+                         FontSize="50"
+                         Content="Concentration"
+                         Click="HyperlinkButton_Click_1"/>
+    </Grid>
+</Page>

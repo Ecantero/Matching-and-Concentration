@@ -1,0 +1,659 @@
+﻿<Page
+    x:Class="Matchin_Game.BlankPage1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Matchin_Game"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid x:Name="MainGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <!--<StackPanel x:Name="grid1"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Grid.RowSpan="2">
+            <Image x:Name="shape"
+                   Source="Concentration/shapeAsset 1.png"/>
+        </StackPanel>-->
+        <Button x:Name="MainMenu"
+                Content="Back to Main Menu"
+                Width="200"
+                Height="100"
+                Grid.Row="2"
+                Margin="100,0,0,0"
+                Click="MainMenu_Click"/>
+        <Button x:Name="Easy"
+                Content="Easy Mode"
+                Width="200"
+                Height="100"
+                Grid.Column="1"
+                Grid.Row="1"
+                Margin="0, 0, 0, 400"
+                Click="Easy_Click"/>
+        <Button x:Name="Medium"
+                Content="Medium Mode"
+                Width="200"
+                Height="100"
+                Grid.Column="1"
+                Grid.Row="1"
+                Click="Medium_Click"/>
+        <Button x:Name="Hard"
+                Content="Hard Mode"
+                Width="200"
+                Height="100"
+                Grid.Column="1"
+                Grid.Row="1"
+                Margin="0, 400, 0, 0"
+                Click="Hard_Click"/>
+        <Grid x:Name="ConcentrationGrid"
+              Grid.ColumnSpan="2"
+              Grid.RowSpan="2"
+        <TextBox x:Name="PlayerName" Visibility="Collapsed" />
+        <Grid x:Name="LeaderBoardGrid" Visibility="Collapsed" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="LeaderBoard" FontSize="40" Grid.Column="0"/>
+            <TextBlock x:Name="first" FontSize="20" Text="1: ---" Grid.Row="1" />
+            <TextBlock x:Name="second" FontSize="20" Text="2: ---" Grid.Row="2"/>
+            <TextBlock x:Name="third" FontSize="20" Text="3: ---" Grid.Row="3"/>
+            <TextBlock x:Name="fourth" FontSize="20" Text="4: ---" Grid.Row="4"/>
+            <TextBlock x:Name="fifth" FontSize="20" Text="5: ---" Grid.Row="5"/>
+            <TextBlock x:Name="sixth" FontSize="20" Text="6: ---" Grid.Row="6"/>
+            <TextBlock x:Name="seventh" FontSize="20" Text="7: ---" Grid.Row="7"/>
+            <TextBlock x:Name="eighth" FontSize="20" Text="8: ---" Grid.Row="8"/>
+            <TextBlock x:Name="nineth" FontSize="20" Text="9: ---" Grid.Row="9"/>
+            <TextBlock x:Name="tenth" FontSize="20" Text="10: ---" Grid.Row="10"/>
+        </Grid>
+        <Grid x:Name="ConcentrationGrid"
+              Grid.Column="0"
+              BorderThickness="10"
+              BorderBrush="AntiqueWhite"
+              Visibility="Collapsed">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <TextBlock x:Name="Countdown" Grid.Row="0" Grid.ColumnSpan="5" Text="Time: "/>
+            <TextBlock x:Name="Gameover" Grid.Row="0" Grid.ColumnSpan="5" Visibility="Collapsed"/>
+            <Button x:Name="TestButton" Tapped="TimerControl" Content="Test"/>
+
+            <Image x:Name="shape1"
+                   DragEnter="ConcentrationGrid_DragEnter"
+                   AllowDrop="True"
+                   Drop="ConcentrationGrid_Drop"
+                   DragOver="ConcentrationGrid_DragOver"
+                   Source="Concentration\shapeAsset 1.png"
+                   Grid.Row="1"/>
+            <Image x:Name="shape2"
+                   DragEnter="ConcentrationGrid_DragEnter"
+                   AllowDrop="True"
+                   Drop="ConcentrationGrid_Drop"
+                   DragOver="ConcentrationGrid_DragOver"
+                   Source="Concentration\shapeAsset 2.png"
+                   Grid.Row="1"
+                   Grid.Column="1"/>
+            <Image x:Name="shape3"
+                   DragEnter="ConcentrationGrid_DragEnter"
+                   AllowDrop="True"
+                   Drop="ConcentrationGrid_Drop"
+                   DragOver="ConcentrationGrid_DragOver"
+                   Source="Concentration\shapeAsset 3.png"
+                   Grid.Row="1"
+                   Grid.Column="2"/>
+            <Image x:Name="shape4"
+                   DragEnter="ConcentrationGrid_DragEnter"
+                   AllowDrop="True"
+                   Drop="ConcentrationGrid_Drop"
+                   DragOver="ConcentrationGrid_DragOver"
+                   Source="Concentration\shapeAsset 4.png"
+                   Grid.Row="1"
+                   Grid.Column="3"/>
+            <Image x:Name="shape5"
+                   DragEnter="ConcentrationGrid_DragEnter"
+                   AllowDrop="True"
+                   Drop="ConcentrationGrid_Drop"
+                   DragOver="ConcentrationGrid_DragOver"
+                   Source="Concentration\shapeAsset 5.png"
+                   Grid.Row="1"
+                   Grid.Column="4"/>
+            <Image x:Name="shape6"
+                   DragEnter="ConcentrationGrid_DragEnter"
+                   AllowDrop="True"
+                   Drop="ConcentrationGrid_Drop"
+                   DragOver="ConcentrationGrid_DragOver"
+                   Source="Concentration\shapeAsset 6.png"
+                   Grid.Row="2"
+                   Grid.Column="1"/>
+            <Image x:Name="shape7"
+                   DragEnter="ConcentrationGrid_DragEnter"
+                   AllowDrop="True"
+                   Drop="ConcentrationGrid_Drop"
+                   DragOver="ConcentrationGrid_DragOver"
+                   Source="Concentration\shapeAsset 7.png"
+                   Grid.Row="2"/>
+            <Image x:Name="shape8"
+                   DragEnter="ConcentrationGrid_DragEnter"
+                   AllowDrop="True"
+                   Drop="ConcentrationGrid_Drop"
+                   DragOver="ConcentrationGrid_DragOver"
+                   Source="Concentration\shapeAsset 8.png"
+                   Grid.Row="2"
+                   Grid.Column="2"/>
+            <Image x:Name="shape9"
+                   DragEnter="ConcentrationGrid_DragEnter"
+                   AllowDrop="True"
+                   Drop="ConcentrationGrid_Drop"
+                   DragOver="ConcentrationGrid_DragOver"
+                   Source="Concentration\shapeAsset 9.png"
+                   Grid.Row="2"
+                   Grid.Column="3"/>
+            <Image x:Name="shape10"
+                   DragEnter="ConcentrationGrid_DragEnter"
+                   AllowDrop="True"
+                   Drop="ConcentrationGrid_Drop"
+                   DragOver="ConcentrationGrid_DragOver"
+                   Source="Concentration\shapeAsset 10.png"
+                   Grid.Row="2"
+                   Grid.Column="4"/>
+            <Image x:Name="shape11"
+                   DragEnter="ConcentrationGrid_DragEnter"
+                   AllowDrop="True"
+                   Drop="ConcentrationGrid_Drop"
+                   DragOver="ConcentrationGrid_DragOver"
+                   Source="Concentration\shapeAsset 11.png"
+                   Grid.Row="3"/>
+            <Image x:Name="shape12"
+                   DragEnter="ConcentrationGrid_DragEnter"
+                   AllowDrop="True"
+                   Drop="ConcentrationGrid_Drop"
+                   DragOver="ConcentrationGrid_DragOver"
+                   Source="Concentration\shapeAsset 12.png"
+                   Grid.Row="3"
+                   Grid.Column="1"/>
+            <Image x:Name="shape13"
+                   DragEnter="ConcentrationGrid_DragEnter"
+                   AllowDrop="True"
+                   Drop="ConcentrationGrid_Drop"
+                   DragOver="ConcentrationGrid_DragOver"
+                   Source="Concentration\shapeAsset 13.png"
+                   Grid.Row="3"
+                   Grid.Column="2"/>
+            <Image x:Name="shape14"
+                   DragEnter="ConcentrationGrid_DragEnter"
+                   AllowDrop="True"
+                   Drop="ConcentrationGrid_Drop"
+                   DragOver="ConcentrationGrid_DragOver"
+                   Source="Concentration\shapeAsset 14.png"
+                   Grid.Row="3"
+                   Grid.Column="3"/>
+            <Image x:Name="shape15"
+                   DragEnter="ConcentrationGrid_DragEnter"
+                   AllowDrop="True"
+                   Drop="ConcentrationGrid_Drop"
+                   DragOver="ConcentrationGrid_DragOver"
+                   Source="Concentration\shapeAsset 15.png"
+                   Grid.Row="3"
+                   Grid.Column="4"/>
+            <Image x:Name="shape16"
+                   DragEnter="ConcentrationGrid_DragEnter"
+                   AllowDrop="True"
+                   Drop="ConcentrationGrid_Drop"
+                   DragOver="ConcentrationGrid_DragOver"
+                   Source="Concentration\shapeAsset 16.png"
+                   Grid.Row="4"/>
+            <Image x:Name="shape17"
+                   DragEnter="ConcentrationGrid_DragEnter"
+                   AllowDrop="True"
+                   Drop="ConcentrationGrid_Drop"
+                   DragOver="ConcentrationGrid_DragOver"
+                   Source="Concentration\shapeAsset 17.png"
+                   Grid.Row="4"
+                   Grid.Column="1"/>
+            <Image x:Name="shape18"
+                   DragEnter="ConcentrationGrid_DragEnter"
+                   AllowDrop="True"
+                   Drop="ConcentrationGrid_Drop"
+                   DragOver="ConcentrationGrid_DragOver"
+                   Source="Concentration\shapeAsset 18.png"
+                   Grid.Row="4"
+                   Grid.Column="2"/>
+            <Image x:Name="shape19"
+                   DragEnter="ConcentrationGrid_DragEnter"
+                   AllowDrop="True"
+                   Drop="ConcentrationGrid_Drop"
+                   DragOver="ConcentrationGrid_DragOver"
+                   Source="Concentration\shapeAsset 19.png"
+                   Grid.Row="4"
+                   Grid.Column="3"/>
+            <Image x:Name="shape20"
+                   DragEnter="ConcentrationGrid_DragEnter"
+                   AllowDrop="True"
+                   Drop="ConcentrationGrid_Drop"
+                   DragOver="ConcentrationGrid_DragOver"
+                   Source="Concentration\shapeAsset 20.png"
+                   Grid.Row="4"
+                   Grid.Column="4"/>
+            <Image x:Name="shape21"
+                   DragEnter="ConcentrationGrid_DragEnter"
+                   AllowDrop="True"
+                   Drop="ConcentrationGrid_Drop"
+                   DragOver="ConcentrationGrid_DragOver"
+                   Source="Concentration\shapeAsset 21.png"
+                   Grid.Row="5"/>
+            <Image x:Name="shape22"
+                   DragEnter="ConcentrationGrid_DragEnter"
+                   AllowDrop="True"
+                   Drop="ConcentrationGrid_Drop"
+                   DragOver="ConcentrationGrid_DragOver"
+                   Source="Concentration\shapeAsset 22.png"
+                   Grid.Row="5"
+                   Grid.Column="1"/>
+            <Image x:Name="shape23"
+                   DragEnter="ConcentrationGrid_DragEnter"
+                   AllowDrop="True"
+                   Drop="ConcentrationGrid_Drop"
+                   DragOver="ConcentrationGrid_DragOver"
+                   Source="Concentration\shapeAsset 23.png"
+                   Grid.Row="5"
+                   Grid.Column="2"/>
+            <Image x:Name="shape24"
+                   DragEnter="ConcentrationGrid_DragEnter"
+                   AllowDrop="True"
+                   Drop="ConcentrationGrid_Drop"
+                   DragOver="ConcentrationGrid_DragOver"
+                   Source="Concentration\shapeAsset 24.png"
+                   Grid.Row="5"
+                   Grid.Column="3"/>
+            <Image x:Name="shape25"
+                   DragEnter="ConcentrationGrid_DragEnter"
+                   AllowDrop="True"
+                   Drop="ConcentrationGrid_Drop"
+                   DragOver="ConcentrationGrid_DragOver"
+                   Source="Concentration\shapeAsset 25.png"
+                   Grid.Row="5"
+                   Grid.Column="5"/>
+        </Grid>
+        <!--<TextBlock x:Name="Countdown" Grid.Row="0" Text="Time: "/>
+        <TextBlock x:Name="Gameover" Grid.Row="0" Visibility="Collapsed"/>
+        <Button x:Name="shuffle" Grid.Row="0" Grid.Column="1" Content="Shuffle"/>-->
+        <!--<GridView x:Name="ConcentrationGrid"
+                  Grid.Column="0"
+                  Grid.ColumnSpan="2"
+                  Grid.Row="2">
+            <Image x:Name="shape1"/>
+            <Image x:Name="shape2"/>
+            <Image x:Name="shape3"/>
+        </GridView>-->
+        <Grid x:Name="grid"
+              Grid.Column="2"
+              Grid.ColumnSpan="2"
+              Grid.RowSpan="2"
+              BorderThickness="10"
+              BorderBrush="AliceBlue">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Image Source="Concentration\shapeAsset 1.png"
+                   Width="140"
+                   Height="140"
+                   CanDrag="True"
+                   AllowDrop="True"
+                   RightTapped="RotateShape"
+                   >
+                <Image.RenderTransform>
+                    <RotateTransform x:Name="RotateImage1"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image Source="Concentration\shapeAsset 2.png"
+                   Grid.Column="1"
+                   Width="140"
+                   Height="140"
+                   CanDrag="True"
+                   AllowDrop="True"
+                   RightTapped="RotateShape"
+                   >
+                <Image.RenderTransform>
+                    <RotateTransform x:Name="RotateImage2"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image Source="Concentration\shapeAsset 3.png"
+                   Grid.Column="2"
+                   Width="140"
+                   Height="140"
+                   CanDrag="True"
+                   AllowDrop="True"
+                   RightTapped="RotateShape"
+                   >
+                <Image.RenderTransform>
+                    <RotateTransform x:Name="RotateImage3"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image Source="Concentration\shapeAsset 4.png"
+                   Grid.Column="3"
+                   Width="140"
+                   Height="140"
+                   CanDrag="True"
+                   AllowDrop="True"
+                   RightTapped="RotateShape"
+                   >
+                <Image.RenderTransform>
+                    <RotateTransform x:Name="RotateImag4"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image Source="Concentration\shapeAsset 5.png"
+                   Grid.Column="4"
+                   Width="140"
+                   Height="140"
+                   CanDrag="True"
+                   AllowDrop="True"
+                   RightTapped="RotateShape"
+                   >
+                <Image.RenderTransform>
+                    <RotateTransform x:Name="RotateImage5"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image Source="Concentration\shapeAsset 6.png"
+                   Grid.Row="1"
+                   Grid.Column="1"
+                   Width="140"
+                   Height="140"
+                   CanDrag="True"
+                   AllowDrop="True"
+                   RightTapped="RotateShape"
+                   >
+                <Image.RenderTransform>
+                    <RotateTransform x:Name="RotateImage6"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image Source="Concentration\shapeAsset 7.png"
+                   Grid.Row="1"
+                   Width="140"
+                   Height="140"
+                   CanDrag="True"
+                   AllowDrop="True"
+                   RightTapped="RotateShape"
+                   >
+                <Image.RenderTransform>
+                    <RotateTransform x:Name="RotateImage7"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image Source="Concentration\shapeAsset 8.png"
+                   Grid.Row="1"
+                   Grid.Column="2"
+                   Width="140"
+                   Height="140"
+                   CanDrag="True"
+                   AllowDrop="True"
+                   RightTapped="RotateShape"
+                   >
+                <Image.RenderTransform>
+                    <RotateTransform x:Name="RotateImage8"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image Source="Concentration\shapeAsset 9.png"
+                   Grid.Row="1"
+                   Grid.Column="3"
+                   Width="140"
+                   Height="140"
+                   CanDrag="True"
+                   AllowDrop="True"
+                   RightTapped="RotateShape"
+                   >
+                <Image.RenderTransform>
+                    <RotateTransform x:Name="RotateImage9"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image Source="Concentration\shapeAsset 10.png"
+                   Grid.Row="1"
+                   Grid.Column="4"
+                   Width="140"
+                   Height="140"
+                   CanDrag="True"
+                   AllowDrop="True"
+                   RightTapped="RotateShape"
+                   >
+                <Image.RenderTransform>
+                    <RotateTransform x:Name="RotateImage10"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image Source="Concentration\shapeAsset 11.png"
+                   Grid.Row="2"
+                   Width="140"
+                   Height="140"
+                   CanDrag="True"
+                   AllowDrop="True"
+                   RightTapped="RotateShape"
+                   >
+                <Image.RenderTransform>
+                    <RotateTransform x:Name="RotateImage11"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image Source="Concentration\shapeAsset 12.png"
+                   Grid.Row="2"
+                   Grid.Column="1"
+                   Width="140"
+                   Height="140"
+                   CanDrag="True"
+                   AllowDrop="True"
+                   RightTapped="RotateShape"
+                   >
+                <Image.RenderTransform>
+                    <RotateTransform x:Name="RotateImage12"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image Source="Concentration\shapeAsset 13.png"
+                   Grid.Row="2"
+                   Grid.Column="2"
+                   Width="140"
+                   Height="140"
+                   CanDrag="True"
+                   AllowDrop="True"
+                   RightTapped="RotateShape"
+                   >
+                <Image.RenderTransform>
+                    <RotateTransform x:Name="RotateImage13"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image Source="Concentration\shapeAsset 14.png"
+                   Grid.Row="2"
+                   Grid.Column="3"
+                   Width="140"
+                   Height="140"
+                   CanDrag="True"
+                   AllowDrop="True"
+                   RightTapped="RotateShape"
+                   >
+                <Image.RenderTransform>
+                    <RotateTransform x:Name="RotateImage14"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image Source="Concentration\shapeAsset 15.png"
+                   Grid.Row="2"
+                   Grid.Column="4"
+                   Width="140"
+                   Height="140"
+                   CanDrag="True"
+                   AllowDrop="True"
+                   RightTapped="RotateShape"
+                   >
+                <Image.RenderTransform>
+                    <RotateTransform x:Name="RotateImage15"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image Source="Concentration\shapeAsset 16.png"
+                   Grid.Row="3"
+                   Width="140"
+                   Height="140"
+                   CanDrag="True"
+                   AllowDrop="True"
+                   RightTapped="RotateShape"
+                   >
+                <Image.RenderTransform>
+                    <RotateTransform x:Name="RotateImage16"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image Source="Concentration\shapeAsset 17.png"
+                   Grid.Row="3"
+                   Grid.Column="1"
+                   Width="140"
+                   Height="140"
+                   CanDrag="True"
+                   AllowDrop="True"
+                   RightTapped="RotateShape"
+                   >
+                <Image.RenderTransform>
+                    <RotateTransform x:Name="RotateImage17"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image Source="Concentration\shapeAsset 18.png"
+                   Grid.Row="3"
+                   Grid.Column="2"
+                   Width="140"
+                   Height="140"
+                   CanDrag="True"
+                   AllowDrop="True"
+                   RightTapped="RotateShape"
+                   >
+                <Image.RenderTransform>
+                    <RotateTransform x:Name="RotateImage18"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image Source="Concentration\shapeAsset 19.png"
+                   Grid.Row="3"
+                   Grid.Column="3"
+                   Width="140"
+                   Height="140"
+                   CanDrag="True"
+                   AllowDrop="True"
+                   RightTapped="RotateShape"
+                   >
+                <Image.RenderTransform>
+                    <RotateTransform x:Name="RotateImage19"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image Source="Concentration\shapeAsset 20.png"
+                   Grid.Row="3"
+                   Grid.Column="4"
+                   Width="140"
+                   Height="140"
+                   CanDrag="True"
+                   AllowDrop="True"
+                   RightTapped="RotateShape"
+                   >
+                <Image.RenderTransform>
+                    <RotateTransform x:Name="RotateImage20"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image Source="Concentration\shapeAsset 21.png"
+                   Grid.Row="4"
+                   Width="140"
+                   Height="140"
+                   CanDrag="True"
+                   AllowDrop="True"
+                   RightTapped="RotateShape"
+                   >
+                <Image.RenderTransform>
+                    <RotateTransform x:Name="RotateImage21"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image Source="Concentration\shapeAsset 22.png"
+                   Grid.Row="4"
+                   Grid.Column="1"
+                   Width="140"
+                   Height="140"
+                   CanDrag="True"
+                   AllowDrop="True"
+                   RightTapped="RotateShape"
+                   >
+                <Image.RenderTransform>
+                    <RotateTransform x:Name="RotateImage22"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image Source="Concentration\shapeAsset 23.png"
+                   Grid.Row="4"
+                   Grid.Column="2"
+                   Width="140"
+                   Height="140"
+                   CanDrag="True"
+                   AllowDrop="True"
+                   RightTapped="RotateShape"
+                   >
+                <Image.RenderTransform>
+                    <RotateTransform x:Name="RotateImage23"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image Source="Concentration\shapeAsset 24.png"
+                   Grid.Row="4"
+                   Grid.Column="3"
+                   Width="140"
+                   Height="140"
+                   CanDrag="True"
+                   AllowDrop="True"
+                   RightTapped="RotateShape"
+                   >
+                <Image.RenderTransform>
+                    <RotateTransform x:Name="RotateImage24"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image Source="Concentration\shapeAsset 25.png"
+                   Grid.Row="4"
+                   Grid.Column="5"
+                   Width="140"
+                   Height="140"
+                   CanDrag="True"
+                   AllowDrop="True"
+                   RightTapped="RotateShape"
+                   >
+                <Image.RenderTransform>
+                    <RotateTransform x:Name="RotateImage25"/>
+                </Image.RenderTransform>
+            </Image>
+        </Grid>
+
+    </Grid>
+</Page>
