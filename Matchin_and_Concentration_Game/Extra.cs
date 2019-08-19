@@ -147,7 +147,7 @@ namespace MatchingGame
             if (pic.Image == firtmagen.Image && pic != firtmagen)
             {
                 scores++;
-                score.Text = "score: " + scores.ToString();
+                score.Text = " matchings: " + scores.ToString();
 
                 pic.Visible = firtmagen.Visible = false;
                 {

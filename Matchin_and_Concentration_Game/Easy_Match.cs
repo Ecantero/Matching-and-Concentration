@@ -20,6 +20,7 @@ namespace MatchingGame
         bool canClick = false;
         PictureBox firtmagen;
         int scores = 0;
+        TextBox textBox = new System.Windows.Forms.TextBox();
 
         private PictureBox[] pictureBox
         {
@@ -45,6 +46,35 @@ namespace MatchingGame
         public Easy_Match()
         {
             InitializeComponent();
+        }
+
+        private int NumOfPlayers()
+        {
+            int numberPlayer = 0;
+            string playerName = "";
+
+            while (numberPlayer <= 0)
+            {
+                try
+                {
+                    numberPlayer = Int32.Parse(TextBox.ReflectMessage(2, "Please enter the number of player: ", "Please enter the number of player: "));
+                }
+                catch (FormatException)
+                {
+                    numberPlayer = 0;
+                }
+
+                for (int i = 0; i < numberPlayer; i++)
+                {
+                    playerName = MessageBox.Show("Please enter the player name: ", "Name", );
+
+                    if (string.IsNullOrEmpty(playerName))
+                    {
+                        playerName = "Player " + i;
+                    }
+                }
+            }
+            return numberPlayer;
         }
 
         private void Time()
@@ -142,7 +172,7 @@ namespace MatchingGame
             if (pic.Image == firtmagen.Image && pic != firtmagen)
             {
                 scores++;
-                score.Text = "score: " + scores.ToString();
+                score.Text = " matchings: " + scores.ToString();
 
                 pic.Visible = firtmagen.Visible = false;
                 {
