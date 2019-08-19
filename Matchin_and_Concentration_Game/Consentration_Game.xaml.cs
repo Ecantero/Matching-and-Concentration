@@ -199,7 +199,7 @@ namespace Matchin_Game
             StorageFolder saveFile = ApplicationData.Current.LocalFolder;
             StorageFile readFile = await saveFile.GetFileAsync("LeaderBoard.txt");
             fileContent = await FileIO.ReadTextAsync(readFile);
-
+           
         }
 
         public async Task<bool> CheckFileExists()
@@ -249,7 +249,8 @@ namespace Matchin_Game
             {
                 await ReadFile();
             }
-        }
+
+            
 
         private void ConcentrationGrid_DragEnter(object sender, DragEventArgs e)
         {
