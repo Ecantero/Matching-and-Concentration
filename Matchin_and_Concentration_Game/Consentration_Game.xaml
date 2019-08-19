@@ -19,13 +19,6 @@
             <RowDefinition Height="100"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <!--<StackPanel x:Name="grid1"
-                    Grid.Column="0"
-                    Grid.ColumnSpan="2"
-                    Grid.RowSpan="2">
-            <Image x:Name="shape"
-                   Source="Concentration/shapeAsset 1.png"/>
-        </StackPanel>-->
         <Button x:Name="MainMenu"
                 Content="Back to Main Menu"
                 Width="200"
@@ -56,10 +49,7 @@
                 Grid.Row="1"
                 Margin="0, 400, 0, 0"
                 Click="Hard_Click"/>
-        <Grid x:Name="ConcentrationGrid"
-              Grid.ColumnSpan="2"
-              Grid.RowSpan="2"
-        <TextBox x:Name="PlayerName" Visibility="Collapsed" />
+        <TextBox x:Name="PlayerName" Visibility="Collapsed"/>
         <Grid x:Name="LeaderBoardGrid" Visibility="Collapsed" Grid.Column="0">
             <Grid.RowDefinitions>
                 <RowDefinition/>
@@ -88,6 +78,8 @@
         </Grid>
         <Grid x:Name="ConcentrationGrid"
               Grid.Column="0"
+              Grid.ColumnSpan="2"
+              Grid.RowSpan="2"
               BorderThickness="10"
               BorderBrush="AntiqueWhite"
               Visibility="Collapsed">
@@ -654,6 +646,5 @@
                 </Image.RenderTransform>
             </Image>
         </Grid>
-
     </Grid>
 </Page>
