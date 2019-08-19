@@ -10,12 +10,12 @@ using System.Windows.Forms;
 
 namespace MatchingGame
 {
-    public partial class Easy_Match : Form
+    public partial class Extra : Form
     {
 
         Random rng = new Random();
-        Timer startTime = new Timer();
-        int time = 2 * 60;
+        Timer startTimer = new Timer();
+        int time = 20 * 60;
         Timer timer = new Timer { Interval = 1000 };
         bool canClick = false;
         PictureBox firtmagen;
@@ -32,17 +32,23 @@ namespace MatchingGame
             {
                 return new Image[]
                  {
-                    Properties.Resources.AD,
-                    Properties.Resources.KH,
-                    Properties.Resources._3S,
-                    Properties.Resources._5C,
-                    Properties.Resources._6D,
-                    Properties.Resources._7H,
-                    Properties.Resources._9S
+                    Properties.Resources.AC, Properties.Resources.AD, Properties.Resources.AH, Properties.Resources.AS,
+                    Properties.Resources.JC, Properties.Resources.JD, Properties.Resources.JH, Properties.Resources.JS,
+                    Properties.Resources.KC, Properties.Resources.KD, Properties.Resources.KH, Properties.Resources.KS,
+                    Properties.Resources.QC, Properties.Resources.QD, Properties.Resources.QH, Properties.Resources.QS,
+                    Properties.Resources._2C, Properties.Resources._2D, Properties.Resources._2H, Properties.Resources._2S,
+                    Properties.Resources._3C, Properties.Resources._3D, Properties.Resources._3H, Properties.Resources._3S,
+                    Properties.Resources._4C, Properties.Resources._4D, Properties.Resources._4H, Properties.Resources._4S,
+                    Properties.Resources._5C, Properties.Resources._5D, Properties.Resources._5H, Properties.Resources._5S,
+                    Properties.Resources._6C, Properties.Resources._6D, Properties.Resources._6H, Properties.Resources._6S,
+                    Properties.Resources._7C, Properties.Resources._7D, Properties.Resources._7H, Properties.Resources._7S,
+                    Properties.Resources._8C, Properties.Resources._8D, Properties.Resources._8H, Properties.Resources._8S,
+                    Properties.Resources._9C, Properties.Resources._9D, Properties.Resources._9H, Properties.Resources._9S,
+                    Properties.Resources._10C, Properties.Resources._10D, Properties.Resources._10H, Properties.Resources._10S
                  };
             }
         }
-        public Easy_Match()
+        public Extra()
         {
             InitializeComponent();
         }
@@ -63,12 +69,11 @@ namespace MatchingGame
                     }
                     else if (tm == DialogResult.No)
                     {
-                        timer.Stop();
                         Application.Exit();
+                        timer.Stop();
                     }
                 }
                 lbl.Text = (time / 60).ToString("00") + ":" + (time % 60).ToString("00");
-                
             };
         }
 
@@ -82,7 +87,7 @@ namespace MatchingGame
 
             HideImages();
             setRandomImages();
-            time = 2 * 60;
+            time = 20 * 60;
             timer.Start();
         }
 
@@ -120,7 +125,7 @@ namespace MatchingGame
 
             canClick = true;
 
-            startTime.Stop();
+            startTimer.Stop();
         }
 
         private void Click_Imagen(object sender, EventArgs e)
@@ -154,7 +159,7 @@ namespace MatchingGame
             else
             {
                 canClick = false;
-                startTime.Start();
+                startTimer.Start();
             }
 
             firtmagen = null;
@@ -169,8 +174,8 @@ namespace MatchingGame
             }
             else if (newGame == DialogResult.No)
             {
-                timer.Stop();
                 Application.Exit();
+                timer.Stop();
             }
         }
 
@@ -180,18 +185,18 @@ namespace MatchingGame
             setRandomImages();
             HideImages();
             Time();
-            startTime.Interval = 1000;
-            startTime.Tick += StartTime;
+            startTimer.Interval = 1000;
+            startTimer.Tick += StartTime;
             button1.Enabled = false;
         }
 
-        private void Easy_Match_FormClosing(object sender, FormClosingEventArgs e)
+        private void Extra_FormClosing(object sender, FormClosingEventArgs e)
         {
             DialogResult exit = MessageBox.Show("Are you sure that you want to live of the game?", "Exit", MessageBoxButtons.YesNo);
             if (exit == DialogResult.Yes)
             {
-                timer.Stop();
                 Application.Exit();
+                timer.Stop();
             }
             else if (exit == DialogResult.No)
             {
@@ -205,10 +210,6 @@ namespace MatchingGame
             if (newGame == DialogResult.Yes)
             {
                 RestImages();
-            }
-            else
-            {
-                timer.Stop();
             }
         }
     }

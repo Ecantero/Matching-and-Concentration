@@ -8,16 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsFormsApp1
+namespace MatchingGame
 {
     public partial class Medium_Match : Form
     {
-        bool allowClick = false;
-        PictureBox firtGuess;
+
         Random rng = new Random();
-        Timer clickTimer = new Timer();
-        int time = 500;
+        Timer startTime = new Timer();
+        int time = 5 * 60;
         Timer timer = new Timer { Interval = 1000 };
+        bool canClick = false;
+        PictureBox firtmagen;
+        int scores = 0;
 
         private PictureBox[] pictureBox
         {
@@ -30,22 +32,23 @@ namespace WindowsFormsApp1
             {
                 return new Image[]
                  {
-                    MatchingGame.Properties.Resources.AC,
-                    MatchingGame.Properties.Resources.JD,
-                    MatchingGame.Properties.Resources.KH,
-                    MatchingGame.Properties.Resources.QS,
-                    MatchingGame.Properties.Resources._2C,
-                    MatchingGame.Properties.Resources._3D,
-                    MatchingGame.Properties.Resources._4H,
-                    MatchingGame.Properties.Resources._5S,
-                    MatchingGame.Properties.Resources._6C,
-                    MatchingGame.Properties.Resources._7D,
-                    MatchingGame.Properties.Resources._8H,
-                    MatchingGame.Properties.Resources._9S,
-                    MatchingGame.Properties.Resources._10C, MatchingGame.Properties.Resources._10S
+                    Properties.Resources.AC,
+                    Properties.Resources.JD,
+                    Properties.Resources.KH,
+                    Properties.Resources.QS,
+                    Properties.Resources._2C,
+                    Properties.Resources._3D,
+                    Properties.Resources._4H,
+                    Properties.Resources._5S,
+                    Properties.Resources._6C,
+                    Properties.Resources._7D,
+                    Properties.Resources._8H,
+                    Properties.Resources._9S,
+                    Properties.Resources._10C, Properties.Resources._10S
                  };
             }
         }
+
         public Medium_Match()
         {
             InitializeComponent();
@@ -60,15 +63,20 @@ namespace WindowsFormsApp1
                 if (time < 0)
                 {
                     timer.Stop();
-                    MessageBox.Show("Out of time");
-                    RestImages();
+                    DialogResult tm = MessageBox.Show("Bad news you don't have more time!!! Dou you want to try again", "Time", MessageBoxButtons.YesNo);
+                    if (tm == DialogResult.Yes)
+                    {
+                        RestImages();
+                    }
+                    else if (tm == DialogResult.No)
+                    {
+                        Application.Exit();
+                        timer.Stop();
+                    }
                 }
-
-                var ssTime = TimeSpan.FromMinutes(time);
-                lbl.Text = " " + time.ToString();
+                lbl.Text = (time / 60).ToString("00") + ":" + (time % 60).ToString("00");
             };
         }
-
 
         private void RestImages()
         {
@@ -80,7 +88,7 @@ namespace WindowsFormsApp1
 
             HideImages();
             setRandomImages();
-            time = 500;
+            time = 5 * 60;
             timer.Start();
         }
 
@@ -88,7 +96,7 @@ namespace WindowsFormsApp1
         {
             foreach (var pic in pictureBox)
             {
-                pic.Image = MatchingGame.Properties.Resources.gray_back;
+                pic.Image = Properties.Resources.gray_back;
             }
         }
 
@@ -112,61 +120,98 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void ClickTimer(object sender, EventArgs e)
+        private void StartTime(object sender, EventArgs e)
         {
             HideImages();
 
-            allowClick = true;
+            canClick = true;
 
-            clickTimer.Stop();
+            startTime.Stop();
         }
 
         private void Click_Imagen(object sender, EventArgs e)
         {
-            if (!allowClick) return;
+            if (!canClick)
+            {
+                return;
+            }
 
             var pic = (PictureBox)sender;
-            if (firtGuess == null)
+            if (firtmagen == null)
             {
-                firtGuess = pic;
+                firtmagen = pic;
                 pic.Image = (Image)pic.Tag;
                 return;
             }
             pic.Image = (Image)pic.Tag;
 
-            if (pic.Image == firtGuess.Image && pic != firtGuess)
+            if (pic.Image == firtmagen.Image && pic != firtmagen)
             {
-                pic.Visible = firtGuess.Visible = false;
+                scores++;
+                score.Text = "score: " + scores.ToString();
+
+                pic.Visible = firtmagen.Visible = false;
                 {
-                    firtGuess = pic;
+                    firtmagen = pic;
                 }
 
                 HideImages();
             }
             else
             {
-                allowClick = false;
-                clickTimer.Start();
+                canClick = false;
+                startTime.Start();
             }
 
-            firtGuess = null;
-            if (pictureBox.Any(i => i.Visible)) return;
-            MessageBox.Show("You win now try again");
-            RestImages();
+            firtmagen = null;
+            if (pictureBox.Any(i => i.Visible))
+            {
+                return;
+            }
+            DialogResult newGame = MessageBox.Show("!Gongratulation you win!!! Do you want to play a new game?", "New Game", MessageBoxButtons.YesNo);
+            if (newGame == DialogResult.Yes)
+            {
+                RestImages();
+            }
+            else if (newGame == DialogResult.No)
+            {
+                Application.Exit();
+                timer.Stop();
+            }
         }
-
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            allowClick = true;
+            canClick = true;
             setRandomImages();
             HideImages();
             Time();
-            clickTimer.Interval = 1000;
-            clickTimer.Tick += ClickTimer;
+            startTime.Interval = 1000;
+            startTime.Tick += StartTime;
             button1.Enabled = false;
         }
 
-    }
+        private void Medium_Match_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult exit = MessageBox.Show("Are you sure that you want to live of the game?", "Exit", MessageBoxButtons.YesNo);
+            if (exit == DialogResult.Yes)
+            {
+                Application.Exit();
+                timer.Stop();
+            }
+            else if (exit == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
+        }
 
+        private void Button2_Click(object sender, EventArgs e)
+        {
+            DialogResult newGame = MessageBox.Show("Are you shore that you want leave this game and start another game?", "New Game", MessageBoxButtons.YesNo);
+            if (newGame == DialogResult.Yes)
+            {
+                RestImages();
+            }
+        }
+    }
 }
