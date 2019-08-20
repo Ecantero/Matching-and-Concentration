@@ -25,28 +25,15 @@ namespace MatchingGame
             InitializeComponent();
         }
 
-        private void Easy_Click(object sender, RoutedEventArgs e)
+        private void Concetration_Click(object sender, RoutedEventArgs e)
         {
-            Easy_Match easy_Match = new Easy_Match();
-            easy_Match.Show();
+           
         }
 
-        private void Medium_Click(object sender, RoutedEventArgs e)
+        private void MatchingGame_Click(object sender, RoutedEventArgs e)
         {
-            Medium_Match medium_Match = new Medium_Match();
-            medium_Match.Show();
-        }
-
-        private void Hard_Click(object sender, RoutedEventArgs e)
-        {
-            Hard_Match hard_Match = new Hard_Match();
-            hard_Match.Show();
-        }
-
-        private void Extra_Click(object sender, RoutedEventArgs e)
-        {
-            Extra extra = new Extra();
-            extra.Show();
+            MatchingGame_Difficulty mgd = new MatchingGame_Difficulty();
+            mgd.Show();
         }
     }
 }
