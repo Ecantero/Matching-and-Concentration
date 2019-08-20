@@ -8,36 +8,25 @@
         Title="Matching_Game" Height="520" Width="450">
 
     <Grid>
-        <Rectangle Fill="Beige"/>
-        
-        <Button x:Name="Easy"
-                  Click="Easy_Click"
-                  Content="Easy"
-                  Height="69"
-                  FontSize="50"
-                  VerticalAlignment="Top" 
-                  Margin="110,19,109.6,0"/>
-        <Button x:Name="Medium"
-                  Click="Medium_Click"
-                  Content="Medium"
-                  Height="79"
-                  FontSize="50"
-                  HorizontalAlignment="Center"
-                  Margin="96,113,93.6,0"
-                  VerticalAlignment="Top" 
-                  Width="204"/>
-        <Button x:Name="Hard"
-                  Click="Hard_Click"
-                  Content="Hard"
-                  Height="66"
-                  FontSize="50"
-                  VerticalAlignment="Top" 
-                  Margin="110,211,121.6,0"/>
-        <Button x:Name="Extra"
-                Click="Extra_Click"
-                Content="Extra Hard"
-                Height="66"
-                FontSize="50" 
-                Margin="78,307,77.6,92.6"/>
+
+        <Rectangle Fill="Bisque"/>
+
+        <Button x:Name="MatchingGame"
+                Click="MatchingGame_Click"
+                Content="Matching Game"
+                VerticalAlignment="Top"
+                Margin="111,121,107.2,0" 
+                Height="59"
+                FontSize="30"/>
+
+
+        <Button x:Name="Concetration"
+                Click="Concetration_Click"
+                Content="Concentration Game" 
+                VerticalAlignment="Bottom" 
+                Margin="69,0,78.2,188.4" 
+                Height="55"
+                FontSize="30"/>
+
     </Grid>
 </Window>
