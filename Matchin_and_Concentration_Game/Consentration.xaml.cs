@@ -1,37 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using System.Threading;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Media.Imaging;
-using Windows.UI.Xaml.Navigation;
-using System.Numerics;
-using Windows.ApplicationModel.DataTransfer;
-using Windows.Storage;
-using Windows.Storage;
+using System.Text;
 using System.Threading.Tasks;
-using System.Runtime.Serialization;
-using System.Windows.Threading;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
 
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
-
-namespace Matchin_Game
+namespace MatchingGame
 {
     /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
+    /// Interaction logic for Consentration.xaml
     /// </summary>
-    public sealed partial class BlankPage1 : Page
+    public partial class Consentration : Window
     {
+
         public DispatcherTimer timer = new DispatcherTimer();
         public int time;
         public string fileContent;
@@ -40,9 +28,9 @@ namespace Matchin_Game
         public int[] LeaderBoardTimes = new Int32[10];
         private List<Image> images = new List<Image>();
 
-        public BlankPage1()
+        public Consentration()
         {
-            this.InitializeComponent();
+            InitializeComponent();
 
             //showLeaderBoard();
             //CreateFile();
@@ -282,7 +270,7 @@ namespace Matchin_Game
             }
         }
 
-        
+
 
 
         //private void ConcentrationGrid_DragStarting(UIElement sender, DragStartingEventArgs args)
@@ -340,9 +328,5 @@ namespace Matchin_Game
                 }
             }
         }
-
-
-
     }
-
 }

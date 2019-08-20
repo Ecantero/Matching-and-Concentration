@@ -57,9 +57,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Concentration.xaml.cs">
-      <DependentUpon>Concentration.xaml</DependentUpon>
-    </Compile>
+    <Page Include="Consentration.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -67,6 +68,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Consentration.xaml.cs">
+      <DependentUpon>Consentration.xaml</DependentUpon>
     </Compile>
     <Compile Include="Easy_Match.cs">
       <SubType>Form</SubType>
@@ -91,10 +95,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="MatchingGame_Difficulty.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Concentration.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -307,9 +307,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\matching.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\concentration.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\perfection.jpg" />

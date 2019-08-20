@@ -27,7 +27,8 @@ namespace MatchingGame
 
         private void Concetration_Click(object sender, RoutedEventArgs e)
         {
-           
+            Consentration constrt = new Consentration();
+            constrt.Show();
         }
 
         private void MatchingGame_Click(object sender, RoutedEventArgs e)
