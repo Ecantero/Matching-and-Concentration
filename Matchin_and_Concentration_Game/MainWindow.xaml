@@ -19,7 +19,6 @@
                 Height="59"
                 FontSize="30"/>
 
-
         <Button x:Name="Concetration"
                 Click="Concetration_Click"
                 Content="Concentration Game" 
