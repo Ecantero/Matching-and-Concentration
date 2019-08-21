@@ -33,8 +33,8 @@ namespace MatchingGame
 
         private void MatchingGame_Click(object sender, RoutedEventArgs e)
         {
-            MatchingGame_Difficulty mgd = new MatchingGame_Difficulty();
-            mgd.Show();
+            MatchingGame_Difficulty mg = new MatchingGame_Difficulty();
+            mg.Show();
         }
     }
 }

@@ -48,36 +48,6 @@ namespace MatchingGame
             InitializeComponent();
         }
 
-        //private int NumOfPlayers()
-        //{
-        //    int numberPlayer = 0;
-        //    string playerName = "";
-
-        //    while (numberPlayer <= 0)
-        //    {
-        //        try
-        //        {
-        //            numberPlayer = Int32.Parse(TextBox.("Please enter the number of player: "));
-        //        }
-        //        catch (FormatException)
-        //        {
-        //            numberPlayer = 0;
-        //        }
-
-        //        for (int i = 0; i < numberPlayer; i++)
-        //        {
-        //            playerName = MessageBox.Show("Please enter the player name: ", "Name", );
-
-        //            if (string.IsNullOrEmpty(playerName))
-        //            {
-        //                scores++;
-        //                score .Text= "Player " + i + " matchings: " + scores.ToString();
-        //            }
-        //        }
-        //    }
-        //    return numberPlayer;
-        //}
-
         private void Time()
         {
             timer.Start();

@@ -21,7 +21,8 @@
                Height="284" 
                VerticalAlignment="Top" 
                Width="286" 
-               Source="pack://siteoforigin:,,,/Resources/matching.jpg" Margin="18,10,0,0"/>
+               Source="pack://siteoforigin:,,,/Resources/matching.jpg" 
+               Margin="18,10,0,0"/>
 
         <Button x:Name="MatchingGame"
                 Click="MatchingGame_Click"
@@ -34,8 +35,10 @@
         <Image HorizontalAlignment="Left" 
                Height="299" 
                VerticalAlignment="Top" 
-               Width="244" Margin="9.2,0,0,0" 
-               Source="pack://siteoforigin:,,,/Resources/perfection.jpg" Grid.Column="1"/>
+               Width="244" 
+               Margin="9.2,0,0,0" 
+               Source="pack://siteoforigin:,,,/Resources/perfection.jpg" 
+               Grid.Column="1"/>
 
         <Button x:Name="Concetration"
                 Click="Concetration_Click"
