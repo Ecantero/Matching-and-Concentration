@@ -130,9 +130,6 @@
   <data name="AS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\AS.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="concentration" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\concentration.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="gray_back" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\gray_back.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -159,12 +156,6 @@
   </data>
   <data name="KS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\KS.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="matching" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\matching.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="perfection" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\perfection.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="QC" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\QC.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

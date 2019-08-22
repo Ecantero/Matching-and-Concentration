@@ -305,11 +305,14 @@
   <ItemGroup>
     <None Include="Resources\QS.png" />
   </ItemGroup>
+<<<<<<< HEAD
   <ItemGroup>
     <None Include="Resources\matching.jpg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\perfection.jpg" />
   </ItemGroup>
+=======
+>>>>>>> parent of 508cee9... Menu
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

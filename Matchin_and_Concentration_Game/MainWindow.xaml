@@ -5,14 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MatchingGame"
         mc:Ignorable="d"
-        Title="Matching_Game" Height="425.6" Width="639">
+        Title="Matching_Game" Height="520" Width="450">
 
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="109*"/>
-            <ColumnDefinition Width="102*"/>
-        </Grid.ColumnDefinitions>
 
+<<<<<<< HEAD
         <Rectangle Fill="AliceBlue" 
                    Grid.ColumnSpan="2" 
                    Margin="0,0,-0.2,0"/>
@@ -23,11 +20,15 @@
                Width="286" 
                Source="pack://siteoforigin:,,,/Resources/matching.jpg" 
                Margin="18,10,0,0"/>
+=======
+        <Rectangle Fill="Bisque"/>
+>>>>>>> parent of 508cee9... Menu
 
         <Button x:Name="MatchingGame"
                 Click="MatchingGame_Click"
                 Content="Matching Game"
                 VerticalAlignment="Top"
+<<<<<<< HEAD
                 Margin="27,313,41.8,0" 
                 Height="52"
                 FontSize="25"/>
@@ -39,14 +40,19 @@
                Margin="9.2,0,0,0" 
                Source="pack://siteoforigin:,,,/Resources/perfection.jpg" 
                Grid.Column="1"/>
+=======
+                Margin="111,121,107.2,0" 
+                Height="59"
+                FontSize="30"/>
+>>>>>>> parent of 508cee9... Menu
 
         <Button x:Name="Concetration"
                 Click="Concetration_Click"
                 Content="Concentration Game" 
                 VerticalAlignment="Bottom" 
-                Margin="9.2,0,29.8,31" 
-                Height="52"
-                FontSize="25" 
-                Grid.Column="1"/>
+                Margin="69,0,78.2,188.4" 
+                Height="55"
+                FontSize="30"/>
+
     </Grid>
 </Window>
