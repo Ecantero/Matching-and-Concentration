@@ -62,10 +62,8 @@
       <DependentUpon>HowManyPlayers.xaml</DependentUpon>
     </Compile>
     <Compile Include="Player.cs" />
-    <Compile Include="Window1.xaml.cs">
-      <DependentUpon>Window1.xaml</DependentUpon>
-    </Compile>
-    <Page Include="Consentration.xaml"></Page>
+    <Page Include="Consentration.xaml">
+    </Page>
     <Page Include="Concentration_Game.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -111,7 +109,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Window1.xaml">
+    <Page Include="PlayerCreation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -125,6 +123,9 @@
     </Compile>
     <Compile Include="Medium_Match.Designer.cs">
       <DependentUpon>Medium_Match.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PlayerCreation.xaml.cs">
+      <DependentUpon>PlayerCreation.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

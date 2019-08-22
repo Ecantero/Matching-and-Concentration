@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace MatchingGame
 {
     /// <summary>
-    /// Interaction logic for Window1.xaml
+    /// Interaction logic for PlayerCreation.xaml
     /// </summary>
-    public partial class Window1 : Window
+    public partial class PlayerCreation : Window
     {
-        public Window1()
+        public PlayerCreation()
         {
             InitializeComponent();
         }
