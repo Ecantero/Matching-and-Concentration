@@ -23,5 +23,11 @@ namespace MatchingGame
         {
             InitializeComponent();
         }
+
+        private void SubmitNameOfPlayers_Click(object sender, RoutedEventArgs e)
+        {
+            String name = Name.Text;
+            currentPlayer = new Player(name);
+        }
     }
 }
