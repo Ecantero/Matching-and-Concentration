@@ -130,9 +130,6 @@
   <data name="AS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\AS.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="concentration" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\concentration.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="gray_back" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\gray_back.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -177,6 +174,81 @@
   </data>
   <data name="QS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\QS.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="shapeAsset_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Concentration\shapeAsset 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="shapeAsset_10" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Concentration\shapeAsset 10.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="shapeAsset_11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Concentration\shapeAsset 11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="shapeAsset_12" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Concentration\shapeAsset 12.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="shapeAsset_13" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Concentration\shapeAsset 13.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="shapeAsset_14" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Concentration\shapeAsset 14.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="shapeAsset_15" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Concentration\shapeAsset 15.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="shapeAsset_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Concentration\shapeAsset 16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="shapeAsset_17" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Concentration\shapeAsset 17.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="shapeAsset_18" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Concentration\shapeAsset 18.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="shapeAsset_19" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Concentration\shapeAsset 19.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="shapeAsset_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Concentration\shapeAsset 2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="shapeAsset_20" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Concentration\shapeAsset 20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="shapeAsset_21" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Concentration\shapeAsset 21.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="shapeAsset_22" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Concentration\shapeAsset 22.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="shapeAsset_23" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Concentration\shapeAsset 23.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="shapeAsset_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Concentration\shapeAsset 24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="shapeAsset_25" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Concentration\shapeAsset 25.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="shapeAsset_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Concentration\shapeAsset 3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="shapeAsset_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Concentration\shapeAsset 4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="shapeAsset_5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Concentration\shapeAsset 5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="shapeAsset_6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Concentration\shapeAsset 6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="shapeAsset_7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Concentration\shapeAsset 7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="shapeAsset_8" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Concentration\shapeAsset 8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="shapeAsset_9" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Concentration\shapeAsset 9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="_10C" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\10C.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

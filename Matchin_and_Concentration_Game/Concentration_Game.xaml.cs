@@ -183,34 +183,6 @@ namespace MatchingGame
             FillLeaderBoard();
         }
 
-        public async void CreateFile()
-        {
-            //StorageFolder saveFile = ApplicationData.Current.LocalFolder;
-            //StorageFile createFile = await saveFile.CreateFileAsync("LeaderBoard.txt", CreationCollisionOption.ReplaceExisting);
-        }
-
-        public async void WriteFile(string saveText)
-        {
-            //    StorageFolder saveFile = ApplicationData.Current.LocalFolder;
-            //    StorageFile writeFile = await saveFile.GetFileAsync("LeaderBoard.txt");
-            //    await FileIO.WriteTextAsync(writeFile, saveText);
-        }
-
-        public async Task ReadFile()
-        {
-            //StorageFolder saveFile = ApplicationData.Current.LocalFolder;
-            //StorageFile readFile = await saveFile.GetFileAsync("LeaderBoard.txt");
-            //fileContent = await FileIO.ReadTextAsync(readFile);
-
-        }
-
-        public async Task<bool> CheckFileExists()
-        {
-            //StorageFolder saveFile = ApplicationData.Current.LocalFolder;
-            //var checkFile = await saveFile.TryGetItemAsync("LeaderBoard.txt");
-            //bool fileExists = checkFile != null;
-            return true;
-        }
 
         //private void TimerStart_Tapped(object sender, TappedRoutedEventArgs e)
         //{
@@ -236,17 +208,17 @@ namespace MatchingGame
 
         public async void SaveLeaderBoard()
         {
-            bool fileExists = await CheckFileExists();
+            //bool fileExists = await CheckFileExists();
 
-            if (!fileExists)
-            {
-                CreateFile();
-                await ReadFile();
-            }
-            else
-            {
-                await ReadFile();
-            }
+            //if (!fileExists)
+            //{
+            //    CreateFile();
+            //    await ReadFile();
+            //}
+            //else
+            //{
+            //    await ReadFile();
+            //}
         }
 
 
@@ -258,7 +230,6 @@ namespace MatchingGame
         //save file writen as -> name:time,
         public async void FillLeaderBoard()
         {
-            await ReadFile();
             leaderBoardMemebers = fileContent.Split();
             int memberTime;
             foreach (string memeber in leaderBoardMemebers)
