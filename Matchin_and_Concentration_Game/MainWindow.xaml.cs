@@ -27,14 +27,16 @@ namespace MatchingGame
 
         private void Concetration_Click(object sender, RoutedEventArgs e)
         {
-            Consentration constrt = new Consentration();
-            constrt.Show();
+            Concentration_Game concentration_Game = new Concentration_Game();
+            concentration_Game.Show();
+            Close();
         }
 
         private void MatchingGame_Click(object sender, RoutedEventArgs e)
         {
-            MatchingGame_Difficulty mg = new MatchingGame_Difficulty();
-            mg.Show();
+            MatchingGame_Difficulty mgd = new MatchingGame_Difficulty();
+            mgd.Show();
+            Close();
         }
     }
 }

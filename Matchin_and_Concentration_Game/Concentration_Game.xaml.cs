@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -11,15 +12,15 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace MatchingGame
 {
     /// <summary>
-    /// Interaction logic for Consentration.xaml
+    /// Interaction logic for Concentration_Game.xaml
     /// </summary>
-    public partial class Consentration : Window
+    public partial class Concentration_Game : Window
     {
-
         public DispatcherTimer timer = new DispatcherTimer();
         public int time;
         public string fileContent;
@@ -27,13 +28,13 @@ namespace MatchingGame
         public string[] leaderBoardNames = new string[10];
         public int[] LeaderBoardTimes = new Int32[10];
         private List<Image> images = new List<Image>();
-
-        public Consentration()
+        public Concentration_Game()
         {
             InitializeComponent();
-
-            //showLeaderBoard();
-            //CreateFile();
+        }
+        private void MainMenu_Click(object sender, RoutedEventArgs e)
+        {
+            //this.Frame.Navigate(typeof(MainMenu));
         }
 
         public void FillGrid()
@@ -130,7 +131,7 @@ namespace MatchingGame
         }
 
         public RotateTransform rotation = new RotateTransform();
-        public void RotateShape(object sender, RightTappedRoutedEventArgs e)
+        private void Image_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
             Image rotateImage = sender as Image;
 
@@ -154,7 +155,10 @@ namespace MatchingGame
             {
                 rotation.Angle = 0;
             }
+
         }
+
+
 
         public void ValidateShape()
         {
@@ -181,41 +185,41 @@ namespace MatchingGame
 
         public async void CreateFile()
         {
-            StorageFolder saveFile = ApplicationData.Current.LocalFolder;
-            StorageFile createFile = await saveFile.CreateFileAsync("LeaderBoard.txt", CreationCollisionOption.ReplaceExisting);
+            //StorageFolder saveFile = ApplicationData.Current.LocalFolder;
+            //StorageFile createFile = await saveFile.CreateFileAsync("LeaderBoard.txt", CreationCollisionOption.ReplaceExisting);
         }
 
         public async void WriteFile(string saveText)
         {
-            StorageFolder saveFile = ApplicationData.Current.LocalFolder;
-            StorageFile writeFile = await saveFile.GetFileAsync("LeaderBoard.txt");
-            await FileIO.WriteTextAsync(writeFile, saveText);
+            //    StorageFolder saveFile = ApplicationData.Current.LocalFolder;
+            //    StorageFile writeFile = await saveFile.GetFileAsync("LeaderBoard.txt");
+            //    await FileIO.WriteTextAsync(writeFile, saveText);
         }
 
         public async Task ReadFile()
         {
-            StorageFolder saveFile = ApplicationData.Current.LocalFolder;
-            StorageFile readFile = await saveFile.GetFileAsync("LeaderBoard.txt");
-            fileContent = await FileIO.ReadTextAsync(readFile);
+            //StorageFolder saveFile = ApplicationData.Current.LocalFolder;
+            //StorageFile readFile = await saveFile.GetFileAsync("LeaderBoard.txt");
+            //fileContent = await FileIO.ReadTextAsync(readFile);
 
         }
 
         public async Task<bool> CheckFileExists()
         {
-            StorageFolder saveFile = ApplicationData.Current.LocalFolder;
-            var checkFile = await saveFile.TryGetItemAsync("LeaderBoard.txt");
-            bool fileExists = checkFile != null;
-            return fileExists;
+            //StorageFolder saveFile = ApplicationData.Current.LocalFolder;
+            //var checkFile = await saveFile.TryGetItemAsync("LeaderBoard.txt");
+            //bool fileExists = checkFile != null;
+            return true;
         }
 
-        private void TimerStart_Tapped(object sender, TappedRoutedEventArgs e)
-        {
+        //private void TimerStart_Tapped(object sender, TappedRoutedEventArgs e)
+        //{
 
-        }
+        //}
 
         private void ConcentrationGrid_DragOver(object sender, DragEventArgs e)
         {
-            e.AcceptedOperation = DataPackageOperation.Move;
+            e.Effects = DragDropEffects.Move;
         }
 
         private void ConcentrationGrid_Drop(object sender, DragEventArgs e)
@@ -224,10 +228,6 @@ namespace MatchingGame
 
         }
 
-        private void MainMenu_Click(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(MainMenu));
-        }
         public void showLeaderBoard()
         {
             ConcentrationGrid.Visibility = Visibility.Collapsed;
@@ -253,30 +253,23 @@ namespace MatchingGame
 
         private void ConcentrationGrid_DragEnter(object sender, DragEventArgs e)
         {
-            e.DragUIOverride.Clear();
+
         }
         //save file writen as -> name:time,
         public async void FillLeaderBoard()
         {
             await ReadFile();
-            leaderBoardMemebers = fileContent.Split(",");
+            leaderBoardMemebers = fileContent.Split();
             int memberTime;
             foreach (string memeber in leaderBoardMemebers)
             {
-                string[] memberData = memeber.Split(":");
+                string[] memberData = memeber.Split();
                 Int32.TryParse(memberData[1], out memberTime);
                 leaderBoardNames.Append(memberData[0]);
                 LeaderBoardTimes.Append(memberTime);
             }
         }
 
-
-
-
-        //private void ConcentrationGrid_DragStarting(UIElement sender, DragStartingEventArgs args)
-        //{
-
-        //}
     }
 
 
@@ -328,5 +321,8 @@ namespace MatchingGame
                 }
             }
         }
+
+
+
     }
 }

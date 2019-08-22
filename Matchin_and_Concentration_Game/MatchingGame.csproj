@@ -38,6 +38,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -64,7 +65,8 @@
     <Compile Include="Window1.xaml.cs">
       <DependentUpon>Window1.xaml</DependentUpon>
     </Compile>
-    <Page Include="Consentration.xaml">
+    <Page Include="Consentration.xaml"></Page>
+    <Page Include="Concentration_Game.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -80,8 +82,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Consentration.xaml.cs">
-      <DependentUpon>Consentration.xaml</DependentUpon>
+    <Compile Include="Concentration_Game.xaml.cs">
+      <DependentUpon>Concentration_Game.xaml</DependentUpon>
     </Compile>
     <Compile Include="Easy_Match.cs">
       <SubType>Form</SubType>
@@ -321,10 +323,31 @@
     <None Include="Resources\QS.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\matching.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\perfection.jpg" />
+    <Resource Include="Concentration\shapeAsset 1.png" />
+    <Resource Include="Concentration\shapeAsset 10.png" />
+    <Resource Include="Concentration\shapeAsset 11.png" />
+    <Resource Include="Concentration\shapeAsset 12.png" />
+    <Resource Include="Concentration\shapeAsset 13.png" />
+    <Resource Include="Concentration\shapeAsset 14.png" />
+    <Resource Include="Concentration\shapeAsset 15.png" />
+    <Resource Include="Concentration\shapeAsset 16.png" />
+    <Resource Include="Concentration\shapeAsset 17.png" />
+    <Resource Include="Concentration\shapeAsset 18.png" />
+    <Resource Include="Concentration\shapeAsset 19.png" />
+    <Resource Include="Concentration\shapeAsset 2.png" />
+    <Resource Include="Concentration\shapeAsset 20.png" />
+    <Resource Include="Concentration\shapeAsset 21.png" />
+    <Resource Include="Concentration\shapeAsset 22.png" />
+    <Resource Include="Concentration\shapeAsset 23.png" />
+    <Resource Include="Concentration\shapeAsset 24.png" />
+    <Resource Include="Concentration\shapeAsset 25.png" />
+    <Resource Include="Concentration\shapeAsset 3.png" />
+    <Resource Include="Concentration\shapeAsset 4.png" />
+    <Resource Include="Concentration\shapeAsset 5.png" />
+    <Resource Include="Concentration\shapeAsset 6.png" />
+    <Resource Include="Concentration\shapeAsset 7.png" />
+    <Resource Include="Concentration\shapeAsset 8.png" />
+    <Resource Include="Concentration\shapeAsset 9.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
