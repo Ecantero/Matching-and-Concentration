@@ -1,36 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using System.Threading;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Media.Imaging;
-using Windows.UI.Xaml.Navigation;
-using System.Numerics;
-using Windows.ApplicationModel.DataTransfer;
-using Windows.Storage;
-using Windows.Storage;
-using System.Threading.Tasks;
 using System.Runtime.Serialization;
-using System.Windows.Threading;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
+using System.Windows.Threading;
 
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
-
-namespace Matchin_Game
+namespace MatchingGame
 {
     /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
+    /// Interaction logic for Concentration_Game.xaml
     /// </summary>
-    public sealed partial class BlankPage1 : Page
+    public partial class Concentration_Game : Window
     {
         public DispatcherTimer timer = new DispatcherTimer();
         public int time;
@@ -39,13 +28,13 @@ namespace Matchin_Game
         public string[] leaderBoardNames = new string[10];
         public int[] LeaderBoardTimes = new Int32[10];
         private List<Image> images = new List<Image>();
-
-        public BlankPage1()
+        public Concentration_Game()
         {
-            this.InitializeComponent();
-
-            //showLeaderBoard();
-            //CreateFile();
+            InitializeComponent();
+        }
+        private void MainMenu_Click(object sender, RoutedEventArgs e)
+        {
+            //this.Frame.Navigate(typeof(MainMenu));
         }
 
         public void FillGrid()
@@ -142,7 +131,7 @@ namespace Matchin_Game
         }
 
         public RotateTransform rotation = new RotateTransform();
-        public void RotateShape(object sender, RightTappedRoutedEventArgs e)
+        private void Image_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
             Image rotateImage = sender as Image;
 
@@ -166,7 +155,10 @@ namespace Matchin_Game
             {
                 rotation.Angle = 0;
             }
+
         }
+
+
 
         public void ValidateShape()
         {
@@ -193,41 +185,41 @@ namespace Matchin_Game
 
         public async void CreateFile()
         {
-            StorageFolder saveFile = ApplicationData.Current.LocalFolder;
-            StorageFile createFile = await saveFile.CreateFileAsync("LeaderBoard.txt", CreationCollisionOption.ReplaceExisting);
+            //StorageFolder saveFile = ApplicationData.Current.LocalFolder;
+            //StorageFile createFile = await saveFile.CreateFileAsync("LeaderBoard.txt", CreationCollisionOption.ReplaceExisting);
         }
 
         public async void WriteFile(string saveText)
         {
-            StorageFolder saveFile = ApplicationData.Current.LocalFolder;
-            StorageFile writeFile = await saveFile.GetFileAsync("LeaderBoard.txt");
-            await FileIO.WriteTextAsync(writeFile, saveText);
+            //    StorageFolder saveFile = ApplicationData.Current.LocalFolder;
+            //    StorageFile writeFile = await saveFile.GetFileAsync("LeaderBoard.txt");
+            //    await FileIO.WriteTextAsync(writeFile, saveText);
         }
 
         public async Task ReadFile()
         {
-            StorageFolder saveFile = ApplicationData.Current.LocalFolder;
-            StorageFile readFile = await saveFile.GetFileAsync("LeaderBoard.txt");
-            fileContent = await FileIO.ReadTextAsync(readFile);
+            //StorageFolder saveFile = ApplicationData.Current.LocalFolder;
+            //StorageFile readFile = await saveFile.GetFileAsync("LeaderBoard.txt");
+            //fileContent = await FileIO.ReadTextAsync(readFile);
 
         }
 
         public async Task<bool> CheckFileExists()
         {
-            StorageFolder saveFile = ApplicationData.Current.LocalFolder;
-            var checkFile = await saveFile.TryGetItemAsync("LeaderBoard.txt");
-            bool fileExists = checkFile != null;
-            return fileExists;
+            //StorageFolder saveFile = ApplicationData.Current.LocalFolder;
+            //var checkFile = await saveFile.TryGetItemAsync("LeaderBoard.txt");
+            //bool fileExists = checkFile != null;
+            return true;
         }
 
-        private void TimerStart_Tapped(object sender, TappedRoutedEventArgs e)
-        {
+        //private void TimerStart_Tapped(object sender, TappedRoutedEventArgs e)
+        //{
 
-        }
+        //}
 
         private void ConcentrationGrid_DragOver(object sender, DragEventArgs e)
         {
-            e.AcceptedOperation = DataPackageOperation.Move;
+            e.Effects = DragDropEffects.Move;
         }
 
         private void ConcentrationGrid_Drop(object sender, DragEventArgs e)
@@ -236,10 +228,6 @@ namespace Matchin_Game
 
         }
 
-        private void MainMenu_Click(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(MainMenu));
-        }
         public void showLeaderBoard()
         {
             ConcentrationGrid.Visibility = Visibility.Collapsed;
@@ -265,30 +253,23 @@ namespace Matchin_Game
 
         private void ConcentrationGrid_DragEnter(object sender, DragEventArgs e)
         {
-            e.DragUIOverride.Clear();
+
         }
         //save file writen as -> name:time,
         public async void FillLeaderBoard()
         {
             await ReadFile();
-            leaderBoardMemebers = fileContent.Split(",");
+            leaderBoardMemebers = fileContent.Split();
             int memberTime;
             foreach (string memeber in leaderBoardMemebers)
             {
-                string[] memberData = memeber.Split(":");
+                string[] memberData = memeber.Split();
                 Int32.TryParse(memberData[1], out memberTime);
                 leaderBoardNames.Append(memberData[0]);
                 LeaderBoardTimes.Append(memberTime);
             }
         }
 
-        
-
-
-        //private void ConcentrationGrid_DragStarting(UIElement sender, DragStartingEventArgs args)
-        //{
-
-        //}
     }
 
 
@@ -344,5 +325,4 @@ namespace Matchin_Game
 
 
     }
-
 }

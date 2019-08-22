@@ -26,6 +26,5 @@
                 Margin="69,0,78.2,188.4" 
                 Height="55"
                 FontSize="30"/>
-
     </Grid>
 </Window>
