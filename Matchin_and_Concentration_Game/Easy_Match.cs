@@ -20,6 +20,7 @@ namespace MatchingGame
         bool canClick = false;
         PictureBox firtmagen;
         int scores = 0;
+        TextBox textBox = new System.Windows.Forms.TextBox();
 
         private PictureBox[] pictureBox
         {

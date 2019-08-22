@@ -463,6 +463,16 @@ namespace MatchingGame.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap concentration {
+            get {
+                object obj = ResourceManager.GetObject("concentration", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap gray_back {
             get {
                 object obj = ResourceManager.GetObject("gray_back", resourceCulture);
@@ -546,6 +556,26 @@ namespace MatchingGame.Properties {
         internal static System.Drawing.Bitmap KS {
             get {
                 object obj = ResourceManager.GetObject("KS", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap matching {
+            get {
+                object obj = ResourceManager.GetObject("matching", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap perfection {
+            get {
+                object obj = ResourceManager.GetObject("perfection", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
