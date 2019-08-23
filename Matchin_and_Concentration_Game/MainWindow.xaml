@@ -44,8 +44,9 @@
                 Click="Concetration_Click"
                 Content="Concentration Game" 
                 VerticalAlignment="Bottom" 
-                Margin="69,0,78.2,188.4" 
+                Margin="47.8,0,77.8,28" 
                 Height="55"
-                FontSize="30"/>
+                FontSize="30" 
+                Grid.Column="1"/>
     </Grid>
 </Window>
