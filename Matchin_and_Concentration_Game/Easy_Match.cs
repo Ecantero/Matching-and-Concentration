@@ -196,7 +196,7 @@ namespace MatchingGame
                 timer.Stop();
             }
         }
-
+        int numberOfLabels = 1;
         private void Button4_Click(object sender, EventArgs e)
         {
             addLabel();
@@ -205,7 +205,6 @@ namespace MatchingGame
         }
         public System.Windows.Forms.Label addLabel()
         {
-            int numberOfLabels = 1;
 
             System.Windows.Forms.Label label = new System.Windows.Forms.Label();
             this.Controls.Add(label);
