@@ -62,8 +62,6 @@
       <DependentUpon>HowManyPlayers.xaml</DependentUpon>
     </Compile>
     <Compile Include="Player.cs" />
-    <Page Include="Consentration.xaml">
-    </Page>
     <Page Include="Concentration_Game.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

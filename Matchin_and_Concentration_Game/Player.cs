@@ -8,8 +8,8 @@ namespace Players
 {
     class Player
     {
-       private String name { get; set; }
-       public Player(String name)
+       private string name { get; set; }
+       public Player(string name)
         {
             this.name = name;
         }

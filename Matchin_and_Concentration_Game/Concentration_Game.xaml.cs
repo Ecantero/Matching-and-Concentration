@@ -283,6 +283,11 @@ namespace MatchingGame
             Name = name;
             Time = time;
         }
+
+        public Player(string name)
+        {
+            Name = name;
+        }
     }
 
     [DataContract]

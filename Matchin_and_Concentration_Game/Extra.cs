@@ -117,6 +117,7 @@ namespace MatchingGame
                 getFreeSlot().Tag = image;
                 getFreeSlot().Tag = image;
             }
+
         }
 
         private void StartTime(object sender, EventArgs e)

@@ -19,6 +19,8 @@ namespace MatchingGame
     /// </summary>
     public partial class PlayerCreation : Window
     {
+        private Player currentPlayer;
+
         public PlayerCreation()
         {
             InitializeComponent();
@@ -26,7 +28,7 @@ namespace MatchingGame
 
         private void SubmitNameOfPlayers_Click(object sender, RoutedEventArgs e)
         {
-            String name = Name.Text;
+            string name = Name.ToString();
             currentPlayer = new Player(name);
         }
     }

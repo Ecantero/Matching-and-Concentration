@@ -261,6 +261,7 @@
             this.score.Size = new System.Drawing.Size(193, 29);
             this.score.TabIndex = 139;
             this.score.Text = "score:                   ";
+            this.score.Click += new System.EventHandler(this.Score_Click);
             // 
             // Easy_Match
             // 
