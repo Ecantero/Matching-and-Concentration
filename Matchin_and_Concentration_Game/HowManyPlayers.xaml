@@ -8,9 +8,13 @@
         Title="HowManyPlayers" Height="450" Width="450">
     <Grid Background="BlanchedAlmond">
         <StackPanel>
-            <Label Content="How many Players will be playing?" FontWeight="Bold"></Label>
-            <TextBox x:Name="numberOfPlayers" Background="#eee" Padding="2" />
-            <Button x:Name="SubmitNumberOfPlayers" Click="SubmitNumberOfPlayers_Click">Submit</Button>
+            <Label Content="How many Players will be playing?" 
+                   FontWeight="Bold"></Label>
+            <TextBox x:Name="numberOfPlayers" 
+                     Background="#eee" 
+                     Padding="2" />
+            <Button x:Name="SubmitNumberOfPlayers" 
+                    Click="SubmitNumberOfPlayers_Click">Submit</Button>
         </StackPanel>
     </Grid>
 </Window>

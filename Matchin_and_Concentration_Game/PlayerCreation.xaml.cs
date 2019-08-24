@@ -19,9 +19,17 @@ namespace MatchingGame
     /// </summary>
     public partial class PlayerCreation : Window
     {
+        private Player currentPlayer;
+
         public PlayerCreation()
         {
             InitializeComponent();
+        }
+
+        private void SubmitNameOfPlayers_Click(object sender, RoutedEventArgs e)
+        {
+            string name = Name.ToString();
+            currentPlayer = new Player(name);
         }
     }
 }

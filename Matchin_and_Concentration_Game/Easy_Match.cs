@@ -12,15 +12,12 @@ namespace MatchingGame
 {
     public partial class Easy_Match : Form
     {
-
         Random rng = new Random();
         Timer startTime = new Timer();
         int time = 2 * 60;
         Timer timer = new Timer { Interval = 1000 };
         bool canClick = false;
         PictureBox firtmagen;
-        int scores = 0;
-        TextBox textBox = new System.Windows.Forms.TextBox();
 
         private PictureBox[] pictureBox
         {
@@ -141,9 +138,7 @@ namespace MatchingGame
             pic.Image = (Image)pic.Tag;
 
             if (pic.Image == firtmagen.Image && pic != firtmagen)
-            {
-                scores++;
-                score.Text = " score: " + scores.ToString();
+            {               
 
                 pic.Visible = firtmagen.Visible = false;
                 {
@@ -175,17 +170,6 @@ namespace MatchingGame
             }
         }
 
-        private void Button1_Click(object sender, EventArgs e)
-        {
-            canClick = true;
-            setRandomImages();
-            HideImages();
-            Time();
-            startTime.Interval = 1000;
-            startTime.Tick += StartTime;
-            button1.Enabled = false;
-        }
-
         private void Easy_Match_FormClosing(object sender, FormClosingEventArgs e)
         {
             DialogResult exit = MessageBox.Show("Are you sure that you want to live of the game?", "Exit", MessageBoxButtons.YesNo);
@@ -212,5 +196,39 @@ namespace MatchingGame
                 timer.Stop();
             }
         }
+        int numberOfLabels = 1;
+        private void Button4_Click(object sender, EventArgs e)
+        {
+            addLabel();
+            textBox1.Clear();
+            
+        }
+        public System.Windows.Forms.Label addLabel()
+        {
+
+            System.Windows.Forms.Label label = new System.Windows.Forms.Label();
+            this.Controls.Add(label);
+            label.Top = numberOfLabels * 23;
+            label.Left = 30;
+            label.Text = textBox1.Text + " score: ";
+            label.AutoSize = true;
+            numberOfLabels = numberOfLabels + 1;
+
+            return label;
+        }
+
+        private void Button3_Click(object sender, EventArgs e)
+        {
+            panel1.Visible = false;
+
+            canClick = true;
+            setRandomImages();
+            HideImages();
+            Time();
+            startTime.Interval = 1000;
+            startTime.Tick += StartTime;
+            button3.Enabled = false;
+        }
+
     }
 }
