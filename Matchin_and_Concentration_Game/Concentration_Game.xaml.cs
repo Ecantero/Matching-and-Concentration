@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -23,10 +25,7 @@ namespace MatchingGame
     {
         public DispatcherTimer timer = new DispatcherTimer();
         public int time;
-        public string fileContent;
-        public string[] leaderBoardMemebers = new string[10];
-        public string[] leaderBoardNames = new string[10];
-        public int[] LeaderBoardTimes = new Int32[10];
+        public Leaderboard leaderboard;
         private List<Image> images = new List<Image>();
         public Concentration_Game()
         {
@@ -175,47 +174,39 @@ namespace MatchingGame
 
         }
 
-        public void Victory()
+        public void Victory(string difficulty)
         {
             PlayerName.Visibility = Visibility.Visible;
             string playerName = PlayerName.Text;
             int timeRemaining = time;
-            FillLeaderBoard();
+            FillLeaderBoard(difficulty);
         }
 
-        public async void CreateFile()
+        public void FillLeaderBoard(string fileName)
         {
-            //StorageFolder saveFile = ApplicationData.Current.LocalFolder;
-            //StorageFile createFile = await saveFile.CreateFileAsync("LeaderBoard.txt", CreationCollisionOption.ReplaceExisting);
+            leaderboard = new Leaderboard();
+
+            BinaryFormatter binForm = new BinaryFormatter();
+            FileStream stream = new FileStream(fileName, FileMode.Open, FileAccess.Read, FileShare.None);
+
+            if (binForm.Deserialize(stream) != null)
+            {
+                leaderboard = (Leaderboard)binForm.Deserialize(stream);
+            }
         }
 
-        public async void WriteFile(string saveText)
+
+        public void SaveLeaderBoard(string fileName)
         {
-            //    StorageFolder saveFile = ApplicationData.Current.LocalFolder;
-            //    StorageFile writeFile = await saveFile.GetFileAsync("LeaderBoard.txt");
-            //    await FileIO.WriteTextAsync(writeFile, saveText);
+
+            BinaryFormatter binForm = new BinaryFormatter();
+            FileStream stream = new FileStream(fileName, FileMode.Open, FileAccess.Read, FileShare.None);
+
+            if (binForm.Deserialize(stream) != null)
+            {
+                binForm.Serialize(stream, leaderboard);
+            }
         }
-
-        public async Task ReadFile()
-        {
-            //StorageFolder saveFile = ApplicationData.Current.LocalFolder;
-            //StorageFile readFile = await saveFile.GetFileAsync("LeaderBoard.txt");
-            //fileContent = await FileIO.ReadTextAsync(readFile);
-
-        }
-
-        public async Task<bool> CheckFileExists()
-        {
-            //StorageFolder saveFile = ApplicationData.Current.LocalFolder;
-            //var checkFile = await saveFile.TryGetItemAsync("LeaderBoard.txt");
-            //bool fileExists = checkFile != null;
-            return true;
-        }
-
-        //private void TimerStart_Tapped(object sender, TappedRoutedEventArgs e)
-        //{
-
-        //}
 
         private void ConcentrationGrid_DragOver(object sender, DragEventArgs e)
         {
@@ -232,22 +223,20 @@ namespace MatchingGame
         {
             ConcentrationGrid.Visibility = Visibility.Collapsed;
             LeaderBoardGrid.Visibility = Visibility.Visible;
+
+            first.Text = leaderboard.LeaderboardMembers[0].ToString();
+            second.Text = leaderboard.LeaderboardMembers[1].ToString();
+            third.Text = leaderboard.LeaderboardMembers[2].ToString();
+            fourth.Text = leaderboard.LeaderboardMembers[3].ToString();
+            fifth.Text = leaderboard.LeaderboardMembers[4].ToString();
+            sixth.Text = leaderboard.LeaderboardMembers[5].ToString();
+            seventh.Text = leaderboard.LeaderboardMembers[6].ToString();
+            eighth.Text = leaderboard.LeaderboardMembers[7].ToString();
+            nineth.Text = leaderboard.LeaderboardMembers[8].ToString();
+            tenth.Text = leaderboard.LeaderboardMembers[9].ToString();
         }
 
-        public async void SaveLeaderBoard()
-        {
-            bool fileExists = await CheckFileExists();
-
-            if (!fileExists)
-            {
-                CreateFile();
-                await ReadFile();
-            }
-            else
-            {
-                await ReadFile();
-            }
-        }
+        
 
 
 
@@ -255,20 +244,7 @@ namespace MatchingGame
         {
 
         }
-        //save file writen as -> name:time,
-        public async void FillLeaderBoard()
-        {
-            await ReadFile();
-            leaderBoardMemebers = fileContent.Split();
-            int memberTime;
-            foreach (string memeber in leaderBoardMemebers)
-            {
-                string[] memberData = memeber.Split();
-                Int32.TryParse(memberData[1], out memberTime);
-                leaderBoardNames.Append(memberData[0]);
-                LeaderBoardTimes.Append(memberTime);
-            }
-        }
+        
 
     }
 
@@ -283,12 +259,17 @@ namespace MatchingGame
             Name = name;
             Time = time;
         }
+
+        public override string ToString()
+        {
+            return $"{Name} : {Time}";
+        }
     }
 
-    [DataContract]
+    [Serializable]
     public class Leaderboard
     {
-        [DataMember]
+
         public Player[] LeaderboardMembers { get; set; } = new Player[10];
         //public Player[] LeaderboardMembers = new Player[10];
 
@@ -299,30 +280,17 @@ namespace MatchingGame
                 if (player.Time > LeaderboardMembers[i].Time || LeaderboardMembers[i] == null)
                 {
                     LeaderboardMembers.Append(player);
+
                 }
             }
+
+            Array.Sort(LeaderboardMembers);
+            Array.Reverse(LeaderboardMembers);
         }
-
-        public void SortLeaderBoard()
-        {
-            Player checkplayer = null;
-            int place = 0;
-
-            foreach (Player dude in LeaderboardMembers)
-            {
-
-                if (dude.Time > checkplayer.Time || dude == null)
-                {
-
-                }
-                else
-                {
-                    place++;
-                }
-            }
-        }
-
-
 
     }
+
+
+
 }
+
