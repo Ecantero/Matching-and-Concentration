@@ -18,6 +18,10 @@ namespace MatchingGame
         Timer timer = new Timer { Interval = 1000 };
         bool canClick = false;
         PictureBox firtmagen;
+        /*array of players*/
+        Player[] players;
+        /*current player*/
+        Player currentPlayer;
 
         private PictureBox[] pictureBox
         {
@@ -208,6 +212,12 @@ namespace MatchingGame
 
             System.Windows.Forms.Label label = new System.Windows.Forms.Label();
             this.Controls.Add(label);
+            /*create new player with given name*/
+            currentPlayer = new Player();
+            currentPlayer.Name = label.Text;
+            /*sets current player score*/
+            currentPlayer.score = 0;
+            /*current player label*/
             label.Top = numberOfLabels * 23;
             label.Left = 30;
             label.Text = textBox1.Text + " score: ";
