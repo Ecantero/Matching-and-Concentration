@@ -31,6 +31,7 @@ namespace MatchingGame
             string name = Name.ToString();
             currentPlayer = new Player();
             currentPlayer.Name = name;
+
         }
     }
 }
