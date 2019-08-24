@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,7 +20,7 @@ namespace MatchingGame
         bool canClick = false;
         PictureBox firtmagen;
         /*array of players*/
-        Player[] players;
+        ArrayList players = new ArrayList();
         /*current player*/
         Player currentPlayer;
 
@@ -127,6 +128,9 @@ namespace MatchingGame
 
         private void Click_Imagen(object sender, EventArgs e)
         {
+            /*current player makes the choice*/
+            
+            /*after this then the next current player is turn is taken*/
             if (!canClick)
             {
                 return;
@@ -150,6 +154,8 @@ namespace MatchingGame
                 }
 
                 HideImages();
+                /*guessed incorrectly-->change player aqui*/
+                /*highlight currentplayers name on label*/
             }
             else
             {
@@ -217,6 +223,8 @@ namespace MatchingGame
             currentPlayer.Name = label.Text;
             /*sets current player score*/
             currentPlayer.score = 0;
+            /*add to array of players*/
+            players.Add(currentPlayer);
             /*current player label*/
             label.Top = numberOfLabels * 23;
             label.Left = 30;
