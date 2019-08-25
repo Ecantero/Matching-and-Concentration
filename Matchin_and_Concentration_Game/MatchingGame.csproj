@@ -107,10 +107,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PlayerCreation.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MatchingGame_Difficulty.xaml.cs">
@@ -121,9 +117,6 @@
     </Compile>
     <Compile Include="Medium_Match.Designer.cs">
       <DependentUpon>Medium_Match.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PlayerCreation.xaml.cs">
-      <DependentUpon>PlayerCreation.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
