@@ -19,13 +19,15 @@ namespace MatchingGame
         Timer timer = new Timer { Interval = 1000 };
         bool canClick = false;
         PictureBox firtmagen;
+        private static int count = 0;
+        private  int playerCount =  0;
         /*array of players*/
-        ArrayList players = new ArrayList();
+        public static ArrayList players = new ArrayList();
+        public static Player[] playerz;
         /*current player*/
         Player currentPlayer;
         /*
          */
-         private  int playerCount =  0;
 
         private PictureBox[] pictureBox
         {
@@ -131,18 +133,14 @@ namespace MatchingGame
 
         private void Click_Imagen(object sender, EventArgs e)
         {
-            /*count for turns*/
-            int count = 0;
-            int pl = (count % players.Count);
-            /*current player makes the choice*/
-            currentPlayer = (Player)players[pl];
+
+            currentPlayer = playerz[count % players.Count];
+
             /*current player label*/
             Label current = new Label();
-            if(currentPlayer != null)
-            {
                 current.Text = currentPlayer.Name;
                 this.Controls.Add(current);
-            }
+            
             /*after this then the next current player is turn is taken*/
             if (!canClick)
             {
@@ -229,7 +227,7 @@ namespace MatchingGame
         }
         public System.Windows.Forms.Label addLabel()
         {
-
+            
             System.Windows.Forms.Label label = new System.Windows.Forms.Label();
             this.Controls.Add(label);
             /*create new player with given name*/
@@ -238,10 +236,9 @@ namespace MatchingGame
             /*sets current player score*/
             currentPlayer.score = 0;
             /*add to array of players*/
-            _ = players.Add(numberOfLabels);
+            players.Add(currentPlayer);
+            playerz[playerCount] = currentPlayer;
             /*current player label*/
-            label.Name = currentPlayer.Name;
-            Console.WriteLine(label.Name);
             label.Top = numberOfLabels * 23;
             label.Left = 30;
             label.Text = textBox1.Text + " score: ";
