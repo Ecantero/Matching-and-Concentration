@@ -224,12 +224,14 @@ namespace MatchingGame
             /*sets current player score*/
             currentPlayer.score = 0;
             /*add to array of players*/
-            players.Add(currentPlayer);
+            _ = players.Add(numberOfLabels);
             /*current player label*/
             label.Top = numberOfLabels * 23;
             label.Left = 30;
             label.Text = textBox1.Text + " score: ";
             label.AutoSize = true;
+
+
             numberOfLabels = numberOfLabels + 1;
 
             return label;
