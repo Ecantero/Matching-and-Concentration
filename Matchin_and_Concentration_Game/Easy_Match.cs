@@ -23,6 +23,9 @@ namespace MatchingGame
         ArrayList players = new ArrayList();
         /*current player*/
         Player currentPlayer;
+        /*
+         */
+         private  int playerCount =  0;
 
         private PictureBox[] pictureBox
         {
@@ -128,8 +131,18 @@ namespace MatchingGame
 
         private void Click_Imagen(object sender, EventArgs e)
         {
+            /*count for turns*/
+            int count = 0;
+            int pl = (count % players.Count);
             /*current player makes the choice*/
-            
+            currentPlayer = (Player)players[pl];
+            /*current player label*/
+            Label current = new Label();
+            if(currentPlayer != null)
+            {
+                current.Text = currentPlayer.Name;
+                this.Controls.Add(current);
+            }
             /*after this then the next current player is turn is taken*/
             if (!canClick)
             {
@@ -152,7 +165,7 @@ namespace MatchingGame
                 {
                     firtmagen = pic;
                 }
-
+                count++;
                 HideImages();
                 /*guessed incorrectly-->change player aqui*/
                 /*highlight currentplayers name on label*/
@@ -209,6 +222,7 @@ namespace MatchingGame
         int numberOfLabels = 1;
         private void Button4_Click(object sender, EventArgs e)
         {
+            playerCount++;
             addLabel();
             textBox1.Clear();
             
@@ -226,6 +240,8 @@ namespace MatchingGame
             /*add to array of players*/
             players.Add(currentPlayer);
             /*current player label*/
+            label.Name = currentPlayer.Name;
+            Console.WriteLine(label.Name);
             label.Top = numberOfLabels * 23;
             label.Left = 30;
             label.Text = textBox1.Text + " score: ";
@@ -248,5 +264,9 @@ namespace MatchingGame
             button3.Enabled = false;
         }
 
+        private void Easy_Match_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
