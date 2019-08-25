@@ -339,6 +339,7 @@
             this.Name = "Easy_Match";
             this.Text = "Easy_Match";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Easy_Match_FormClosing);
+            this.Load += new System.EventHandler(this.Easy_Match_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).EndInit();

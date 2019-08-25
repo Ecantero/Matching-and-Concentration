@@ -231,11 +231,16 @@ namespace MatchingGame
     {
         public String Name { get; set; }
         public int Time { get; set; }
+        public int score { get; internal set; }
 
         public Player(string name, int time)
         {
             Name = name;
             Time = time;
+        }
+
+        public Player()
+        {
         }
 
         public override string ToString()

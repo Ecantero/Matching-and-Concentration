@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,6 +19,15 @@ namespace MatchingGame
         Timer timer = new Timer { Interval = 1000 };
         bool canClick = false;
         PictureBox firtmagen;
+        private static int count = 0;
+        private  int playerCount =  0;
+        /*array of players*/
+        public static ArrayList players = new ArrayList();
+        public static Player[] playerz;
+        /*current player*/
+        Player currentPlayer;
+        /*
+         */
 
         private PictureBox[] pictureBox
         {
@@ -123,6 +133,15 @@ namespace MatchingGame
 
         private void Click_Imagen(object sender, EventArgs e)
         {
+
+            currentPlayer = playerz[count % players.Count];
+
+            /*current player label*/
+            Label current = new Label();
+                current.Text = currentPlayer.Name;
+                this.Controls.Add(current);
+            
+            /*after this then the next current player is turn is taken*/
             if (!canClick)
             {
                 return;
@@ -144,8 +163,10 @@ namespace MatchingGame
                 {
                     firtmagen = pic;
                 }
-
+                count++;
                 HideImages();
+                /*guessed incorrectly-->change player aqui*/
+                /*highlight currentplayers name on label*/
             }
             else
             {
@@ -199,19 +220,31 @@ namespace MatchingGame
         int numberOfLabels = 1;
         private void Button4_Click(object sender, EventArgs e)
         {
+            playerCount++;
             addLabel();
             textBox1.Clear();
             
         }
         public System.Windows.Forms.Label addLabel()
         {
-
+            
             System.Windows.Forms.Label label = new System.Windows.Forms.Label();
             this.Controls.Add(label);
+            /*create new player with given name*/
+            currentPlayer = new Player();
+            currentPlayer.Name = label.Text;
+            /*sets current player score*/
+            currentPlayer.score = 0;
+            /*add to array of players*/
+            players.Add(currentPlayer);
+            playerz[playerCount] = currentPlayer;
+            /*current player label*/
             label.Top = numberOfLabels * 23;
             label.Left = 30;
             label.Text = textBox1.Text + " score: ";
             label.AutoSize = true;
+
+
             numberOfLabels = numberOfLabels + 1;
 
             return label;
@@ -230,5 +263,9 @@ namespace MatchingGame
             button3.Enabled = false;
         }
 
+        private void Easy_Match_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
