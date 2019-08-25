@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -37,13 +38,12 @@ namespace MatchingGame
             int number;
             var input = numberOfPlayers.Text;
             number = int.Parse(input);
-            Player2 player2 = new Player2();
+            PlayerCreation player2 = new PlayerCreation();
             if (number > 2)
             {
                 for (var i = 0; i < number; i++)
                 {
                     player2.Show();
-
 
                 }
             }

@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -23,41 +25,16 @@ namespace MatchingGame
     {
         public DispatcherTimer timer = new DispatcherTimer();
         public int time;
-        public string fileContent;
-        public string[] leaderBoardMemebers = new string[10];
-        public string[] leaderBoardNames = new string[10];
-        public int[] LeaderBoardTimes = new Int32[10];
-        private List<Image> images = new List<Image>();
+        public Leaderboard leaderboard;
         public Concentration_Game()
         {
             InitializeComponent();
         }
         private void MainMenu_Click(object sender, RoutedEventArgs e)
         {
-            //this.Frame.Navigate(typeof(MainMenu));
-        }
-
-        public void FillGrid()
-        {
-            //int j = 1;
-            //for (int i = 0; i < 25; i++)
-            //{
-            //    Image myImage = new Image();
-            //    BitmapImage bi = new BitmapImage();
-            //    myImage.Width = bi.DecodePixelWidth = 20;
-            //    bi.UriSource = new Uri(myImage.BaseUri, ("Concentration/shapeAsset " + j + ".png"));
-            //    myImage.Source = bi;
-            //    images.Add(myImage);
-            //    j++;
-            //}
-            //BitmapImage bitmapImage = new BitmapImage();
-            // Call BaseUri on the root Page element and combine it with a relative path
-            // to consruct an absolute URI.
-            //bitmapImage.UriSource = new Uri(this.BaseUri, "Concentration/shapeAsset 12.png");
-            //shape1
-            //shape1.Source = new BitmapImage(new Uri(("Concentration/shapeAsset " + 23 + ".png")));
-            //shape2.Source = new BitmapImage(new Uri(("Concentration/shapeAsset " + 2 + ".png")));
-            //shape3.Source = new BitmapImage(new Uri(("Concentration/shapeAsset " + 3 + ".png")));
+            MainWindow main = new MainWindow();
+            main.Show();
+            Close();
         }
 
         private void Easy_Click(object sender, RoutedEventArgs e)
@@ -120,16 +97,6 @@ namespace MatchingGame
             }
         }
 
-        public void ShuffleShapes()
-        {
-
-        }
-
-        public void ShapeMovement()
-        {
-
-        }
-
         public RotateTransform rotation = new RotateTransform();
         private void Image_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
@@ -175,72 +142,88 @@ namespace MatchingGame
 
         }
 
-        public void Victory()
+        public void Victory(string difficulty)
         {
             PlayerName.Visibility = Visibility.Visible;
             string playerName = PlayerName.Text;
             int timeRemaining = time;
-            FillLeaderBoard();
+            FillLeaderBoard(difficulty);
+        }
+
+        public void FillLeaderBoard(string fileName)
+        {
+            leaderboard = new Leaderboard();
+
+            BinaryFormatter binForm = new BinaryFormatter();
+            FileStream stream = new FileStream(fileName, FileMode.Open, FileAccess.Read, FileShare.None);
+
+            if (binForm.Deserialize(stream) != null)
+            {
+                leaderboard = (Leaderboard)binForm.Deserialize(stream);
+            }
         }
 
 
-        //private void TimerStart_Tapped(object sender, TappedRoutedEventArgs e)
-        //{
-
-        //}
-
-        private void ConcentrationGrid_DragOver(object sender, DragEventArgs e)
+        public void SaveLeaderBoard(string fileName)
         {
-            e.Effects = DragDropEffects.Move;
-        }
 
-        private void ConcentrationGrid_Drop(object sender, DragEventArgs e)
-        {
-            Countdown.Text = "hello drop";
+            BinaryFormatter binForm = new BinaryFormatter();
+            FileStream stream = new FileStream(fileName, FileMode.Open, FileAccess.Read, FileShare.None);
 
+            if (binForm.Deserialize(stream) != null)
+            {
+                binForm.Serialize(stream, leaderboard);
+            }
         }
 
         public void showLeaderBoard()
         {
             ConcentrationGrid.Visibility = Visibility.Collapsed;
             LeaderBoardGrid.Visibility = Visibility.Visible;
+
+            first.Text = leaderboard.LeaderboardMembers[0].ToString();
+            second.Text = leaderboard.LeaderboardMembers[1].ToString();
+            third.Text = leaderboard.LeaderboardMembers[2].ToString();
+            fourth.Text = leaderboard.LeaderboardMembers[3].ToString();
+            fifth.Text = leaderboard.LeaderboardMembers[4].ToString();
+            sixth.Text = leaderboard.LeaderboardMembers[5].ToString();
+            seventh.Text = leaderboard.LeaderboardMembers[6].ToString();
+            eighth.Text = leaderboard.LeaderboardMembers[7].ToString();
+            nineth.Text = leaderboard.LeaderboardMembers[8].ToString();
+            tenth.Text = leaderboard.LeaderboardMembers[9].ToString();
         }
 
-        public async void SaveLeaderBoard()
+        private void Image_MouseMove(object sender, MouseEventArgs e)
         {
-            //bool fileExists = await CheckFileExists();
-
-            //if (!fileExists)
-            //{
-            //    CreateFile();
-            //    await ReadFile();
-            //}
-            //else
-            //{
-            //    await ReadFile();
-            //}
-        }
-
-
-
-        private void ConcentrationGrid_DragEnter(object sender, DragEventArgs e)
-        {
-
-        }
-        //save file writen as -> name:time,
-        public async void FillLeaderBoard()
-        {
-            leaderBoardMemebers = fileContent.Split();
-            int memberTime;
-            foreach (string memeber in leaderBoardMemebers)
+            Image image = sender as Image;
+            if (image != null && e.LeftButton == MouseButtonState.Pressed)
             {
-                string[] memberData = memeber.Split();
-                Int32.TryParse(memberData[1], out memberTime);
-                leaderBoardNames.Append(memberData[0]);
-                LeaderBoardTimes.Append(memberTime);
+                DragDrop.DoDragDrop(image, image.Source, DragDropEffects.Move);
+            }   
+        }
+
+        private int num = 25;
+        private void Shape_Drop(object sender, DragEventArgs e)
+        {
+            Image image = sender as Image;
+            Image image1 = e.OriginalSource as Image;
+            
+            if (image.Source == image1.Source)
+            {
+                image1.Visibility = Visibility.Collapsed;
+                num--;
+            }
+            winCondition();
+        }
+
+        private void winCondition()
+        {
+            if (num == 0)
+            {
+                GameOver();
+                timer.Stop();
             }
         }
-
     }
 
 
@@ -254,12 +237,17 @@ namespace MatchingGame
             Name = name;
             Time = time;
         }
+
+        public override string ToString()
+        {
+            return $"{Name} : {Time}";
+        }
     }
 
-    [DataContract]
+    [Serializable]
     public class Leaderboard
     {
-        [DataMember]
+
         public Player[] LeaderboardMembers { get; set; } = new Player[10];
         //public Player[] LeaderboardMembers = new Player[10];
 
@@ -270,30 +258,50 @@ namespace MatchingGame
                 if (player.Time > LeaderboardMembers[i].Time || LeaderboardMembers[i] == null)
                 {
                     LeaderboardMembers.Append(player);
+
                 }
             }
+
+            Array.Sort(LeaderboardMembers);
+            Array.Reverse(LeaderboardMembers);
         }
-
-        public void SortLeaderBoard()
-        {
-            Player checkplayer = null;
-            int place = 0;
-
-            foreach (Player dude in LeaderboardMembers)
-            {
-
-                if (dude.Time > checkplayer.Time || dude == null)
-                {
-
-                }
-                else
-                {
-                    place++;
-                }
-            }
-        }
-
-
 
     }
+
+
+    public static class CompareImages
+    {
+        public static bool IsEqual(this BitmapImage image1, BitmapImage image2)
+        {
+            if (image1 == null || image2 == null)
+            {
+                return false;
+            }
+            return image1.ToBytes().SequenceEqual(image2.ToBytes());
+        }
+
+        public static byte[] ToBytes(this BitmapImage image)
+        {
+            byte[] data = new byte[] { };
+            if (image != null)
+            {
+                try
+                {
+                    BmpBitmapEncoder bmp = new BmpBitmapEncoder();
+                    bmp.Frames.Add(BitmapFrame.Create(image));
+                    using (MemoryStream ms = new MemoryStream())
+                    {
+                        bmp.Save(ms);
+                        data = ms.ToArray();
+                    }
+                    return data;
+                }
+                catch (Exception)
+                {
+                }
+            }
+            return data;
+        }
+    }
 }
+
