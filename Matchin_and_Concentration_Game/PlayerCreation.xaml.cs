@@ -26,6 +26,11 @@ namespace MatchingGame
             InitializeComponent();
         }
 
+        private void InitializeComponent()
+        {
+            throw new NotImplementedException();
+        }
+
         private void SubmitNameOfPlayers_Click(object sender, RoutedEventArgs e)
         {
             string name = Name.ToString();
