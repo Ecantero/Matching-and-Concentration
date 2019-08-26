@@ -147,7 +147,7 @@ namespace MatchingGame
             PlayerName.Visibility = Visibility.Visible;
             string playerName = PlayerName.Text;
             int timeRemaining = time;
-            Player newPlayer = new Player(playerName, timeRemaining);
+            Player newPlayer = new Player("test", timeRemaining);
             FillLeaderBoard(difficulty, newPlayer);
             SaveLeaderBoard(difficulty);
             //showLeaderBoard();
@@ -177,7 +177,7 @@ namespace MatchingGame
                     leaderboard = (Leaderboard)binForm.Deserialize(stream);
                 }
 
-            //leaderboard.AddLeaderboardPlayer(player);
+            leaderboard.AddLeaderboardPlayer(player);
         }
 
 
@@ -204,6 +204,21 @@ namespace MatchingGame
                 }
         }
 
+
+
+
+        private void ConcentrationGrid_DragOver(object sender, DragEventArgs e)
+        {
+            e.Effects = DragDropEffects.Move;
+        }
+
+        private void ConcentrationGrid_Drop(object sender, DragEventArgs e)
+        {
+            Countdown.Text = "hello drop";
+
+        }
+
+
         public void showLeaderBoard()
         {
             ConcentrationGrid.Visibility = Visibility.Collapsed;
@@ -221,13 +236,24 @@ namespace MatchingGame
             //tenth.Text = leaderboard.LeaderboardMembers[9].ToString();
         }
 
+
+
+
+
+
+        private void ConcentrationGrid_DragEnter(object sender, DragEventArgs e)
+        {
+
+        }
+
         private void Image_MouseMove(object sender, MouseEventArgs e)
+
         {
             Image image = sender as Image;
             if (image != null && e.LeftButton == MouseButtonState.Pressed)
             {
                 DragDrop.DoDragDrop(image, image.Source, DragDropEffects.Move);
-            }   
+            }
         }
 
         private int num = 25;
@@ -235,13 +261,24 @@ namespace MatchingGame
         {
             Image image = sender as Image;
             Image image1 = e.OriginalSource as Image;
-            
+
             if (image.Source == image1.Source)
             {
                 image1.Visibility = Visibility.Collapsed;
                 num--;
             }
             winCondition();
+        }
+
+
+        private void Testleaderboard_Click(object sender, RoutedEventArgs e)
+        {
+            timer.Stop();
+            Victory("test");
+            //leaderboard.AddLeaderboardPlayer(new Player("test", 45));
+            //Countdown.Text = leaderboard.LeaderboardMembers[0].ToString();
+
+            
         }
 
         private void winCondition()
@@ -251,14 +288,7 @@ namespace MatchingGame
                 GameOver();
                 timer.Stop();
             }
-        }
 
-        private void Testleaderboard_Click(object sender, RoutedEventArgs e)
-        {
-            timer.Stop();
-            Victory("test");
-            leaderboard.AddLeaderboardPlayer(new Player("test", 45));
-            Countdown.Text = leaderboard.LeaderboardMembers[0].ToString();
         }
     }
 
@@ -275,9 +305,6 @@ namespace MatchingGame
             Time = time;
         }
 
-        public Player()
-        {
-        }
 
         public override string ToString()
         {

@@ -234,7 +234,7 @@ namespace MatchingGame
             System.Windows.Forms.Label label = new System.Windows.Forms.Label();
             this.Controls.Add(label);
             /*create new player with given name*/
-            currentPlayer = new Player();
+            currentPlayer = new Player("", 0);
             currentPlayer.Name = label.Text;
             /*sets current player score*/
             currentPlayer.score = 0;
