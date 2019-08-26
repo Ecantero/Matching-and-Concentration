@@ -360,39 +360,5 @@ namespace MatchingGame
     }
 
 
-    public static class CompareImages
-    {
-        public static bool IsEqual(this BitmapImage image1, BitmapImage image2)
-        {
-            if (image1 == null || image2 == null)
-            {
-                return false;
-            }
-            return image1.ToBytes().SequenceEqual(image2.ToBytes());
-        }
-
-        public static byte[] ToBytes(this BitmapImage image)
-        {
-            byte[] data = new byte[] { };
-            if (image != null)
-            {
-                try
-                {
-                    BmpBitmapEncoder bmp = new BmpBitmapEncoder();
-                    bmp.Frames.Add(BitmapFrame.Create(image));
-                    using (MemoryStream ms = new MemoryStream())
-                    {
-                        bmp.Save(ms);
-                        data = ms.ToArray();
-                    }
-                    return data;
-                }
-                catch (Exception)
-                {
-                }
-            }
-            return data;
-        }
-    }
 }
 
