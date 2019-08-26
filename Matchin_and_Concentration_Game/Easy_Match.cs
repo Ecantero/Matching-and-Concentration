@@ -21,7 +21,6 @@ namespace MatchingGame
         PictureBox firtmagen;
         int score = 0;
         private static int count = 0;
-        private  int playerCount =  0;
         /*array of players*/
         public static Player[] playerz;
         /*current player*/
@@ -153,7 +152,7 @@ namespace MatchingGame
 
             if (pic.Image == firtmagen.Image && pic != firtmagen)
             {
-
+                
 
                 pic.Visible = firtmagen.Visible = false;
                 {
@@ -214,15 +213,7 @@ namespace MatchingGame
             }
         }
         private void Button4_Click(object sender, EventArgs e)
-        {
-            playerCount++;
-            addLabel();
-            textBox1.Clear();
-            
-        }
-        public void addLabel()
-        {
-
+        {           
             playerz = new Player[10];
             Label label = new Label();
 
@@ -240,7 +231,10 @@ namespace MatchingGame
             }
             
             this.Controls.Add(label);
+            textBox1.Clear();
+            
         }
+
 
         private void Button3_Click(object sender, EventArgs e)
         {
