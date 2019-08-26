@@ -19,15 +19,13 @@ namespace MatchingGame
         Timer timer = new Timer { Interval = 1000 };
         bool canClick = false;
         PictureBox firtmagen;
+        int score = 0;
         private static int count = 0;
         private  int playerCount =  0;
         /*array of players*/
-        public static ArrayList players = new ArrayList();
         public static Player[] playerz;
         /*current player*/
-        Player currentPlayer;
-        /*
-         */
+        private Player currentPlayer;
 
         private PictureBox[] pictureBox
         {
@@ -136,12 +134,10 @@ namespace MatchingGame
 
 
             /*current player label*/
-            Label current = new Label();
-                current.Text = currentPlayer.Name;
-                this.Controls.Add(current);
             
-            /*after this then the next current player is turn is taken*/
-            if (!canClick)
+
+                /*after this then the next current player is turn is taken*/
+                if (!canClick)
             {
                 return;
             }
@@ -157,10 +153,7 @@ namespace MatchingGame
 
             if (pic.Image == firtmagen.Image && pic != firtmagen)
             {
-                int score = 0;
-                score++;
 
-                label3.Text = Name + " score: " + score.ToString();
 
                 pic.Visible = firtmagen.Visible = false;
                 {
@@ -220,7 +213,6 @@ namespace MatchingGame
                 timer.Stop();
             }
         }
-        int numberOfLabels = 1;
         private void Button4_Click(object sender, EventArgs e)
         {
             playerCount++;
@@ -228,28 +220,26 @@ namespace MatchingGame
             textBox1.Clear();
             
         }
-        public System.Windows.Forms.Label addLabel()
+        public void addLabel()
         {
+
+            playerz = new Player[10];
+            Label label = new Label();
+
+            int count = this.Controls.OfType<Label>().ToList().Count;
+
+            currentPlayer = playerz[(count - 1) % playerz.Length];
+
+            for (var i = 0; i < playerz.Length; i++)
+            {
+                label.Name = "label_" + (count + 1);
+                label.Top = count * 23;
+                label.Left = 30;
+                label.Text = textBox1.Text + " score: ";
+                label.AutoSize = true;               
+            }
             
-            System.Windows.Forms.Label label = new System.Windows.Forms.Label();
             this.Controls.Add(label);
-            /*create new player with given name*/
-            currentPlayer = new Player();
-            currentPlayer.Name = label.Text;
-            /*sets current player score*/
-            currentPlayer.score = 0;
-            /*add to array of players*/
-            players.Add(currentPlayer);
-            /*current player label*/
-            label.Top = numberOfLabels * 23;
-            label.Left = 30;
-            label.Text = textBox1.Text + " score: ";
-            label.AutoSize = true;
-
-
-            numberOfLabels = numberOfLabels + 1;
-
-            return label;
         }
 
         private void Button3_Click(object sender, EventArgs e)
@@ -263,11 +253,6 @@ namespace MatchingGame
             startTime.Interval = 1000;
             startTime.Tick += StartTime;
             button3.Enabled = false;
-        }
-
-        private void Easy_Match_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
