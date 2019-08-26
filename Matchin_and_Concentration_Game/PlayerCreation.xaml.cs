@@ -29,7 +29,7 @@ namespace MatchingGame
         private void SubmitNameOfPlayers_Click(object sender, RoutedEventArgs e)
         {
             string name = Name.ToString();
-            currentPlayer = new Player(name);
+            currentPlayer = new Player(name, 0);
         }
     }
 }
