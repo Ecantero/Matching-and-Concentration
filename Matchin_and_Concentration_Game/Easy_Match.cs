@@ -134,7 +134,6 @@ namespace MatchingGame
         private void Click_Imagen(object sender, EventArgs e)
         {
 
-            currentPlayer = playerz[count % players.Count];
 
             /*current player label*/
             Label current = new Label();
@@ -157,7 +156,11 @@ namespace MatchingGame
             pic.Image = (Image)pic.Tag;
 
             if (pic.Image == firtmagen.Image && pic != firtmagen)
-            {               
+            {
+                int score = 0;
+                score++;
+
+                label3.Text = Name + " score: " + score.ToString();
 
                 pic.Visible = firtmagen.Visible = false;
                 {
@@ -237,7 +240,6 @@ namespace MatchingGame
             currentPlayer.score = 0;
             /*add to array of players*/
             players.Add(currentPlayer);
-            playerz[playerCount] = currentPlayer;
             /*current player label*/
             label.Top = numberOfLabels * 23;
             label.Left = 30;
