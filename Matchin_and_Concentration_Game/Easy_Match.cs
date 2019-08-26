@@ -223,7 +223,7 @@ namespace MatchingGame
 
             for (var i = 0; i < playerz.Length; i++)
             {
-                label.Name = "label_" + (count + 1);
+                label.Name = "Player " + (count + 1);
                 label.Top = count * 23;
                 label.Left = 30;
                 label.Text = textBox1.Text + " score: ";
