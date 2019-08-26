@@ -9,10 +9,15 @@ namespace Players
     class Player
     {
        private string name { get; set; }
+       private int score { get; set; }
        public Player(string name)
         {
             this.name = name;
         }
 
+       public Player()
+        {
+
+        }
     }
 }

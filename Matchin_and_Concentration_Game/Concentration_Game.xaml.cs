@@ -26,37 +26,15 @@ namespace MatchingGame
         public DispatcherTimer timer = new DispatcherTimer();
         public int time;
         public Leaderboard leaderboard;
-        private List<Image> images = new List<Image>();
         public Concentration_Game()
         {
             InitializeComponent();
         }
         private void MainMenu_Click(object sender, RoutedEventArgs e)
         {
-            //this.Frame.Navigate(typeof(MainMenu));
-        }
-
-        public void FillGrid()
-        {
-            //int j = 1;
-            //for (int i = 0; i < 25; i++)
-            //{
-            //    Image myImage = new Image();
-            //    BitmapImage bi = new BitmapImage();
-            //    myImage.Width = bi.DecodePixelWidth = 20;
-            //    bi.UriSource = new Uri(myImage.BaseUri, ("Concentration/shapeAsset " + j + ".png"));
-            //    myImage.Source = bi;
-            //    images.Add(myImage);
-            //    j++;
-            //}
-            //BitmapImage bitmapImage = new BitmapImage();
-            // Call BaseUri on the root Page element and combine it with a relative path
-            // to consruct an absolute URI.
-            //bitmapImage.UriSource = new Uri(this.BaseUri, "Concentration/shapeAsset 12.png");
-            //shape1
-            //shape1.Source = new BitmapImage(new Uri(("Concentration/shapeAsset " + 23 + ".png")));
-            //shape2.Source = new BitmapImage(new Uri(("Concentration/shapeAsset " + 2 + ".png")));
-            //shape3.Source = new BitmapImage(new Uri(("Concentration/shapeAsset " + 3 + ".png")));
+            MainWindow main = new MainWindow();
+            main.Show();
+            Close();
         }
 
         private void Easy_Click(object sender, RoutedEventArgs e)
@@ -117,16 +95,6 @@ namespace MatchingGame
                 GameOver();
                 timer.Stop();
             }
-        }
-
-        public void ShuffleShapes()
-        {
-
-        }
-
-        public void ShapeMovement()
-        {
-
         }
 
         public RotateTransform rotation = new RotateTransform();
@@ -236,19 +204,6 @@ namespace MatchingGame
                 }
         }
 
-        
-
-        private void ConcentrationGrid_DragOver(object sender, DragEventArgs e)
-        {
-            e.Effects = DragDropEffects.Move;
-        }
-
-        private void ConcentrationGrid_Drop(object sender, DragEventArgs e)
-        {
-            Countdown.Text = "hello drop";
-
-        }
-
         public void showLeaderBoard()
         {
             ConcentrationGrid.Visibility = Visibility.Collapsed;
@@ -266,13 +221,36 @@ namespace MatchingGame
             //tenth.Text = leaderboard.LeaderboardMembers[9].ToString();
         }
 
-
-
-
-
-        private void ConcentrationGrid_DragEnter(object sender, DragEventArgs e)
+        private void Image_MouseMove(object sender, MouseEventArgs e)
         {
+            Image image = sender as Image;
+            if (image != null && e.LeftButton == MouseButtonState.Pressed)
+            {
+                DragDrop.DoDragDrop(image, image.Source, DragDropEffects.Move);
+            }   
+        }
 
+        private int num = 25;
+        private void Shape_Drop(object sender, DragEventArgs e)
+        {
+            Image image = sender as Image;
+            Image image1 = e.OriginalSource as Image;
+            
+            if (image.Source == image1.Source)
+            {
+                image1.Visibility = Visibility.Collapsed;
+                num--;
+            }
+            winCondition();
+        }
+
+        private void winCondition()
+        {
+            if (num == 0)
+            {
+                GameOver();
+                timer.Stop();
+            }
         }
 
         private void Testleaderboard_Click(object sender, RoutedEventArgs e)
@@ -289,11 +267,16 @@ namespace MatchingGame
     {
         public String Name { get; set; }
         public int Time { get; set; }
+        public int score { get; internal set; }
 
         public Player(string name, int time)
         {
             Name = name;
             Time = time;
+        }
+
+        public Player()
+        {
         }
 
         public override string ToString()
@@ -350,6 +333,39 @@ namespace MatchingGame
     }
 
 
+    public static class CompareImages
+    {
+        public static bool IsEqual(this BitmapImage image1, BitmapImage image2)
+        {
+            if (image1 == null || image2 == null)
+            {
+                return false;
+            }
+            return image1.ToBytes().SequenceEqual(image2.ToBytes());
+        }
 
+        public static byte[] ToBytes(this BitmapImage image)
+        {
+            byte[] data = new byte[] { };
+            if (image != null)
+            {
+                try
+                {
+                    BmpBitmapEncoder bmp = new BmpBitmapEncoder();
+                    bmp.Frames.Add(BitmapFrame.Create(image));
+                    using (MemoryStream ms = new MemoryStream())
+                    {
+                        bmp.Save(ms);
+                        data = ms.ToArray();
+                    }
+                    return data;
+                }
+                catch (Exception)
+                {
+                }
+            }
+            return data;
+        }
+    }
 }
 

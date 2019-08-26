@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MatchingGame"
         mc:Ignorable="d"
-        Title="Concentration_Game" Height="450" Width="800">
+        Title="Concentration_Game" Height="600" Width="1000">
 
     <Grid x:Name="MainGrid">
         <Grid.ColumnDefinitions>
@@ -103,200 +103,153 @@
             <TextBlock x:Name="Gameover" Grid.Row="0" Grid.ColumnSpan="5" Visibility="Collapsed"/>
             <Button x:Name="TestButton" Content="Test" Height="20" Width="20" Click="TimerControl" Grid.Row="0"/>
             <Button x:Name="Testleaderboard" Content="leaderboard" Height="20" Width="20" Click="Testleaderboard_Click" Grid.Column="1"/>
+            <TextBlock x:Name="Countdown" Grid.Row="0" Grid.ColumnSpan="4" Text="Time: "/>
+            <TextBlock x:Name="Gameover" Grid.Row="0" Grid.ColumnSpan="4" Visibility="Collapsed"/>
+            <Button x:Name="TestButton" Content="Test"/>
 
             <Image x:Name="shape1"
-                   DragEnter="ConcentrationGrid_DragEnter"
-                   AllowDrop="True"
-                   Drop="ConcentrationGrid_Drop"
-                   DragOver="ConcentrationGrid_DragOver"
                    Source="Concentration\shapeAsset 1.png"
+                   AllowDrop="True"
+                   Drop="Shape_Drop"
                    Grid.Row="1"/>
             <Image x:Name="shape2"
-                   DragEnter="ConcentrationGrid_DragEnter"
-                   AllowDrop="True"
-                   Drop="ConcentrationGrid_Drop"
-                   DragOver="ConcentrationGrid_DragOver"
                    Source="Concentration\shapeAsset 2.png"
+                   AllowDrop="True"
+                   Drop="Shape_Drop"
                    Grid.Row="1"
                    Grid.Column="1"/>
             <Image x:Name="shape3"
-                   DragEnter="ConcentrationGrid_DragEnter"
-                   AllowDrop="True"
-                   Drop="ConcentrationGrid_Drop"
-                   DragOver="ConcentrationGrid_DragOver"
                    Source="Concentration\shapeAsset 3.png"
+                   AllowDrop="True"
+                   Drop="Shape_Drop"
                    Grid.Row="1"
                    Grid.Column="2"/>
             <Image x:Name="shape4"
-                   DragEnter="ConcentrationGrid_DragEnter"
-                   AllowDrop="True"
-                   Drop="ConcentrationGrid_Drop"
-                   DragOver="ConcentrationGrid_DragOver"
                    Source="Concentration\shapeAsset 4.png"
+                   AllowDrop="True"
+                   Drop="Shape_Drop"
                    Grid.Row="1"
                    Grid.Column="3"/>
             <Image x:Name="shape5"
-                   DragEnter="ConcentrationGrid_DragEnter"
-                   AllowDrop="True"
-                   Drop="ConcentrationGrid_Drop"
-                   DragOver="ConcentrationGrid_DragOver"
                    Source="Concentration\shapeAsset 5.png"
+                   AllowDrop="True"
+                   Drop="Shape_Drop"
                    Grid.Row="1"
                    Grid.Column="4"/>
             <Image x:Name="shape6"
-                   DragEnter="ConcentrationGrid_DragEnter"
-                   AllowDrop="True"
-                   Drop="ConcentrationGrid_Drop"
-                   DragOver="ConcentrationGrid_DragOver"
                    Source="Concentration\shapeAsset 6.png"
+                   AllowDrop="True"
+                   Drop="Shape_Drop"
                    Grid.Row="2"
                    Grid.Column="1"/>
             <Image x:Name="shape7"
-                   DragEnter="ConcentrationGrid_DragEnter"
-                   AllowDrop="True"
-                   Drop="ConcentrationGrid_Drop"
-                   DragOver="ConcentrationGrid_DragOver"
                    Source="Concentration\shapeAsset 7.png"
+                   AllowDrop="True"
+                   Drop="Shape_Drop"
                    Grid.Row="2"/>
             <Image x:Name="shape8"
-                   DragEnter="ConcentrationGrid_DragEnter"
-                   AllowDrop="True"
-                   Drop="ConcentrationGrid_Drop"
-                   DragOver="ConcentrationGrid_DragOver"
                    Source="Concentration\shapeAsset 8.png"
+                   AllowDrop="True"
+                   Drop="Shape_Drop"
                    Grid.Row="2"
                    Grid.Column="2"/>
             <Image x:Name="shape9"
-                   DragEnter="ConcentrationGrid_DragEnter"
-                   AllowDrop="True"
-                   Drop="ConcentrationGrid_Drop"
-                   DragOver="ConcentrationGrid_DragOver"
                    Source="Concentration\shapeAsset 9.png"
+                   AllowDrop="True"
+                   Drop="Shape_Drop"
                    Grid.Row="2"
                    Grid.Column="3"/>
             <Image x:Name="shape10"
-                   DragEnter="ConcentrationGrid_DragEnter"
-                   AllowDrop="True"
-                   Drop="ConcentrationGrid_Drop"
-                   DragOver="ConcentrationGrid_DragOver"
                    Source="Concentration\shapeAsset 10.png"
+                   AllowDrop="True"
+                   Drop="Shape_Drop"
                    Grid.Row="2"
                    Grid.Column="4"/>
             <Image x:Name="shape11"
-                   DragEnter="ConcentrationGrid_DragEnter"
-                   AllowDrop="True"
-                   Drop="ConcentrationGrid_Drop"
-                   DragOver="ConcentrationGrid_DragOver"
                    Source="Concentration\shapeAsset 11.png"
+                   AllowDrop="True"
+                   Drop="Shape_Drop"
                    Grid.Row="3"/>
             <Image x:Name="shape12"
-                   DragEnter="ConcentrationGrid_DragEnter"
-                   AllowDrop="True"
-                   Drop="ConcentrationGrid_Drop"
-                   DragOver="ConcentrationGrid_DragOver"
                    Source="Concentration\shapeAsset 12.png"
+                   AllowDrop="True"
+                   Drop="Shape_Drop"
                    Grid.Row="3"
                    Grid.Column="1"/>
             <Image x:Name="shape13"
-                   DragEnter="ConcentrationGrid_DragEnter"
-                   AllowDrop="True"
-                   Drop="ConcentrationGrid_Drop"
-                   DragOver="ConcentrationGrid_DragOver"
                    Source="Concentration\shapeAsset 13.png"
+                   AllowDrop="True"
+                   Drop="Shape_Drop"
                    Grid.Row="3"
                    Grid.Column="2"/>
             <Image x:Name="shape14"
-                   DragEnter="ConcentrationGrid_DragEnter"
-                   AllowDrop="True"
-                   Drop="ConcentrationGrid_Drop"
-                   DragOver="ConcentrationGrid_DragOver"
                    Source="Concentration\shapeAsset 14.png"
+                   AllowDrop="True"
+                   Drop="Shape_Drop"
                    Grid.Row="3"
                    Grid.Column="3"/>
             <Image x:Name="shape15"
-                   DragEnter="ConcentrationGrid_DragEnter"
-                   AllowDrop="True"
-                   Drop="ConcentrationGrid_Drop"
-                   DragOver="ConcentrationGrid_DragOver"
                    Source="Concentration\shapeAsset 15.png"
+                   AllowDrop="True"
+                   Drop="Shape_Drop"
                    Grid.Row="3"
                    Grid.Column="4"/>
             <Image x:Name="shape16"
-                   DragEnter="ConcentrationGrid_DragEnter"
-                   AllowDrop="True"
-                   Drop="ConcentrationGrid_Drop"
-                   DragOver="ConcentrationGrid_DragOver"
                    Source="Concentration\shapeAsset 16.png"
+                   AllowDrop="True"
+                   Drop="Shape_Drop"
                    Grid.Row="4"/>
             <Image x:Name="shape17"
-                   DragEnter="ConcentrationGrid_DragEnter"
-                   AllowDrop="True"
-                   Drop="ConcentrationGrid_Drop"
-                   DragOver="ConcentrationGrid_DragOver"
                    Source="Concentration\shapeAsset 17.png"
+                   AllowDrop="True"
+                   Drop="Shape_Drop"
                    Grid.Row="4"
                    Grid.Column="1"/>
             <Image x:Name="shape18"
-                   DragEnter="ConcentrationGrid_DragEnter"
-                   AllowDrop="True"
-                   Drop="ConcentrationGrid_Drop"
-                   DragOver="ConcentrationGrid_DragOver"
                    Source="Concentration\shapeAsset 18.png"
+                   AllowDrop="True"
+                   Drop="Shape_Drop"
                    Grid.Row="4"
                    Grid.Column="2"/>
             <Image x:Name="shape19"
-                   DragEnter="ConcentrationGrid_DragEnter"
-                   AllowDrop="True"
-                   Drop="ConcentrationGrid_Drop"
-                   DragOver="ConcentrationGrid_DragOver"
                    Source="Concentration\shapeAsset 19.png"
+                   AllowDrop="True"
+                   Drop="Shape_Drop"
                    Grid.Row="4"
                    Grid.Column="3"/>
             <Image x:Name="shape20"
-                   DragEnter="ConcentrationGrid_DragEnter"
-                   AllowDrop="True"
-                   Drop="ConcentrationGrid_Drop"
-                   DragOver="ConcentrationGrid_DragOver"
                    Source="Concentration\shapeAsset 20.png"
+                   AllowDrop="True"
+                   Drop="Shape_Drop"
                    Grid.Row="4"
                    Grid.Column="4"/>
             <Image x:Name="shape21"
-                   DragEnter="ConcentrationGrid_DragEnter"
-                   AllowDrop="True"
-                   Drop="ConcentrationGrid_Drop"
-                   DragOver="ConcentrationGrid_DragOver"
                    Source="Concentration\shapeAsset 21.png"
+                   AllowDrop="True"
+                   Drop="Shape_Drop"
                    Grid.Row="5"/>
             <Image x:Name="shape22"
-                   DragEnter="ConcentrationGrid_DragEnter"
-                   AllowDrop="True"
-                   Drop="ConcentrationGrid_Drop"
-                   DragOver="ConcentrationGrid_DragOver"
                    Source="Concentration\shapeAsset 22.png"
+                   AllowDrop="True"
+                   Drop="Shape_Drop"
                    Grid.Row="5"
                    Grid.Column="1"/>
             <Image x:Name="shape23"
-                   DragEnter="ConcentrationGrid_DragEnter"
-                   AllowDrop="True"
-                   Drop="ConcentrationGrid_Drop"
-                   DragOver="ConcentrationGrid_DragOver"
                    Source="Concentration\shapeAsset 23.png"
+                   AllowDrop="True"
+                   Drop="Shape_Drop"
                    Grid.Row="5"
                    Grid.Column="2"/>
             <Image x:Name="shape24"
-                   DragEnter="ConcentrationGrid_DragEnter"
-                   AllowDrop="True"
-                   Drop="ConcentrationGrid_Drop"
-                   DragOver="ConcentrationGrid_DragOver"
                    Source="Concentration\shapeAsset 24.png"
+                   AllowDrop="True"
+                   Drop="Shape_Drop"
                    Grid.Row="5"
                    Grid.Column="3"/>
             <Image x:Name="shape25"
-                   DragEnter="ConcentrationGrid_DragEnter"
-                   AllowDrop="True"
-                   Drop="ConcentrationGrid_Drop"
-                   DragOver="ConcentrationGrid_DragOver"
                    Source="Concentration\shapeAsset 25.png"
+                   AllowDrop="True"
+                   Drop="Shape_Drop"
                    Grid.Row="5"
                    Grid.Column="5"/>
         </Grid>
@@ -319,8 +272,9 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Image Source="Concentration\shapeAsset 1.png"
-                   AllowDrop="True"
+            <Image x:Name="Shape1" 
+                   Source="Concentration\shapeAsset 1.png"
+                   MouseMove="Image_MouseMove"
                    MouseRightButtonDown="Image_MouseRightButtonDown"
                    >
                 <Image.RenderTransform>
@@ -329,7 +283,7 @@
             </Image>
             <Image Source="Concentration\shapeAsset 2.png"
                    Grid.Column="1"
-                   AllowDrop="True"
+                   MouseMove="Image_MouseMove"
                    MouseRightButtonDown="Image_MouseRightButtonDown"
                    >
                 <Image.RenderTransform>
@@ -338,7 +292,7 @@
             </Image>
             <Image Source="Concentration\shapeAsset 3.png"
                    Grid.Column="2"
-                   AllowDrop="True"
+                   MouseMove="Image_MouseMove"
                    MouseRightButtonDown="Image_MouseRightButtonDown"
                    >
                 <Image.RenderTransform>
@@ -347,7 +301,7 @@
             </Image>
             <Image Source="Concentration\shapeAsset 4.png"
                    Grid.Column="3"
-                   AllowDrop="True"
+                   MouseMove="Image_MouseMove"
                    MouseRightButtonDown="Image_MouseRightButtonDown"
                    >
                 <Image.RenderTransform>
@@ -356,7 +310,7 @@
             </Image>
             <Image Source="Concentration\shapeAsset 5.png"
                    Grid.Column="4"
-                   AllowDrop="True"
+                   MouseMove="Image_MouseMove"
                    MouseRightButtonDown="Image_MouseRightButtonDown"
                    >
                 <Image.RenderTransform>
@@ -366,7 +320,7 @@
             <Image Source="Concentration\shapeAsset 6.png"
                    Grid.Row="1"
                    Grid.Column="1"
-                   AllowDrop="True"
+                   MouseMove="Image_MouseMove"
                    MouseRightButtonDown="Image_MouseRightButtonDown"
                    >
                 <Image.RenderTransform>
@@ -375,7 +329,7 @@
             </Image>
             <Image Source="Concentration\shapeAsset 7.png"
                    Grid.Row="1"
-                   AllowDrop="True"
+                   MouseMove="Image_MouseMove"
                    MouseRightButtonDown="Image_MouseRightButtonDown"
                    >
                 <Image.RenderTransform>
@@ -385,7 +339,7 @@
             <Image Source="Concentration\shapeAsset 8.png"
                    Grid.Row="1"
                    Grid.Column="2"
-                   AllowDrop="True"
+                   MouseMove="Image_MouseMove"
                    MouseRightButtonDown="Image_MouseRightButtonDown"
                    >
                 <Image.RenderTransform>
@@ -395,7 +349,7 @@
             <Image Source="Concentration\shapeAsset 9.png"
                    Grid.Row="1"
                    Grid.Column="3"
-                   AllowDrop="True"
+                   MouseMove="Image_MouseMove"
                    MouseRightButtonDown="Image_MouseRightButtonDown"
                    >
                 <Image.RenderTransform>
@@ -405,7 +359,7 @@
             <Image Source="Concentration\shapeAsset 10.png"
                    Grid.Row="1"
                    Grid.Column="4"
-                   AllowDrop="True"
+                   MouseMove="Image_MouseMove"
                    MouseRightButtonDown="Image_MouseRightButtonDown"
                    >
                 <Image.RenderTransform>
@@ -414,7 +368,7 @@
             </Image>
             <Image Source="Concentration\shapeAsset 11.png"
                    Grid.Row="2"
-                   AllowDrop="True"
+                   MouseMove="Image_MouseMove"
                    MouseRightButtonDown="Image_MouseRightButtonDown"
                    >
                 <Image.RenderTransform>
@@ -424,7 +378,7 @@
             <Image Source="Concentration\shapeAsset 12.png"
                    Grid.Row="2"
                    Grid.Column="1"
-                   AllowDrop="True"
+                   MouseMove="Image_MouseMove"
                    MouseRightButtonDown="Image_MouseRightButtonDown"
                    >
                 <Image.RenderTransform>
@@ -434,7 +388,7 @@
             <Image Source="Concentration\shapeAsset 13.png"
                    Grid.Row="2"
                    Grid.Column="2"
-                   AllowDrop="True"
+                   MouseMove="Image_MouseMove"
                    MouseRightButtonDown="Image_MouseRightButtonDown"
                    >
                 <Image.RenderTransform>
@@ -444,7 +398,7 @@
             <Image Source="Concentration\shapeAsset 14.png"
                    Grid.Row="2"
                    Grid.Column="3"
-                   AllowDrop="True"
+                   MouseMove="Image_MouseMove"
                    MouseRightButtonDown="Image_MouseRightButtonDown"
                    >
                 <Image.RenderTransform>
@@ -454,7 +408,7 @@
             <Image Source="Concentration\shapeAsset 15.png"
                    Grid.Row="2"
                    Grid.Column="4"
-                   AllowDrop="True"
+                   MouseMove="Image_MouseMove"
                    MouseRightButtonDown="Image_MouseRightButtonDown"
                    >
                 <Image.RenderTransform>
@@ -463,7 +417,7 @@
             </Image>
             <Image Source="Concentration\shapeAsset 16.png"
                    Grid.Row="3"
-                   AllowDrop="True"
+                   MouseMove="Image_MouseMove"
                    MouseRightButtonDown="Image_MouseRightButtonDown"
                    >
                 <Image.RenderTransform>
@@ -473,7 +427,7 @@
             <Image Source="Concentration\shapeAsset 17.png"
                    Grid.Row="3"
                    Grid.Column="1"
-                   AllowDrop="True"
+                   MouseMove="Image_MouseMove"
                    MouseRightButtonDown="Image_MouseRightButtonDown"
                    >
                 <Image.RenderTransform>
@@ -483,7 +437,7 @@
             <Image Source="Concentration\shapeAsset 18.png"
                    Grid.Row="3"
                    Grid.Column="2"
-                   AllowDrop="True"
+                   MouseMove="Image_MouseMove"
                    MouseRightButtonDown="Image_MouseRightButtonDown"
                    >
                 <Image.RenderTransform>
@@ -493,7 +447,7 @@
             <Image Source="Concentration\shapeAsset 19.png"
                    Grid.Row="3"
                    Grid.Column="3"
-                   AllowDrop="True"
+                   MouseMove="Image_MouseMove"
                    MouseRightButtonDown="Image_MouseRightButtonDown"
                    >
                 <Image.RenderTransform>
@@ -503,7 +457,7 @@
             <Image Source="Concentration\shapeAsset 20.png"
                    Grid.Row="3"
                    Grid.Column="4"
-                   AllowDrop="True"
+                   MouseMove="Image_MouseMove"
                    MouseRightButtonDown="Image_MouseRightButtonDown"
                    >
                 <Image.RenderTransform>
@@ -512,7 +466,7 @@
             </Image>
             <Image Source="Concentration\shapeAsset 21.png"
                    Grid.Row="4"
-                   AllowDrop="True"
+                   MouseMove="Image_MouseMove"
                    MouseRightButtonDown="Image_MouseRightButtonDown"
                    >
                 <Image.RenderTransform>
@@ -522,7 +476,7 @@
             <Image Source="Concentration\shapeAsset 22.png"
                    Grid.Row="4"
                    Grid.Column="1"
-                   AllowDrop="True"
+                   MouseMove="Image_MouseMove"
                    MouseRightButtonDown="Image_MouseRightButtonDown"
                    >
                 <Image.RenderTransform>
@@ -532,7 +486,7 @@
             <Image Source="Concentration\shapeAsset 23.png"
                    Grid.Row="4"
                    Grid.Column="2"
-                   AllowDrop="True"
+                   MouseMove="Image_MouseMove"
                    MouseRightButtonDown="Image_MouseRightButtonDown"
                    >
                 <Image.RenderTransform>
@@ -542,7 +496,7 @@
             <Image Source="Concentration\shapeAsset 24.png"
                    Grid.Row="4"
                    Grid.Column="3"
-                   AllowDrop="True"
+                   MouseMove="Image_MouseMove"
                    MouseRightButtonDown="Image_MouseRightButtonDown"
                    >
                 <Image.RenderTransform>
@@ -552,7 +506,7 @@
             <Image Source="Concentration\shapeAsset 25.png"
                    Grid.Row="4"
                    Grid.Column="5"
-                   AllowDrop="True"
+                   MouseMove="Image_MouseMove"
                    MouseRightButtonDown="Image_MouseRightButtonDown"
                    >
                 <Image.RenderTransform>
