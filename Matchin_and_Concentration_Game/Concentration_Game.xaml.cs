@@ -70,7 +70,7 @@ namespace MatchingGame
             ConcentrationGrid.Visibility = Visibility.Visible;
         }
 
-        public void TimerControl(object sender, MouseButtonEventArgs e)
+        public void TimerControl(object sender, RoutedEventArgs e)
         {
 
             timer.Interval = new TimeSpan(0, 0, 0, 1);
@@ -147,20 +147,37 @@ namespace MatchingGame
             PlayerName.Visibility = Visibility.Visible;
             string playerName = PlayerName.Text;
             int timeRemaining = time;
-            FillLeaderBoard(difficulty);
+            Player newPlayer = new Player(playerName, timeRemaining);
+            FillLeaderBoard(difficulty, newPlayer);
+            SaveLeaderBoard(difficulty);
+            //showLeaderBoard();
         }
 
-        public void FillLeaderBoard(string fileName)
+        public void FillLeaderBoard(string fileName, Player player)
         {
             leaderboard = new Leaderboard();
 
             BinaryFormatter binForm = new BinaryFormatter();
-            FileStream stream = new FileStream(fileName, FileMode.Open, FileAccess.Read, FileShare.None);
-
-            if (binForm.Deserialize(stream) != null)
+            FileMode mode;
+            FileAccess access;
+            if (File.Exists(fileName))
             {
-                leaderboard = (Leaderboard)binForm.Deserialize(stream);
+                mode = FileMode.Open;
+                access = FileAccess.Read;
             }
+            else
+            {
+                mode = FileMode.Create;
+                access = FileAccess.Write;
+            }
+            using (FileStream stream = new FileStream(fileName, mode, access, FileShare.None))
+
+                if (stream.Length != 0)
+                {
+                    leaderboard = (Leaderboard)binForm.Deserialize(stream);
+                }
+
+            //leaderboard.AddLeaderboardPlayer(player);
         }
 
 
@@ -168,12 +185,23 @@ namespace MatchingGame
         {
 
             BinaryFormatter binForm = new BinaryFormatter();
-            FileStream stream = new FileStream(fileName, FileMode.Open, FileAccess.Read, FileShare.None);
-
-            if (binForm.Deserialize(stream) != null)
+            FileMode mode;
+            if (File.Exists(fileName))
             {
-                binForm.Serialize(stream, leaderboard);
+                mode = FileMode.Open;
+
             }
+            else
+            {
+                mode = FileMode.Create;
+
+            }
+            using (FileStream stream = new FileStream(fileName, mode, FileAccess.Write, FileShare.None))
+
+                if (stream.Length != 0)
+                {
+                    binForm.Serialize(stream, leaderboard);
+                }
         }
 
         public void showLeaderBoard()
@@ -181,16 +209,16 @@ namespace MatchingGame
             ConcentrationGrid.Visibility = Visibility.Collapsed;
             LeaderBoardGrid.Visibility = Visibility.Visible;
 
-            first.Text = leaderboard.LeaderboardMembers[0].ToString();
-            second.Text = leaderboard.LeaderboardMembers[1].ToString();
-            third.Text = leaderboard.LeaderboardMembers[2].ToString();
-            fourth.Text = leaderboard.LeaderboardMembers[3].ToString();
-            fifth.Text = leaderboard.LeaderboardMembers[4].ToString();
-            sixth.Text = leaderboard.LeaderboardMembers[5].ToString();
-            seventh.Text = leaderboard.LeaderboardMembers[6].ToString();
-            eighth.Text = leaderboard.LeaderboardMembers[7].ToString();
-            nineth.Text = leaderboard.LeaderboardMembers[8].ToString();
-            tenth.Text = leaderboard.LeaderboardMembers[9].ToString();
+            //first.Text = leaderboard.LeaderboardMembers[0].ToString();
+            //second.Text = leaderboard.LeaderboardMembers[1].ToString();
+            //third.Text = leaderboard.LeaderboardMembers[2].ToString();
+            //fourth.Text = leaderboard.LeaderboardMembers[3].ToString();
+            //fifth.Text = leaderboard.LeaderboardMembers[4].ToString();
+            //sixth.Text = leaderboard.LeaderboardMembers[5].ToString();
+            //seventh.Text = leaderboard.LeaderboardMembers[6].ToString();
+            //eighth.Text = leaderboard.LeaderboardMembers[7].ToString();
+            //nineth.Text = leaderboard.LeaderboardMembers[8].ToString();
+            //tenth.Text = leaderboard.LeaderboardMembers[9].ToString();
         }
 
         private void Image_MouseMove(object sender, MouseEventArgs e)
@@ -223,6 +251,14 @@ namespace MatchingGame
                 GameOver();
                 timer.Stop();
             }
+        }
+
+        private void Testleaderboard_Click(object sender, RoutedEventArgs e)
+        {
+            timer.Stop();
+            Victory("test");
+            leaderboard.AddLeaderboardPlayer(new Player("test", 45));
+            Countdown.Text = leaderboard.LeaderboardMembers[0].ToString();
         }
     }
 
@@ -260,9 +296,18 @@ namespace MatchingGame
         {
             for (int i = 0; i < LeaderboardMembers.Length; i++)
             {
-                if (player.Time > LeaderboardMembers[i].Time || LeaderboardMembers[i] == null)
+                if (LeaderboardMembers[i] == null || player.Time > LeaderboardMembers[i].Time)
                 {
-                    LeaderboardMembers.Append(player);
+                    if (LeaderboardIsFull())
+                    {
+                        LeaderboardMembers[9] = player;
+                        break;
+                    }
+                    else
+                    {
+                        LeaderboardMembers[9] = player;
+                        break;
+                    }
 
                 }
             }
@@ -271,42 +316,22 @@ namespace MatchingGame
             Array.Reverse(LeaderboardMembers);
         }
 
+        public bool LeaderboardIsFull()
+        {
+
+            foreach (Player dude in LeaderboardMembers)
+            {
+                if (dude == null)
+                {
+                    return false;
+                }
+
+            }
+            return true;
+        }
+
     }
 
 
-    public static class CompareImages
-    {
-        public static bool IsEqual(this BitmapImage image1, BitmapImage image2)
-        {
-            if (image1 == null || image2 == null)
-            {
-                return false;
-            }
-            return image1.ToBytes().SequenceEqual(image2.ToBytes());
-        }
-
-        public static byte[] ToBytes(this BitmapImage image)
-        {
-            byte[] data = new byte[] { };
-            if (image != null)
-            {
-                try
-                {
-                    BmpBitmapEncoder bmp = new BmpBitmapEncoder();
-                    bmp.Frames.Add(BitmapFrame.Create(image));
-                    using (MemoryStream ms = new MemoryStream())
-                    {
-                        bmp.Save(ms);
-                        data = ms.ToArray();
-                    }
-                    return data;
-                }
-                catch (Exception)
-                {
-                }
-            }
-            return data;
-        }
-    }
 }
 
