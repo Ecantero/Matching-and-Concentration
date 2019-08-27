@@ -25,6 +25,7 @@ namespace MatchingGame
         public static Player[] playerz = new Player[3];
         /*current player*/
         private Player currentPlayer;
+        public Label scores = new Label();
 
         private PictureBox[] pictureBox
         {
@@ -176,6 +177,14 @@ namespace MatchingGame
             Console.WriteLine(currentPlayer.Name);
             if (pictureBox.Any(i => i.Visible))
             {
+            for(int i = 0; i < playerz.Length; i++)
+            {
+                Console.WriteLine(playerz[i].Name + ", " + playerz[i].score);
+                    scores.Text +=playerz[i].Name + ", " + playerz[i].score;
+                    scores.Top = i + 55;
+            }
+               
+                this.Controls.Add(scores);
                 return;
             }
             DialogResult newGame = MessageBox.Show("!Gongratulation you win!!! Do you want to play a new game?", "New Game", MessageBoxButtons.YesNo);
@@ -185,6 +194,10 @@ namespace MatchingGame
             }
             else if (newGame == DialogResult.No)
             {
+                for (int i = 0; i < playerz.Length; i++)
+                {
+                    Console.WriteLine(playerz[i].Name + ", " + playerz[i].score);
+                }
                 timer.Stop();
                 Application.Exit();
             }
