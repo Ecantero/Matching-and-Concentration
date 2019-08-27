@@ -412,6 +412,8 @@ namespace MatchingGame
 
     public class Player
     {
+        private string text;
+
         public String Name { get; set; }
         public int Time { get; set; }
         public int score { get; internal set; }
@@ -422,6 +424,14 @@ namespace MatchingGame
             Time = time;
         }
 
+        public Player()
+        {
+        }
+
+        public Player(string text)
+        {
+            this.text = text;
+        }
 
         public override string ToString()
         {

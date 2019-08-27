@@ -22,7 +22,7 @@ namespace MatchingGame
         int score = 0;
         private static int count = 0;
         /*array of players*/
-        public static Player[] playerz;
+        public static Player[] playerz = new Player[3];
         /*current player*/
         private Player currentPlayer;
 
@@ -152,12 +152,13 @@ namespace MatchingGame
 
             if (pic.Image == firtmagen.Image && pic != firtmagen)
             {
-                
-
+                currentPlayer.score++;
+                Console.WriteLine(currentPlayer.Name);
                 pic.Visible = firtmagen.Visible = false;
                 {
                     firtmagen = pic;
                 }
+                
                 count++;
                 HideImages();
                 /*guessed incorrectly-->change player aqui*/
@@ -165,11 +166,14 @@ namespace MatchingGame
             }
             else
             {
+                count++;
                 canClick = false;
                 startTime.Start();
             }
 
+            currentPlayer = playerz[(count) % playerz.Length];
             firtmagen = null;
+            Console.WriteLine(currentPlayer.Name);
             if (pictureBox.Any(i => i.Visible))
             {
                 return;
@@ -214,12 +218,13 @@ namespace MatchingGame
         }
         private void Button4_Click(object sender, EventArgs e)
         {           
-            playerz = new Player[10];
             Label label = new Label();
 
-            int count = this.Controls.OfType<Label>().ToList().Count;
-
-            currentPlayer = playerz[(count - 1) % playerz.Length];
+    /*      int count = this.Controls.OfType<Label>().ToList().Count;       */
+            Player p = new Player();
+            p.Name = textBox1.Text;
+            playerz[count] = p;
+          currentPlayer = playerz[(count) % playerz.Length];     
 
             for (var i = 0; i < playerz.Length; i++)
             {
@@ -232,6 +237,8 @@ namespace MatchingGame
             
             this.Controls.Add(label);
             textBox1.Clear();
+            count++;
+            Console.WriteLine(p.Name);
             
         }
 
