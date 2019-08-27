@@ -134,10 +134,11 @@ namespace MatchingGame
 
         public void GameOver()
         {
-            ConcentrationGrid.Children.Clear();
-            TextBlock gameOver = new TextBlock();
-            ConcentrationGrid.Children.Add(gameOver);
-            gameOver.Text = "Game over";
+            //ConcentrationGrid.Children.Clear();
+            //TextBlock gameOver = new TextBlock();
+            //ConcentrationGrid.Children.Add(gameOver);
+            //gameOver.Text = "Game over";
+            ConcentrationGrid.Visibility = Visibility.Collapsed;
             showLeaderBoard();
 
         }
@@ -223,6 +224,8 @@ namespace MatchingGame
         {
             ConcentrationGrid.Visibility = Visibility.Collapsed;
             LeaderBoardGrid.Visibility = Visibility.Visible;
+            MainMenu.Visibility = Visibility.Visible;
+            NewGame.Visibility = Visibility.Visible;
 
             //first.Text = leaderboard.LeaderboardMembers[0].ToString();
             //second.Text = leaderboard.LeaderboardMembers[1].ToString();
@@ -289,6 +292,120 @@ namespace MatchingGame
                 timer.Stop();
             }
 
+        }
+
+        private void NewGame_Click(object sender, RoutedEventArgs e)
+        {
+            LeaderBoardGrid.Visibility = Visibility.Collapsed;
+            MainMenu.Visibility = Visibility.Collapsed;
+            Hard.Visibility = Visibility.Visible;
+            Medium.Visibility = Visibility.Visible;
+            Easy.Visibility = Visibility.Visible;
+            MakeVisible();
+        }
+
+        private void MakeVisible()
+        {
+            if (shape1.Visibility == Visibility.Collapsed)
+            {
+                shape1.Visibility = Visibility.Visible;
+            }
+            if (shape2.Visibility == Visibility.Collapsed)
+            {
+                shape2.Visibility = Visibility.Visible;
+            }
+            if (shape3.Visibility == Visibility.Collapsed)
+            {
+                shape3.Visibility = Visibility.Visible;
+            }
+            if (shape4.Visibility == Visibility.Collapsed)
+            {
+                shape4.Visibility = Visibility.Visible;
+            }
+            if (shape5.Visibility == Visibility.Collapsed)
+            {
+                shape5.Visibility = Visibility.Visible;
+            }
+            if (shape6.Visibility == Visibility.Collapsed)
+            {
+                shape6.Visibility = Visibility.Visible;
+            }
+            if (shape7.Visibility == Visibility.Collapsed)
+            {
+                shape7.Visibility = Visibility.Visible;
+            }
+            if (shape8.Visibility == Visibility.Collapsed)
+            {
+                shape8.Visibility = Visibility.Visible;
+            }
+            if (shape9.Visibility == Visibility.Collapsed)
+            {
+                shape9.Visibility = Visibility.Visible;
+            }
+            if (shape10.Visibility == Visibility.Collapsed)
+            {
+                shape10.Visibility = Visibility.Visible;
+            }
+            if (shape11.Visibility == Visibility.Collapsed)
+            {
+                shape11.Visibility = Visibility.Visible;
+            }
+            if (shape12.Visibility == Visibility.Collapsed)
+            {
+                shape12.Visibility = Visibility.Visible;
+            }
+            if (shape13.Visibility == Visibility.Collapsed)
+            {
+                shape13.Visibility = Visibility.Visible;
+            }
+            if (shape14.Visibility == Visibility.Collapsed)
+            {
+                shape14.Visibility = Visibility.Visible;
+            }
+            if (shape15.Visibility == Visibility.Collapsed)
+            {
+                shape15.Visibility = Visibility.Visible;
+            }
+            if (shape16.Visibility == Visibility.Collapsed)
+            {
+                shape16.Visibility = Visibility.Visible;
+            }
+            if (shape17.Visibility == Visibility.Collapsed)
+            {
+                shape17.Visibility = Visibility.Visible;
+            }
+            if (shape18.Visibility == Visibility.Collapsed)
+            {
+                shape18.Visibility = Visibility.Visible;
+            }
+            if (shape19.Visibility == Visibility.Collapsed)
+            {
+                shape19.Visibility = Visibility.Visible;
+            }
+            if (shape20.Visibility == Visibility.Collapsed)
+            {
+                shape20.Visibility = Visibility.Visible;
+            }
+            if (shape21.Visibility == Visibility.Collapsed)
+            {
+                shape21.Visibility = Visibility.Visible;
+            }
+            if (shape22.Visibility == Visibility.Collapsed)
+            {
+                shape22.Visibility = Visibility.Visible;
+            }
+            if (shape23.Visibility == Visibility.Collapsed)
+            {
+                shape23.Visibility = Visibility.Visible;
+            }
+            if (shape24.Visibility == Visibility.Collapsed)
+            {
+                shape24.Visibility = Visibility.Visible;
+            }
+            if (shape25.Visibility == Visibility.Collapsed)
+            {
+                shape25.Visibility = Visibility.Visible;
+            }
         }
     }
 

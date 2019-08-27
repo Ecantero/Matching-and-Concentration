@@ -22,14 +22,15 @@
                 Content="Back to Main Menu"
                 Width="110"
                 Height="50"
-                Grid.Row="2"
+                Grid.Column="1"
+                Grid.Row="1"
                 Margin="10,0,0,0"
                 Click="MainMenu_Click"/>
         <Button x:Name="Easy"
                 Content="Easy Mode"
                 Width="100"
                 Height="50"
-                Grid.Column="1"
+                Grid.Column="0"
                 Grid.Row="1"
                 Margin="0, 0, 0, 300"
                 Click="Easy_Click"/>
@@ -37,20 +38,28 @@
                 Content="Medium Mode"
                 Width="100"
                 Height="50"
-                Grid.Column="1"
+                Grid.Column="0"
                 Grid.Row="1"
                 Click="Medium_Click"/>
         <Button x:Name="Hard"
                 Content="Hard Mode"
                 Width="100"
                 Height="50"
-                Grid.Column="1"
+                Grid.Column="0"
                 Grid.Row="1"
                 Margin="0, 300, 0, 0"
                 Click="Hard_Click"/>
+        <Button x:Name="NewGame"
+                Content="New Game"
+                Width="100"
+                Height="50"
+                Grid.Column="1"
+                Grid.Row="1"
+                Margin="0, 0, 0, 300"
+                Click="NewGame_Click"
+                Visibility="Collapsed"/>
 
-       
-        <Grid x:Name="LeaderBoardGrid" Visibility="Collapsed" Grid.Column="0" Grid.RowSpan="2">
+        <Grid x:Name="LeaderBoardGrid" Visibility="Collapsed"  Grid.Column="0" Grid.RowSpan="2">
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>
@@ -99,9 +108,9 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            
+
             <!--<Button x:Name="Testleaderboard" Content="leaderboard" Height="20" Width="20" Click="Testleaderboard_Click" Grid.Column="1"/>-->
-            
+
             <TextBlock x:Name="Countdown" Grid.Row="0" Grid.ColumnSpan="4" Text="Time: "/>
             <TextBlock x:Name="Gameover" Grid.Row="0" Grid.ColumnSpan="4" Visibility="Collapsed"/>
             <Button x:Name="TestButton" Content="Test" Height="20" Width="20" Grid.Row="0" Click="TimerControl"/>
