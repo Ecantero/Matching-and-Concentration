@@ -25,7 +25,7 @@ namespace MatchingGame
         public static Player[] playerz = new Player[3];
         /*current player*/
         private Player currentPlayer;
-        public Label scores = new Label();
+        //public Label scores = new Label();
 
         private PictureBox[] pictureBox
         {
@@ -153,8 +153,8 @@ namespace MatchingGame
 
             if (pic.Image == firtmagen.Image && pic != firtmagen)
             {
-                currentPlayer.score++;
-                Console.WriteLine(currentPlayer.Name);
+                //currentPlayer.score++;
+                //Console.WriteLine(currentPlayer.Name);
                 pic.Visible = firtmagen.Visible = false;
                 {
                     firtmagen = pic;
@@ -172,19 +172,19 @@ namespace MatchingGame
                 startTime.Start();
             }
 
-            currentPlayer = playerz[(count) % playerz.Length];
+            //currentPlayer = playerz[(count) % playerz.Length];
             firtmagen = null;
-            Console.WriteLine(currentPlayer.Name);
+            //Console.WriteLine(currentPlayer.Name);
             if (pictureBox.Any(i => i.Visible))
             {
-            for(int i = 0; i < playerz.Length; i++)
-            {
-                Console.WriteLine(playerz[i].Name + ", " + playerz[i].score);
-                    scores.Text +=playerz[i].Name + ", " + playerz[i].score;
-                    scores.Top = i + 55;
-            }
+            //for(int i = 0; i < playerz.Length; i++)
+            //{
+            //    Console.WriteLine(playerz[i].Name + ", " + playerz[i].score);
+            //        scores.Text +=playerz[i].Name + ", " + playerz[i].score;
+            //        scores.Top = i + 55;
+            //}
                
-                this.Controls.Add(scores);
+            //    this.Controls.Add(scores);
                 return;
             }
             DialogResult newGame = MessageBox.Show("!Gongratulation you win!!! Do you want to play a new game?", "New Game", MessageBoxButtons.YesNo);
@@ -194,10 +194,10 @@ namespace MatchingGame
             }
             else if (newGame == DialogResult.No)
             {
-                for (int i = 0; i < playerz.Length; i++)
-                {
-                    Console.WriteLine(playerz[i].Name + ", " + playerz[i].score);
-                }
+                //for (int i = 0; i < playerz.Length; i++)
+                //{
+                //    Console.WriteLine(playerz[i].Name + ", " + playerz[i].score);
+                //}
                 timer.Stop();
                 Application.Exit();
             }
@@ -236,8 +236,8 @@ namespace MatchingGame
     /*      int count = this.Controls.OfType<Label>().ToList().Count;       */
             Player p = new Player();
             p.Name = textBox1.Text;
-            playerz[count] = p;
-          currentPlayer = playerz[(count) % playerz.Length];     
+            //playerz[count] = p;
+          //currentPlayer = playerz[(count) % playerz.Length];     
 
             for (var i = 0; i < playerz.Length; i++)
             {
