@@ -19,6 +19,9 @@ namespace MatchingGame
         Timer timer = new Timer { Interval = 1000 };
         bool canClick = false;
         PictureBox firtmagen;
+        int score = 0;
+        int count = 0;
+        Label label = new Label();
 
         private PictureBox[] pictureBox
         {
@@ -146,16 +149,21 @@ namespace MatchingGame
 
             if (pic.Image == firtmagen.Image && pic != firtmagen)
             {
+                score++;
+                label1.Text = label.Text + " score: " + score.ToString();
+
 
                 pic.Visible = firtmagen.Visible = false;
                 {
                     firtmagen = pic;
                 }
 
+                count++;
                 HideImages();
             }
             else
             {
+                count++;
                 canClick = false;
                 startTime.Start();
             }
@@ -199,25 +207,17 @@ namespace MatchingGame
                 RestImages();
             }
         }
-        int numberOfLabels = 1;
+
         private void Button4_Click(object sender, EventArgs e)
         {
-            addLabel();
-            textBox1.Clear();
 
-        }
-        public System.Windows.Forms.Label addLabel()
-        {
-
-            System.Windows.Forms.Label label = new System.Windows.Forms.Label();
-            this.Controls.Add(label);
-            label.Top = numberOfLabels * 23;
+            label.Name = "Player " + (count + 1);
+            label.Top = count * 23;
             label.Left = 30;
-            label.Text = textBox1.Text + " score: ";
+            label.Text = textBox1.Text;
             label.AutoSize = true;
-            numberOfLabels = numberOfLabels + 1;
 
-            return label;
+            textBox1.Clear();
         }
 
         private void Button3_Click(object sender, EventArgs e)

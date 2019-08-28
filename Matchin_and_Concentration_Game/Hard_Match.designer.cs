@@ -744,7 +744,6 @@
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.button4);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(436, 249);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(361, 235);
@@ -791,7 +790,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(120, 13);
+            this.label1.Location = new System.Drawing.Point(47, 28);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(0, 17);
             this.label1.TabIndex = 0;
@@ -806,6 +805,7 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.lbl);
             this.Controls.Add(this.pictureBox52);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox51);
             this.Controls.Add(this.pictureBox50);
             this.Controls.Add(this.pictureBox49);

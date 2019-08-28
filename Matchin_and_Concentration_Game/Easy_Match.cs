@@ -20,12 +20,14 @@ namespace MatchingGame
         bool canClick = false;
         PictureBox firtmagen;
         int score = 0;
-        private static int count = 0;
+        int count = 0;
         /*array of players*/
-        public static Player[] playerz = new Player[3];
+        Player[] playerz = new Player[3];
         /*current player*/
-        private Player currentPlayer;
+        //private Player currentPlayer;
         //public Label scores = new Label();
+        Label label = new Label();
+
 
         private PictureBox[] pictureBox
         {
@@ -153,6 +155,9 @@ namespace MatchingGame
 
             if (pic.Image == firtmagen.Image && pic != firtmagen)
             {
+
+                score++;
+                label1.Text = label.Text + " score: " + score.ToString();
                 //currentPlayer.score++;
                 //Console.WriteLine(currentPlayer.Name);
                 pic.Visible = firtmagen.Visible = false;
@@ -231,27 +236,27 @@ namespace MatchingGame
         }
         private void Button4_Click(object sender, EventArgs e)
         {           
-            Label label = new Label();
 
     /*      int count = this.Controls.OfType<Label>().ToList().Count;       */
-            Player p = new Player();
-            p.Name = textBox1.Text;
+            //Player p = new Player();
+            //p.Name = textBox1.Text;
             //playerz[count] = p;
           //currentPlayer = playerz[(count) % playerz.Length];     
 
-            for (var i = 0; i < playerz.Length; i++)
-            {
-                label.Name = "Player " + (count + 1);
-                label.Top = count * 23;
-                label.Left = 30;
-                label.Text = textBox1.Text + " score: ";
-                label.AutoSize = true;               
-            }
+            //for (var i = 0; i < playerz.Length; i++)
+            //{
+            label.Name = "Player " + (count + 1);
+            label.Top = count * 23;
+            label.Left = 30;
+            label.Text = textBox1.Text;
+            label.AutoSize = true;               
+            //}
             
-            this.Controls.Add(label);
+            //this.Controls.Add(label);
+
             textBox1.Clear();
-            count++;
-            Console.WriteLine(p.Name);
+            //count++;
+            //Console.WriteLine(p.Name);
             
         }
 
