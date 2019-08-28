@@ -47,5 +47,13 @@ namespace MatchingGame
             Extra extra = new Extra();
             extra.Show();
         }
+
+        private void Menu_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+
+            Close();
+        }
     }
 }

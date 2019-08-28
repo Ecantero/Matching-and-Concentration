@@ -12,10 +12,10 @@
         <Button x:Name="Easy"
                   Click="Easy_Click"
                   Content="Easy"
-                  Height="69"
+                  Height="71"
                   FontSize="50"
                   VerticalAlignment="Top" 
-                  Margin="110,19,109.6,0"/>
+                  Margin="192,20,193.8,0"/>
         <Button x:Name="Medium"
                   Click="Medium_Click"
                   Content="Medium"
@@ -28,15 +28,20 @@
         <Button x:Name="Hard"
                   Click="Hard_Click"
                   Content="Hard"
-                  Height="66"
+                  Height="71"
                   FontSize="50"
                   VerticalAlignment="Top" 
-                  Margin="110,211,121.6,0"/>
+                  Margin="177,215,175.8,0"/>
         <Button x:Name="Extra"
                 Click="Extra_Click"
                 Content="Extra Hard"
-                Height="66"
                 FontSize="50" 
-                Margin="78,307,77.6,92.6"/>
+                Margin="126,323,139.8,158.6"/>
+
+        <Button x:Name="Menu"
+                Click="Menu_Click"
+                Content="Main Menu"
+                FontSize="50" 
+                Margin="110,432,112.8,40.6"/>
     </Grid>
 </Window>
